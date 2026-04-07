@@ -1,0 +1,128 @@
+@prefix : <http://example.org/wedowind#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix oeo: <http://openenergy-platform.org/ontology/oeo/> .
+@prefix OEO: <http://openenergy-platform.org/ontology/oeo/OEO_> .
+####################################################################
+# CLASSES
+####################################################################
+
+:Challenge a owl:Class ;  
+    rdfs:subClassOf oeo:process, schema:Event ;
+    rdfs:label "Challenge" .
+
+:Task a owl:Class ;
+    rdfs:label "Challenge Task" ;
+    rdfs:subClassOf schema:Thing .
+
+:Submission a owl:Class ;
+    rdfs:label "Submission" ;
+    rdfs:subClassOf schema:CreativeWork .
+
+:EvaluationMetric a owl:Class ;
+    rdfs:label "Evaluation Metric" ;
+    rdfs:subClassOf schema:Thing .
+
+:LeaderboardEntry a owl:Class ;
+    rdfs:label "Leaderboard Entry" ;
+    rdfs:subClassOf schema:Thing .
+
+:Method a owl:Class ;
+    rdfs:label "Computational Method" ;
+    rdfs:subClassOf schema:Thing .
+
+:FailureMode a owl:Class ;
+    rdfs:label "Failure Mode" ;
+    rdfs:subClassOf schema:Thing .
+
+:Organization a owl:Class ;
+    rdfs:label "Organization" ;
+    rdfs:subClassOf foaf:Organization .
+
+####################################################################
+# OBJECT PROPERTIES
+####################################################################
+
+:organizedBy a owl:ObjectProperty ;
+    rdfs:domain :Challenge ;
+    rdfs:range :Organization .
+
+:hasTask a owl:ObjectProperty ;
+    rdfs:domain :Challenge ;
+    rdfs:range :Task .
+
+:participatedBy a owl:ObjectProperty ;
+    rdfs:domain :Challenge ;
+    rdfs:range foaf:Person .
+
+:submittedBy a owl:ObjectProperty ;
+    rdfs:domain :Submission ;
+    rdfs:range foaf:Person .
+
+:usesDataset a owl:ObjectProperty ;
+    rdfs:domain :Task ;
+    rdfs:range dcat:Dataset .
+
+:evaluatedBy a owl:ObjectProperty ;
+    rdfs:domain :Submission ;
+    rdfs:range :EvaluationMetric .
+
+:hasLeaderboardEntry a owl:ObjectProperty ;
+    rdfs:domain :Challenge ;
+    rdfs:range :LeaderboardEntry .
+
+:implementsMethod a owl:ObjectProperty ;
+    rdfs:domain :Submission ;
+    rdfs:range :Method .
+
+:detectsFailureMode a owl:ObjectProperty ;
+    rdfs:domain :Task ;
+    rdfs:range :FailureMode .
+
+:locatedAt a owl:ObjectProperty ;
+    rdfs:domain :WindTurbine ;
+    rdfs:range :WindFarm .
+
+:providedBy a owl:ObjectProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:range :Organization .
+
+:usesTurbine a owl:ObjectProperty ;
+    rdfs:domain :Task ;
+    rdfs:range :WindTurbine .
+
+####################################################################
+# DATA PROPERTIES
+####################################################################
+
+:score a owl:DatatypeProperty ;
+    rdfs:domain :Submission ;
+    rdfs:range xsd:float .
+
+:startDate a owl:DatatypeProperty ;
+    rdfs:domain :Challenge ;
+    rdfs:range xsd:date .
+
+:endDate a owl:DatatypeProperty ;
+    rdfs:domain :Challenge ;
+    rdfs:range xsd:date .
+
+:description a owl:DatatypeProperty ;
+    rdfs:domain schema:Thing ;
+    rdfs:range xsd:string .
+
+:turbineCount a owl:DatatypeProperty ;
+    rdfs:domain :WindFarm ;
+    rdfs:range xsd:integer .
+
+:dataResolution a owl:DatatypeProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:range xsd:string .
+
