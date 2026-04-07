@@ -1,0 +1,646 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "undefined" ],
+    "baseIris" : [ "http://www.w3.org/2000/01/rdf-schema", "https://schema.org", "http://www.w3.org/ns/prov", "https://w3id.org/wedowind/ontology", "http://purl.org/dc/terms", "http://www.w3.org/2001/XMLSchema", "http://www.w3.org/ns/dcat", "http://xmlns.com/foaf/0.1" ],
+    "title" : {
+      "undefined" : "WeDoWind Ontology"
+    },
+    "iri" : "https://w3id.org/wedowind/ontology",
+    "author" : [ "Daniel Kwakye" ],
+    "description" : {
+      "undefined" : "Ontology for modeling wind energy benchmarking challenges, tasks, submissions, and evaluation workflows."
+    },
+    "other" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "Daniel Kwakye",
+        "type" : "label"
+      } ],
+      "created" : [ {
+        "identifier" : "created",
+        "language" : "undefined",
+        "value" : "2026-04-07",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "undefined",
+        "value" : "WeDoWind Ontology",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "9",
+    "type" : "owl:Class"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "22",
+    "type" : "owl:Class"
+  }, {
+    "id" : "28",
+    "type" : "owl:Class"
+  }, {
+    "id" : "26",
+    "type" : "owl:Class"
+  }, {
+    "id" : "31",
+    "type" : "owl:Class"
+  }, {
+    "id" : "13",
+    "type" : "owl:Class"
+  }, {
+    "id" : "15",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "8",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "37",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "19",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "11",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "42",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "43",
+    "type" : "owl:Class"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "16",
+    "type" : "owl:Class"
+  }, {
+    "id" : "18",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "46",
+    "type" : "owl:Class"
+  }, {
+    "id" : "24",
+    "type" : "owl:Class"
+  }, {
+    "id" : "30",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "https://w3id.org/wedowind/ontology#WindFarm",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "WindFarm",
+      "undefined" : "Wind Farm"
+    },
+    "id" : "9"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#Entity",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Entity"
+    },
+    "subClasses" : [ "13" ],
+    "attributes" : [ "external" ],
+    "id" : "12"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#Challenge",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Challenge",
+      "undefined" : "Challenge"
+    },
+    "id" : "1",
+    "superClasses" : [ "16" ]
+  }, {
+    "iri" : "http://xmlns.com/foaf/0.1/Organization",
+    "baseIri" : "http://xmlns.com/foaf/0.1",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Organization"
+    },
+    "subClasses" : [ "2" ],
+    "attributes" : [ "external" ],
+    "id" : "22"
+  }, {
+    "iri" : "https://schema.org/CreativeWork",
+    "baseIri" : "https://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CreativeWork"
+    },
+    "subClasses" : [ "13", "5" ],
+    "attributes" : [ "external" ],
+    "id" : "28"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#Method",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Method",
+      "undefined" : "Computational Method"
+    },
+    "id" : "26",
+    "superClasses" : [ "30" ]
+  }, {
+    "iri" : "http://xmlns.com/foaf/0.1/Person",
+    "baseIri" : "http://xmlns.com/foaf/0.1",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Person"
+    },
+    "attributes" : [ "external" ],
+    "id" : "31"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#Submission",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Submission",
+      "undefined" : "Submission"
+    },
+    "id" : "13",
+    "superClasses" : [ "12", "28" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#float",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "15",
+    "label" : {
+      "IRI-based" : "float"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#date",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "8",
+    "label" : {
+      "IRI-based" : "date"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "37",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "19",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "11",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#date",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "42",
+    "label" : {
+      "IRI-based" : "date"
+    }
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#FailureMode",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "FailureMode",
+      "undefined" : "Failure Mode"
+    },
+    "id" : "43"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#Task",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Task",
+      "undefined" : "Challenge Task"
+    },
+    "id" : "5",
+    "superClasses" : [ "28" ]
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#Organization",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Organization",
+      "undefined" : "Organization"
+    },
+    "id" : "2",
+    "superClasses" : [ "22" ]
+  }, {
+    "iri" : "https://schema.org/Event",
+    "baseIri" : "https://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Event"
+    },
+    "subClasses" : [ "1" ],
+    "attributes" : [ "external" ],
+    "id" : "16"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#LeaderboardEntry",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LeaderboardEntry",
+      "undefined" : "Leaderboard Entry"
+    },
+    "id" : "18"
+  }, {
+    "iri" : "http://www.w3.org/ns/dcat#Dataset",
+    "baseIri" : "http://www.w3.org/ns/dcat",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Dataset"
+    },
+    "attributes" : [ "external" ],
+    "id" : "6"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#EvaluationMetric",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "EvaluationMetric",
+      "undefined" : "Evaluation Metric"
+    },
+    "id" : "46"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#WindTurbine",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "WindTurbine",
+      "undefined" : "Wind Turbine"
+    },
+    "id" : "24"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#Plan",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Plan"
+    },
+    "subClasses" : [ "26" ],
+    "attributes" : [ "external" ],
+    "id" : "30"
+  } ],
+  "property" : [ {
+    "id" : "0",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "4",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "7",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "10",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "14",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "17",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "3",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "21",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "23",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "25",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "27",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "29",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "32",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "33",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "35",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "34",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "38",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "39",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "40",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "41",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "36",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "44",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "45",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "20",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "47",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "48",
+    "type" : "owl:objectProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "https://w3id.org/wedowind/ontology#organizedBy",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "organizedBy",
+      "undefined" : "organized by"
+    },
+    "superproperty" : [ "3" ],
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "0"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#usesDataset",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "usesDataset",
+      "undefined" : "uses dataset"
+    },
+    "domain" : "5",
+    "attributes" : [ "object" ],
+    "id" : "4"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#startDate",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "range" : "8",
+    "label" : {
+      "IRI-based" : "startDate",
+      "undefined" : "start date"
+    },
+    "domain" : "1",
+    "attributes" : [ "datatype" ],
+    "id" : "7"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#dataResolution",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "range" : "11",
+    "label" : {
+      "IRI-based" : "dataResolution",
+      "undefined" : "data resolution"
+    },
+    "domain" : "6",
+    "attributes" : [ "datatype" ],
+    "id" : "10"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#score",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "range" : "15",
+    "label" : {
+      "IRI-based" : "score",
+      "undefined" : "score"
+    },
+    "domain" : "13",
+    "attributes" : [ "datatype" ],
+    "id" : "14"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#hasLeaderboardEntry",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "range" : "18",
+    "label" : {
+      "IRI-based" : "hasLeaderboardEntry",
+      "undefined" : "has leaderboard entry"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "17"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "19",
+    "label" : {
+      "IRI-based" : "wasAssociatedWith"
+    },
+    "domain" : "19",
+    "subproperty" : [ "20", "0" ],
+    "attributes" : [ "object", "external" ],
+    "id" : "3"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#hasTask",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "hasTask",
+      "undefined" : "has task"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "21"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#locatedAt",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "range" : "9",
+    "label" : {
+      "IRI-based" : "locatedAt",
+      "undefined" : "located at"
+    },
+    "domain" : "24",
+    "attributes" : [ "object" ],
+    "id" : "23"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#implementsMethod",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "range" : "26",
+    "label" : {
+      "IRI-based" : "implementsMethod",
+      "undefined" : "implements method"
+    },
+    "domain" : "13",
+    "attributes" : [ "object" ],
+    "id" : "25"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#usesTurbine",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "range" : "24",
+    "label" : {
+      "IRI-based" : "usesTurbine",
+      "undefined" : "uses turbine"
+    },
+    "domain" : "5",
+    "attributes" : [ "object" ],
+    "id" : "27"
+  }, {
+    "range" : "28",
+    "domain" : "5",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "29"
+  }, {
+    "range" : "30",
+    "domain" : "26",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "32"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#providedBy",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "providedBy",
+      "undefined" : "provided by"
+    },
+    "superproperty" : [ "34" ],
+    "domain" : "6",
+    "attributes" : [ "object" ],
+    "id" : "33"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#submittedBy",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "range" : "31",
+    "label" : {
+      "IRI-based" : "submittedBy",
+      "undefined" : "submitted by"
+    },
+    "superproperty" : [ "36" ],
+    "domain" : "13",
+    "attributes" : [ "object" ],
+    "id" : "35"
+  }, {
+    "iri" : "http://purl.org/dc/terms/publisher",
+    "baseIri" : "http://purl.org/dc/terms",
+    "range" : "19",
+    "label" : {
+      "IRI-based" : "publisher"
+    },
+    "domain" : "19",
+    "subproperty" : [ "33" ],
+    "attributes" : [ "object", "external" ],
+    "id" : "34"
+  }, {
+    "range" : "12",
+    "domain" : "13",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "38"
+  }, {
+    "range" : "22",
+    "domain" : "2",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "39"
+  }, {
+    "range" : "16",
+    "domain" : "1",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "40"
+  }, {
+    "range" : "28",
+    "domain" : "13",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "41"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#wasAttributedTo",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "19",
+    "label" : {
+      "IRI-based" : "wasAttributedTo"
+    },
+    "domain" : "19",
+    "subproperty" : [ "35" ],
+    "attributes" : [ "object", "external" ],
+    "id" : "36"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#detectsFailureMode",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "range" : "43",
+    "label" : {
+      "IRI-based" : "detectsFailureMode",
+      "undefined" : "detects failure mode"
+    },
+    "domain" : "5",
+    "attributes" : [ "object" ],
+    "id" : "44"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#endDate",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "range" : "42",
+    "label" : {
+      "IRI-based" : "endDate",
+      "undefined" : "end date"
+    },
+    "domain" : "1",
+    "attributes" : [ "datatype" ],
+    "id" : "45"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#participatedBy",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "range" : "31",
+    "label" : {
+      "IRI-based" : "participatedBy",
+      "undefined" : "participated by"
+    },
+    "superproperty" : [ "3" ],
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "20"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#turbineCount",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "range" : "37",
+    "label" : {
+      "IRI-based" : "turbineCount",
+      "undefined" : "turbine count"
+    },
+    "domain" : "9",
+    "attributes" : [ "datatype" ],
+    "id" : "47"
+  }, {
+    "iri" : "https://w3id.org/wedowind/ontology#evaluatedBy",
+    "baseIri" : "https://w3id.org/wedowind/ontology",
+    "range" : "46",
+    "label" : {
+      "IRI-based" : "evaluatedBy",
+      "undefined" : "evaluated by metric"
+    },
+    "domain" : "13",
+    "attributes" : [ "object" ],
+    "id" : "48"
+  } ]
+}

@@ -1,4 +1,4 @@
-@prefix : <http://example.org/wedowind#> .
+@prefix : <https://w3id.org/wedowind/ontology#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -8,93 +8,122 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix oeo: <http://openenergy-platform.org/ontology/oeo/> .
-@prefix OEO: <http://openenergy-platform.org/ontology/oeo/OEO_> .
+
+####################################################################
+# ONTOLOGY METADATA
+####################################################################
+
+<https://w3id.org/wedowind/ontology> a owl:Ontology ;
+    dcterms:title "WeDoWind Ontology" ;
+    dcterms:description "Ontology for modeling wind energy benchmarking challenges, tasks, submissions, and evaluation workflows." ;
+    dcterms:creator "Daniel Kwakye" ;
+    dcterms:created "2026-04-07"^^xsd:date ;
+    owl:versionIRI <https://w3id.org/wedowind/ontology/1.0> .
+
 ####################################################################
 # CLASSES
 ####################################################################
 
-:Challenge a owl:Class ;  
-    rdfs:subClassOf oeo:process, schema:Event ;
-    rdfs:label "Challenge" .
+:Challenge a owl:Class ;
+    rdfs:label "Challenge" ;
+    rdfs:subClassOf schema:Event .
 
 :Task a owl:Class ;
     rdfs:label "Challenge Task" ;
-    rdfs:subClassOf schema:Thing .
+    rdfs:subClassOf schema:CreativeWork .
 
 :Submission a owl:Class ;
     rdfs:label "Submission" ;
-    rdfs:subClassOf schema:CreativeWork .
+    rdfs:subClassOf schema:CreativeWork, prov:Entity .
 
 :EvaluationMetric a owl:Class ;
-    rdfs:label "Evaluation Metric" ;
-    rdfs:subClassOf schema:Thing .
+    rdfs:label "Evaluation Metric" .
 
 :LeaderboardEntry a owl:Class ;
-    rdfs:label "Leaderboard Entry" ;
-    rdfs:subClassOf schema:Thing .
+    rdfs:label "Leaderboard Entry" .
 
 :Method a owl:Class ;
     rdfs:label "Computational Method" ;
-    rdfs:subClassOf schema:Thing .
+    rdfs:subClassOf prov:Plan .
 
 :FailureMode a owl:Class ;
-    rdfs:label "Failure Mode" ;
-    rdfs:subClassOf schema:Thing .
+    rdfs:label "Failure Mode" .
 
 :Organization a owl:Class ;
     rdfs:label "Organization" ;
     rdfs:subClassOf foaf:Organization .
+
+:WindTurbine a owl:Class ;
+    rdfs:label "Wind Turbine" .
+
+:WindFarm a owl:Class ;
+    rdfs:label "Wind Farm" .
 
 ####################################################################
 # OBJECT PROPERTIES
 ####################################################################
 
 :organizedBy a owl:ObjectProperty ;
+    rdfs:label "organized by" ;
     rdfs:domain :Challenge ;
-    rdfs:range :Organization .
+    rdfs:range :Organization ;
+    rdfs:subPropertyOf prov:wasAssociatedWith .
 
 :hasTask a owl:ObjectProperty ;
+    rdfs:label "has task" ;
     rdfs:domain :Challenge ;
     rdfs:range :Task .
 
 :participatedBy a owl:ObjectProperty ;
+    rdfs:label "participated by" ;
     rdfs:domain :Challenge ;
-    rdfs:range foaf:Person .
+    rdfs:range foaf:Person ;
+    rdfs:subPropertyOf prov:wasAssociatedWith .
 
 :submittedBy a owl:ObjectProperty ;
+    rdfs:label "submitted by" ;
     rdfs:domain :Submission ;
-    rdfs:range foaf:Person .
+    rdfs:range foaf:Person ;
+    rdfs:subPropertyOf prov:wasAttributedTo .
 
 :usesDataset a owl:ObjectProperty ;
+    rdfs:label "uses dataset" ;
     rdfs:domain :Task ;
     rdfs:range dcat:Dataset .
 
 :evaluatedBy a owl:ObjectProperty ;
+    rdfs:label "evaluated by metric" ;
     rdfs:domain :Submission ;
     rdfs:range :EvaluationMetric .
 
 :hasLeaderboardEntry a owl:ObjectProperty ;
+    rdfs:label "has leaderboard entry" ;
     rdfs:domain :Challenge ;
     rdfs:range :LeaderboardEntry .
 
 :implementsMethod a owl:ObjectProperty ;
+    rdfs:label "implements method" ;
     rdfs:domain :Submission ;
     rdfs:range :Method .
 
 :detectsFailureMode a owl:ObjectProperty ;
+    rdfs:label "detects failure mode" ;
     rdfs:domain :Task ;
     rdfs:range :FailureMode .
 
 :locatedAt a owl:ObjectProperty ;
+    rdfs:label "located at" ;
     rdfs:domain :WindTurbine ;
     rdfs:range :WindFarm .
 
 :providedBy a owl:ObjectProperty ;
+    rdfs:label "provided by" ;
     rdfs:domain dcat:Dataset ;
-    rdfs:range :Organization .
+    rdfs:range :Organization ;
+    rdfs:subPropertyOf dcterms:publisher .
 
 :usesTurbine a owl:ObjectProperty ;
+    rdfs:label "uses turbine" ;
     rdfs:domain :Task ;
     rdfs:range :WindTurbine .
 
@@ -103,26 +132,26 @@
 ####################################################################
 
 :score a owl:DatatypeProperty ;
+    rdfs:label "score" ;
     rdfs:domain :Submission ;
     rdfs:range xsd:float .
 
 :startDate a owl:DatatypeProperty ;
+    rdfs:label "start date" ;
     rdfs:domain :Challenge ;
     rdfs:range xsd:date .
 
 :endDate a owl:DatatypeProperty ;
+    rdfs:label "end date" ;
     rdfs:domain :Challenge ;
     rdfs:range xsd:date .
 
-:description a owl:DatatypeProperty ;
-    rdfs:domain schema:Thing ;
-    rdfs:range xsd:string .
-
 :turbineCount a owl:DatatypeProperty ;
+    rdfs:label "turbine count" ;
     rdfs:domain :WindFarm ;
     rdfs:range xsd:integer .
 
 :dataResolution a owl:DatatypeProperty ;
+    rdfs:label "data resolution" ;
     rdfs:domain dcat:Dataset ;
     rdfs:range xsd:string .
-

@@ -1,0 +1,249 @@
+<https://w3id.org/wedowind/ontology> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/wedowind/ontology> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/wedowind/ontology/1.0> .
+<https://w3id.org/wedowind/ontology> <http://purl.org/dc/terms/created> "2026-04-07"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/wedowind/ontology> <http://purl.org/dc/terms/creator> "Daniel Kwakye" .
+<https://w3id.org/wedowind/ontology> <http://purl.org/dc/terms/description> "Ontology for modeling wind energy benchmarking challenges, tasks, submissions, and evaluation workflows." .
+<https://w3id.org/wedowind/ontology> <http://purl.org/dc/terms/title> "WeDoWind Ontology" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2001/XMLSchema#date
+<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://www.w3.org/ns/prov#wasAssociatedWith
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://www.w3.org/ns/prov#wasAttributedTo
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# https://w3id.org/wedowind/ontology#detectsFailureMode
+<https://w3id.org/wedowind/ontology#detectsFailureMode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#detectsFailureMode> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Task> .
+<https://w3id.org/wedowind/ontology#detectsFailureMode> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#FailureMode> .
+<https://w3id.org/wedowind/ontology#detectsFailureMode> <http://www.w3.org/2000/01/rdf-schema#label> "detects failure mode" .
+# 
+# https://w3id.org/wedowind/ontology#evaluatedBy
+<https://w3id.org/wedowind/ontology#evaluatedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#evaluatedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Submission> .
+<https://w3id.org/wedowind/ontology#evaluatedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#EvaluationMetric> .
+<https://w3id.org/wedowind/ontology#evaluatedBy> <http://www.w3.org/2000/01/rdf-schema#label> "evaluated by metric" .
+# 
+# https://w3id.org/wedowind/ontology#hasLeaderboardEntry
+<https://w3id.org/wedowind/ontology#hasLeaderboardEntry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#hasLeaderboardEntry> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Challenge> .
+<https://w3id.org/wedowind/ontology#hasLeaderboardEntry> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#LeaderboardEntry> .
+<https://w3id.org/wedowind/ontology#hasLeaderboardEntry> <http://www.w3.org/2000/01/rdf-schema#label> "has leaderboard entry" .
+# 
+# https://w3id.org/wedowind/ontology#hasTask
+<https://w3id.org/wedowind/ontology#hasTask> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#hasTask> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Challenge> .
+<https://w3id.org/wedowind/ontology#hasTask> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Task> .
+<https://w3id.org/wedowind/ontology#hasTask> <http://www.w3.org/2000/01/rdf-schema#label> "has task" .
+# 
+# https://w3id.org/wedowind/ontology#implementsMethod
+<https://w3id.org/wedowind/ontology#implementsMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#implementsMethod> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Submission> .
+<https://w3id.org/wedowind/ontology#implementsMethod> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Method> .
+<https://w3id.org/wedowind/ontology#implementsMethod> <http://www.w3.org/2000/01/rdf-schema#label> "implements method" .
+# 
+# https://w3id.org/wedowind/ontology#locatedAt
+<https://w3id.org/wedowind/ontology#locatedAt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#locatedAt> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#WindTurbine> .
+<https://w3id.org/wedowind/ontology#locatedAt> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#WindFarm> .
+<https://w3id.org/wedowind/ontology#locatedAt> <http://www.w3.org/2000/01/rdf-schema#label> "located at" .
+# 
+# https://w3id.org/wedowind/ontology#organizedBy
+<https://w3id.org/wedowind/ontology#organizedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#organizedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasAssociatedWith> .
+<https://w3id.org/wedowind/ontology#organizedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Challenge> .
+<https://w3id.org/wedowind/ontology#organizedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Organization> .
+<https://w3id.org/wedowind/ontology#organizedBy> <http://www.w3.org/2000/01/rdf-schema#label> "organized by" .
+# 
+# https://w3id.org/wedowind/ontology#participatedBy
+<https://w3id.org/wedowind/ontology#participatedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#participatedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasAssociatedWith> .
+<https://w3id.org/wedowind/ontology#participatedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Challenge> .
+<https://w3id.org/wedowind/ontology#participatedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/Person> .
+<http://xmlns.com/foaf/0.1/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#participatedBy> <http://www.w3.org/2000/01/rdf-schema#label> "participated by" .
+# 
+# https://w3id.org/wedowind/ontology#providedBy
+<https://w3id.org/wedowind/ontology#providedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#providedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/publisher> .
+<https://w3id.org/wedowind/ontology#providedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dcat#Dataset> .
+<http://www.w3.org/ns/dcat#Dataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#providedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Organization> .
+<https://w3id.org/wedowind/ontology#providedBy> <http://www.w3.org/2000/01/rdf-schema#label> "provided by" .
+# 
+# https://w3id.org/wedowind/ontology#submittedBy
+<https://w3id.org/wedowind/ontology#submittedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#submittedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasAttributedTo> .
+<https://w3id.org/wedowind/ontology#submittedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Submission> .
+<https://w3id.org/wedowind/ontology#submittedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/Person> .
+<https://w3id.org/wedowind/ontology#submittedBy> <http://www.w3.org/2000/01/rdf-schema#label> "submitted by" .
+# 
+# https://w3id.org/wedowind/ontology#usesDataset
+<https://w3id.org/wedowind/ontology#usesDataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#usesDataset> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Task> .
+<https://w3id.org/wedowind/ontology#usesDataset> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/dcat#Dataset> .
+<https://w3id.org/wedowind/ontology#usesDataset> <http://www.w3.org/2000/01/rdf-schema#label> "uses dataset" .
+# 
+# https://w3id.org/wedowind/ontology#usesTurbine
+<https://w3id.org/wedowind/ontology#usesTurbine> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#usesTurbine> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Task> .
+<https://w3id.org/wedowind/ontology#usesTurbine> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#WindTurbine> .
+<https://w3id.org/wedowind/ontology#usesTurbine> <http://www.w3.org/2000/01/rdf-schema#label> "uses turbine" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/wedowind/ontology#dataResolution
+<https://w3id.org/wedowind/ontology#dataResolution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#dataResolution> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dcat#Dataset> .
+<https://w3id.org/wedowind/ontology#dataResolution> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/wedowind/ontology#dataResolution> <http://www.w3.org/2000/01/rdf-schema#label> "data resolution" .
+# 
+# https://w3id.org/wedowind/ontology#endDate
+<https://w3id.org/wedowind/ontology#endDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#endDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Challenge> .
+<https://w3id.org/wedowind/ontology#endDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/wedowind/ontology#endDate> <http://www.w3.org/2000/01/rdf-schema#label> "end date" .
+# 
+# https://w3id.org/wedowind/ontology#score
+<https://w3id.org/wedowind/ontology#score> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#score> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Submission> .
+<https://w3id.org/wedowind/ontology#score> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<https://w3id.org/wedowind/ontology#score> <http://www.w3.org/2000/01/rdf-schema#label> "score" .
+# 
+# https://w3id.org/wedowind/ontology#startDate
+<https://w3id.org/wedowind/ontology#startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#startDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Challenge> .
+<https://w3id.org/wedowind/ontology#startDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/wedowind/ontology#startDate> <http://www.w3.org/2000/01/rdf-schema#label> "start date" .
+# 
+# https://w3id.org/wedowind/ontology#turbineCount
+<https://w3id.org/wedowind/ontology#turbineCount> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#turbineCount> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#WindFarm> .
+<https://w3id.org/wedowind/ontology#turbineCount> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/wedowind/ontology#turbineCount> <http://www.w3.org/2000/01/rdf-schema#label> "turbine count" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/ns/dcat#Dataset
+# 
+# http://www.w3.org/ns/prov#Entity
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/ns/prov#Plan
+<http://www.w3.org/ns/prov#Plan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://xmlns.com/foaf/0.1/Organization
+<http://xmlns.com/foaf/0.1/Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://xmlns.com/foaf/0.1/Person
+# 
+# https://schema.org/CreativeWork
+<https://schema.org/CreativeWork> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://schema.org/Event
+<https://schema.org/Event> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/wedowind/ontology#Challenge
+<https://w3id.org/wedowind/ontology#Challenge> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#Challenge> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Event> .
+<https://w3id.org/wedowind/ontology#Challenge> <http://www.w3.org/2000/01/rdf-schema#label> "Challenge" .
+# 
+# https://w3id.org/wedowind/ontology#EvaluationMetric
+<https://w3id.org/wedowind/ontology#EvaluationMetric> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#EvaluationMetric> <http://www.w3.org/2000/01/rdf-schema#label> "Evaluation Metric" .
+# 
+# https://w3id.org/wedowind/ontology#FailureMode
+<https://w3id.org/wedowind/ontology#FailureMode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#FailureMode> <http://www.w3.org/2000/01/rdf-schema#label> "Failure Mode" .
+# 
+# https://w3id.org/wedowind/ontology#LeaderboardEntry
+<https://w3id.org/wedowind/ontology#LeaderboardEntry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#LeaderboardEntry> <http://www.w3.org/2000/01/rdf-schema#label> "Leaderboard Entry" .
+# 
+# https://w3id.org/wedowind/ontology#Method
+<https://w3id.org/wedowind/ontology#Method> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#Method> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Plan> .
+<https://w3id.org/wedowind/ontology#Method> <http://www.w3.org/2000/01/rdf-schema#label> "Computational Method" .
+# 
+# https://w3id.org/wedowind/ontology#Organization
+<https://w3id.org/wedowind/ontology#Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#Organization> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://xmlns.com/foaf/0.1/Organization> .
+<https://w3id.org/wedowind/ontology#Organization> <http://www.w3.org/2000/01/rdf-schema#label> "Organization" .
+# 
+# https://w3id.org/wedowind/ontology#Submission
+<https://w3id.org/wedowind/ontology#Submission> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#Submission> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<https://w3id.org/wedowind/ontology#Submission> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/CreativeWork> .
+<https://w3id.org/wedowind/ontology#Submission> <http://www.w3.org/2000/01/rdf-schema#label> "Submission" .
+# 
+# https://w3id.org/wedowind/ontology#Task
+<https://w3id.org/wedowind/ontology#Task> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#Task> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/CreativeWork> .
+<https://w3id.org/wedowind/ontology#Task> <http://www.w3.org/2000/01/rdf-schema#label> "Challenge Task" .
+# 
+# https://w3id.org/wedowind/ontology#WindFarm
+<https://w3id.org/wedowind/ontology#WindFarm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#WindFarm> <http://www.w3.org/2000/01/rdf-schema#label> "Wind Farm" .
+# 
+# https://w3id.org/wedowind/ontology#WindTurbine
+<https://w3id.org/wedowind/ontology#WindTurbine> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#WindTurbine> <http://www.w3.org/2000/01/rdf-schema#label> "Wind Turbine" .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

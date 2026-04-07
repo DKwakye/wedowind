@@ -1,0 +1,275 @@
+@prefix : <https://w3id.org/wedowind/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/wedowind/ontology#> .
+
+<https://w3id.org/wedowind/ontology> rdf:type owl:Ontology ;
+                                      owl:versionIRI <https://w3id.org/wedowind/ontology/1.0> ;
+                                      <http://purl.org/dc/terms/created> "2026-04-07"^^xsd:date ;
+                                      <http://purl.org/dc/terms/creator> "Daniel Kwakye" ;
+                                      <http://purl.org/dc/terms/description> "Ontology for modeling wind energy benchmarking challenges, tasks, submissions, and evaluation workflows." ;
+                                      <http://purl.org/dc/terms/title> "WeDoWind Ontology" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#wasAssociatedWith
+<http://www.w3.org/ns/prov#wasAssociatedWith> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#wasAttributedTo
+<http://www.w3.org/ns/prov#wasAttributedTo> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/wedowind/ontology#detectsFailureMode
+:detectsFailureMode rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Task ;
+                    rdfs:range :FailureMode ;
+                    rdfs:label "detects failure mode" .
+
+
+###  https://w3id.org/wedowind/ontology#evaluatedBy
+:evaluatedBy rdf:type owl:ObjectProperty ;
+             rdfs:domain :Submission ;
+             rdfs:range :EvaluationMetric ;
+             rdfs:label "evaluated by metric" .
+
+
+###  https://w3id.org/wedowind/ontology#hasLeaderboardEntry
+:hasLeaderboardEntry rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Challenge ;
+                     rdfs:range :LeaderboardEntry ;
+                     rdfs:label "has leaderboard entry" .
+
+
+###  https://w3id.org/wedowind/ontology#hasTask
+:hasTask rdf:type owl:ObjectProperty ;
+         rdfs:domain :Challenge ;
+         rdfs:range :Task ;
+         rdfs:label "has task" .
+
+
+###  https://w3id.org/wedowind/ontology#implementsMethod
+:implementsMethod rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Submission ;
+                  rdfs:range :Method ;
+                  rdfs:label "implements method" .
+
+
+###  https://w3id.org/wedowind/ontology#locatedAt
+:locatedAt rdf:type owl:ObjectProperty ;
+           rdfs:domain :WindTurbine ;
+           rdfs:range :WindFarm ;
+           rdfs:label "located at" .
+
+
+###  https://w3id.org/wedowind/ontology#organizedBy
+:organizedBy rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+             rdfs:domain :Challenge ;
+             rdfs:range :Organization ;
+             rdfs:label "organized by" .
+
+
+###  https://w3id.org/wedowind/ontology#participatedBy
+:participatedBy rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+                rdfs:domain :Challenge ;
+                rdfs:range <http://xmlns.com/foaf/0.1/Person> ;
+                rdfs:label "participated by" .
+
+
+###  https://w3id.org/wedowind/ontology#providedBy
+:providedBy rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf <http://purl.org/dc/terms/publisher> ;
+            rdfs:domain <http://www.w3.org/ns/dcat#Dataset> ;
+            rdfs:range :Organization ;
+            rdfs:label "provided by" .
+
+
+###  https://w3id.org/wedowind/ontology#submittedBy
+:submittedBy rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasAttributedTo> ;
+             rdfs:domain :Submission ;
+             rdfs:range <http://xmlns.com/foaf/0.1/Person> ;
+             rdfs:label "submitted by" .
+
+
+###  https://w3id.org/wedowind/ontology#usesDataset
+:usesDataset rdf:type owl:ObjectProperty ;
+             rdfs:domain :Task ;
+             rdfs:range <http://www.w3.org/ns/dcat#Dataset> ;
+             rdfs:label "uses dataset" .
+
+
+###  https://w3id.org/wedowind/ontology#usesTurbine
+:usesTurbine rdf:type owl:ObjectProperty ;
+             rdfs:domain :Task ;
+             rdfs:range :WindTurbine ;
+             rdfs:label "uses turbine" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/wedowind/ontology#dataResolution
+:dataResolution rdf:type owl:DatatypeProperty ;
+                rdfs:domain <http://www.w3.org/ns/dcat#Dataset> ;
+                rdfs:range xsd:string ;
+                rdfs:label "data resolution" .
+
+
+###  https://w3id.org/wedowind/ontology#endDate
+:endDate rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Challenge ;
+         rdfs:range xsd:date ;
+         rdfs:label "end date" .
+
+
+###  https://w3id.org/wedowind/ontology#score
+:score rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Submission ;
+       rdfs:range xsd:float ;
+       rdfs:label "score" .
+
+
+###  https://w3id.org/wedowind/ontology#startDate
+:startDate rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Challenge ;
+           rdfs:range xsd:date ;
+           rdfs:label "start date" .
+
+
+###  https://w3id.org/wedowind/ontology#turbineCount
+:turbineCount rdf:type owl:DatatypeProperty ;
+              rdfs:domain :WindFarm ;
+              rdfs:range xsd:integer ;
+              rdfs:label "turbine count" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.w3.org/ns/dcat#Dataset
+<http://www.w3.org/ns/dcat#Dataset> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Entity
+<http://www.w3.org/ns/prov#Entity> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Plan
+<http://www.w3.org/ns/prov#Plan> rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Organization
+<http://xmlns.com/foaf/0.1/Organization> rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> rdf:type owl:Class .
+
+
+###  https://schema.org/CreativeWork
+<https://schema.org/CreativeWork> rdf:type owl:Class .
+
+
+###  https://schema.org/Event
+<https://schema.org/Event> rdf:type owl:Class .
+
+
+###  https://w3id.org/wedowind/ontology#Challenge
+:Challenge rdf:type owl:Class ;
+           rdfs:subClassOf <https://schema.org/Event> ;
+           rdfs:label "Challenge" .
+
+
+###  https://w3id.org/wedowind/ontology#EvaluationMetric
+:EvaluationMetric rdf:type owl:Class ;
+                  rdfs:label "Evaluation Metric" .
+
+
+###  https://w3id.org/wedowind/ontology#FailureMode
+:FailureMode rdf:type owl:Class ;
+             rdfs:label "Failure Mode" .
+
+
+###  https://w3id.org/wedowind/ontology#LeaderboardEntry
+:LeaderboardEntry rdf:type owl:Class ;
+                  rdfs:label "Leaderboard Entry" .
+
+
+###  https://w3id.org/wedowind/ontology#Method
+:Method rdf:type owl:Class ;
+        rdfs:subClassOf <http://www.w3.org/ns/prov#Plan> ;
+        rdfs:label "Computational Method" .
+
+
+###  https://w3id.org/wedowind/ontology#Organization
+:Organization rdf:type owl:Class ;
+              rdfs:subClassOf <http://xmlns.com/foaf/0.1/Organization> ;
+              rdfs:label "Organization" .
+
+
+###  https://w3id.org/wedowind/ontology#Submission
+:Submission rdf:type owl:Class ;
+            rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ,
+                            <https://schema.org/CreativeWork> ;
+            rdfs:label "Submission" .
+
+
+###  https://w3id.org/wedowind/ontology#Task
+:Task rdf:type owl:Class ;
+      rdfs:subClassOf <https://schema.org/CreativeWork> ;
+      rdfs:label "Challenge Task" .
+
+
+###  https://w3id.org/wedowind/ontology#WindFarm
+:WindFarm rdf:type owl:Class ;
+          rdfs:label "Wind Farm" .
+
+
+###  https://w3id.org/wedowind/ontology#WindTurbine
+:WindTurbine rdf:type owl:Class ;
+             rdfs:label "Wind Turbine" .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
