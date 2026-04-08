@@ -4,19 +4,31 @@ This section provides details for each class and property defined by WeDoWind On
  <h3 id="classes-headline" class="list">Classes</h3>
  <ul class="hlist">
   <li><a href="#Challenge" title="https://w3id.org/wedowind/ontology#Challenge">Challenge</a></li>
-  <li><a href="#Task" title="https://w3id.org/wedowind/ontology#Task">Challenge Task</a></li>
-  <li><a href="#Method" title="https://w3id.org/wedowind/ontology#Method">Computational Method</a></li>
+  <li><a href="#ChallengeTask" title="https://w3id.org/wedowind/ontology#ChallengeTask">Challenge Task</a></li>
+  <li><a href="#Competency" title="https://w3id.org/wedowind/ontology#Competency">Competency</a></li>
+  <li><a href="#ComputationalMethod" title="https://w3id.org/wedowind/ontology#ComputationalMethod">Computational Method</a></li>
   <li><a href="#EvaluationMetric" title="https://w3id.org/wedowind/ontology#EvaluationMetric">Evaluation Metric</a></li>
   <li><a href="#FailureMode" title="https://w3id.org/wedowind/ontology#FailureMode">Failure Mode</a></li>
   <li><a href="#LeaderboardEntry" title="https://w3id.org/wedowind/ontology#LeaderboardEntry">Leaderboard Entry</a></li>
-  <li><a href="#Organization" title="https://w3id.org/wedowind/ontology#Organization">Organization</a></li>
+  <li><a href="#MethodType" title="https://w3id.org/wedowind/ontology#MethodType">Method Type</a></li>
+  <li><a href="#Reference" title="https://w3id.org/wedowind/ontology#Reference">Reference</a></li>
+  <li><a href="#ReferenceMetadata" title="https://w3id.org/wedowind/ontology#ReferenceMetadata">Reference Metadata</a></li>
+  <li><a href="#SensorVariable" title="https://w3id.org/wedowind/ontology#SensorVariable">Sensor Variable</a></li>
   <li><a href="#Submission" title="https://w3id.org/wedowind/ontology#Submission">Submission</a></li>
+  <li><a href="#SurveyInstrument" title="https://w3id.org/wedowind/ontology#SurveyInstrument">Survey Instrument</a></li>
+  <li><a href="#SurveyVariable" title="https://w3id.org/wedowind/ontology#SurveyVariable">Survey Variable</a></li>
+  <li><a href="#TrainingPathway" title="https://w3id.org/wedowind/ontology#TrainingPathway">Training Pathway</a></li>
+  <li><a href="#Tutorial" title="https://w3id.org/wedowind/ontology#Tutorial">Tutorial</a></li>
+  <li><a href="#Variable" title="https://w3id.org/wedowind/ontology#Variable">Variable</a></li>
   <li><a href="#WindFarm" title="https://w3id.org/wedowind/ontology#WindFarm">Wind Farm</a></li>
   <li><a href="#WindTurbine" title="https://w3id.org/wedowind/ontology#WindTurbine">Wind Turbine</a></li>
  </ul>
  <div class="entity" id="Challenge">
   <h3>Challenge<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#Challenge</p>
+  <div class="comment">
+   <span class="markdown">A benchmarking competition in wind energy, consisting of one or more tasks.</span>
+  </div>
   <dl class="description">
    <dt>
     has super-classes
@@ -30,11 +42,20 @@ This section provides details for each class and property defined by WeDoWind On
    <dd>
     <a href="#endDate" title="https://w3id.org/wedowind/ontology#endDate">end date</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasLeaderboardEntry" title="https://w3id.org/wedowind/ontology#hasLeaderboardEntry">has leaderboard entry</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasTask" title="https://w3id.org/wedowind/ontology#hasTask">has task</a> <sup class="type-op" title="object property">op</sup>, <a href="#organizedBy" title="https://w3id.org/wedowind/ontology#organizedBy">organized by</a> <sup class="type-op" title="object property">op</sup>, <a href="#participatedBy" title="https://w3id.org/wedowind/ontology#participatedBy">participated by</a> <sup class="type-op" title="object property">op</sup>, <a href="#startDate" title="https://w3id.org/wedowind/ontology#startDate">start date</a> <sup class="type-dp" title="data property">dp</sup>
    </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#includesChallenge" title="https://w3id.org/wedowind/ontology#includesChallenge">includes challenge</a> <sup class="type-op" title="object property">op</sup>, <a href="#isTaskOf" title="https://w3id.org/wedowind/ontology#isTaskOf">is task of</a> <sup class="type-op" title="object property">op</sup>, <a href="#rankedIn" title="https://w3id.org/wedowind/ontology#rankedIn">ranked in challenge</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
   </dl>
  </div>
- <div class="entity" id="Task">
+ <div class="entity" id="ChallengeTask">
   <h3>Challenge Task<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#Task</p>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#ChallengeTask</p>
+  <div class="comment">
+   <span class="markdown">A specific task within a challenge (e.g., failure detection, power forecasting, remaining useful life estimation).</span>
+  </div>
   <dl class="description">
    <dt>
     has super-classes
@@ -46,25 +67,55 @@ This section provides details for each class and property defined by WeDoWind On
     is in domain of
    </dt>
    <dd>
-    <a href="#detectsFailureMode" title="https://w3id.org/wedowind/ontology#detectsFailureMode">detects failure mode</a> <sup class="type-op" title="object property">op</sup>, <a href="#usesDataset" title="https://w3id.org/wedowind/ontology#usesDataset">uses dataset</a> <sup class="type-op" title="object property">op</sup>, <a href="#usesTurbine" title="https://w3id.org/wedowind/ontology#usesTurbine">uses turbine</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#addressesCompetency" title="https://w3id.org/wedowind/ontology#addressesCompetency">addresses competency</a> <sup class="type-op" title="object property">op</sup>, <a href="#detectsFailureMode" title="https://w3id.org/wedowind/ontology#detectsFailureMode">detects failure mode</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasTutorial" title="https://w3id.org/wedowind/ontology#hasTutorial">has tutorial</a> <sup class="type-op" title="object property">op</sup>, <a href="#isTaskOf" title="https://w3id.org/wedowind/ontology#isTaskOf">is task of</a> <sup class="type-op" title="object property">op</sup>, <a href="#usesDatasetForTask" title="https://w3id.org/wedowind/ontology#usesDatasetForTask">uses dataset for task</a> <sup class="type-op" title="object property">op</sup>, <a href="#usesTurbine" title="https://w3id.org/wedowind/ontology#usesTurbine">uses turbine</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
    </dt>
    <dd>
-    <a href="#hasTask" title="https://w3id.org/wedowind/ontology#hasTask">has task</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#hasTask" title="https://w3id.org/wedowind/ontology#hasTask">has task</a> <sup class="type-op" title="object property">op</sup>, <a href="#solvesTask" title="https://w3id.org/wedowind/ontology#solvesTask">solves task</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
- <div class="entity" id="Method">
-  <h3>Computational Method<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#Method</p>
+ <div class="entity" id="Competency">
+  <h3>Competency<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#Competency</p>
+  <div class="comment">
+   <span class="markdown">Skill area in wind energy digitalisation (e.g., SCADA data analysis, machine learning for prognosis, time series forecasting, data governance, uncertainty quantification).</span>
+  </div>
   <dl class="description">
    <dt>
     has super-classes
    </dt>
    <dd>
-    <a href="http://www.w3.org/ns/prov#Plan" target="_blank" title="http://www.w3.org/ns/prov#Plan">Plan</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>, <a href="https://schema.org/DefinedTerm" target="_blank" title="https://schema.org/DefinedTerm">Defined Term</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#addressesCompetency" title="https://w3id.org/wedowind/ontology#addressesCompetency">addresses competency</a> <sup class="type-op" title="object property">op</sup>, <a href="#targetsCompetency" title="https://w3id.org/wedowind/ontology#targetsCompetency">targets competency</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ComputationalMethod">
+  <h3>Computational Method<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#ComputationalMethod</p>
+  <div class="comment">
+   <span class="markdown">Algorithm or methodological approach implemented in a submission.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://schema.org/Plan" target="_blank" title="https://schema.org/Plan">Plan</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasMethodType" title="https://w3id.org/wedowind/ontology#hasMethodType">has method type</a> <sup class="type-op" title="object property">op</sup>, <a href="#isImplementedIn" title="https://w3id.org/wedowind/ontology#isImplementedIn">is implemented in</a> <sup class="type-op" title="object property">op</sup>, <a href="#methodType" title="https://w3id.org/wedowind/ontology#methodType">method type</a> <sup class="type-dp" title="data property">dp</sup>
    </dd>
    <dt>
     is in range of
@@ -77,19 +128,31 @@ This section provides details for each class and property defined by WeDoWind On
  <div class="entity" id="EvaluationMetric">
   <h3>Evaluation Metric<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#EvaluationMetric</p>
+  <div class="comment">
+   <span class="markdown">Metric used to evaluate and compare submissions (e.g., RMSE, MAE, F1-score, AUC-ROC).</span>
+  </div>
   <dl class="description">
    <dt>
     is in range of
    </dt>
    <dd>
-    <a href="#evaluatedBy" title="https://w3id.org/wedowind/ontology#evaluatedBy">evaluated by metric</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#evaluatedByMetric" title="https://w3id.org/wedowind/ontology#evaluatedByMetric">evaluated by metric</a> <sup class="type-op" title="object property">op</sup>, <a href="#evaluatedWith" title="https://w3id.org/wedowind/ontology#evaluatedWith">evaluated with metric</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
  <div class="entity" id="FailureMode">
   <h3>Failure Mode<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#FailureMode</p>
+  <div class="comment">
+   <span class="markdown">Type of component failure in wind turbines (e.g., gearbox bearing damage, generator winding fault, blade crack, pitch system malfunction).</span>
+  </div>
   <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>, <a href="https://schema.org/DefinedTerm" target="_blank" title="https://schema.org/DefinedTerm">Defined Term</a> <sup class="type-c" title="class">c</sup>
+   </dd>
    <dt>
     is in range of
    </dt>
@@ -101,7 +164,16 @@ This section provides details for each class and property defined by WeDoWind On
  <div class="entity" id="LeaderboardEntry">
   <h3>Leaderboard Entry<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#LeaderboardEntry</p>
+  <div class="comment">
+   <span class="markdown">A ranked result entry on a challenge leaderboard, linking a submission to its performance scores.</span>
+  </div>
   <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#entrySubmission" title="https://w3id.org/wedowind/ontology#entrySubmission">entry submission</a> <sup class="type-op" title="object property">op</sup>, <a href="#evaluatedWith" title="https://w3id.org/wedowind/ontology#evaluatedWith">evaluated with metric</a> <sup class="type-op" title="object property">op</sup>, <a href="#metricValue" title="https://w3id.org/wedowind/ontology#metricValue">metric value</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#rank" title="https://w3id.org/wedowind/ontology#rank">rank</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#rankedIn" title="https://w3id.org/wedowind/ontology#rankedIn">ranked in challenge</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
    <dt>
     is in range of
    </dt>
@@ -110,27 +182,33 @@ This section provides details for each class and property defined by WeDoWind On
    </dd>
   </dl>
  </div>
- <div class="entity" id="Organization">
-  <h3>Organization<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#Organization</p>
+ <div class="entity" id="MethodType">
+  <h3>Method Type<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#MethodType</p>
+  <div class="comment">
+   <span class="markdown">Controlled vocabulary for categorizing computational methods (e.g., deep learning, statistical, physics-based, hybrid).</span>
+  </div>
   <dl class="description">
    <dt>
     has super-classes
    </dt>
    <dd>
-    <a href="http://xmlns.com/foaf/0.1/Organization" target="_blank" title="http://xmlns.com/foaf/0.1/Organization">Organization</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in range of
    </dt>
    <dd>
-    <a href="#organizedBy" title="https://w3id.org/wedowind/ontology#organizedBy">organized by</a> <sup class="type-op" title="object property">op</sup>, <a href="#providedBy" title="https://w3id.org/wedowind/ontology#providedBy">provided by</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#hasMethodType" title="https://w3id.org/wedowind/ontology#hasMethodType">has method type</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
- <div class="entity" id="Submission">
-  <h3>Submission<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#Submission</p>
+ <div class="entity" id="Reference">
+  <h3>Reference<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#Reference</p>
+  <div class="comment">
+   <span class="markdown">A reference from one scholarly resource to another, capturing citation relationships with provenance information.</span>
+  </div>
   <dl class="description">
    <dt>
     has super-classes
@@ -142,13 +220,220 @@ This section provides details for each class and property defined by WeDoWind On
     is in domain of
    </dt>
    <dd>
-    <a href="#evaluatedBy" title="https://w3id.org/wedowind/ontology#evaluatedBy">evaluated by metric</a> <sup class="type-op" title="object property">op</sup>, <a href="#implementsMethod" title="https://w3id.org/wedowind/ontology#implementsMethod">implements method</a> <sup class="type-op" title="object property">op</sup>, <a href="#score" title="https://w3id.org/wedowind/ontology#score">score</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#submittedBy" title="https://w3id.org/wedowind/ontology#submittedBy">submitted by</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#referenceMetadata" title="https://w3id.org/wedowind/ontology#referenceMetadata">reference metadata</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#reference" title="https://w3id.org/wedowind/ontology#reference">reference</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ReferenceMetadata">
+  <h3>Reference Metadata<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#ReferenceMetadata</p>
+  <div class="comment">
+   <span class="markdown">Provenance metadata about a reference, including confidence scores, linking method, and source information for automated or manual citations.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://schema.org/Intangible" target="_blank" title="https://schema.org/Intangible">Intangible</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#linkContext" title="https://w3id.org/wedowind/ontology#linkContext">link context</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#linkScore" title="https://w3id.org/wedowind/ontology#linkScore">link score</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#linkSource" title="https://w3id.org/wedowind/ontology#linkSource">link source</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#linkingMethod" title="https://w3id.org/wedowind/ontology#linkingMethod">linking method</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#referenceMetadata" title="https://w3id.org/wedowind/ontology#referenceMetadata">reference metadata</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="SensorVariable">
+  <h3>Sensor Variable<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#SensorVariable</p>
+  <div class="comment">
+   <span class="markdown">A physical measurement from turbine sensors (e.g., wind speed, rotor RPM, gearbox temperature, power output, vibration amplitude).</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Variable" title="https://w3id.org/wedowind/ontology#Variable">Variable</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#observationTimestamp" title="https://w3id.org/wedowind/ontology#observationTimestamp">observation timestamp</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Submission">
+  <h3>Submission<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#Submission</p>
+  <div class="comment">
+   <span class="markdown">A participant's solution submission to a challenge task, including code, predictions, and documentation.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://schema.org/CreativeWork" target="_blank" title="https://schema.org/CreativeWork">Creative Work</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#evaluatedByMetric" title="https://w3id.org/wedowind/ontology#evaluatedByMetric">evaluated by metric</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasModelArtifact" title="https://w3id.org/wedowind/ontology#hasModelArtifact">has model artifact</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRepository" title="https://w3id.org/wedowind/ontology#hasRepository">has repository</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#implementsMethod" title="https://w3id.org/wedowind/ontology#implementsMethod">implements method</a> <sup class="type-op" title="object property">op</sup>, <a href="#score" title="https://w3id.org/wedowind/ontology#score">score</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#solvesTask" title="https://w3id.org/wedowind/ontology#solvesTask">solves task</a> <sup class="type-op" title="object property">op</sup>, <a href="#submittedBy" title="https://w3id.org/wedowind/ontology#submittedBy">submitted by</a> <sup class="type-op" title="object property">op</sup>, <a href="#usesDatasetForSubmission" title="https://w3id.org/wedowind/ontology#usesDatasetForSubmission">uses dataset for submission</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#entrySubmission" title="https://w3id.org/wedowind/ontology#entrySubmission">entry submission</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasSubmission" title="https://w3id.org/wedowind/ontology#hasSubmission">has submission</a> <sup class="type-op" title="object property">op</sup>, <a href="#isImplementedIn" title="https://w3id.org/wedowind/ontology#isImplementedIn">is implemented in</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="SurveyInstrument">
+  <h3>Survey Instrument<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#SurveyInstrument</p>
+  <div class="comment">
+   <span class="markdown">Questionnaire or assessment tool for social science research in wind energy, including community acceptance studies, safety culture assessments, and workforce competency evaluations.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://rdf-vocabulary.ddialliance.org/lifecycle#Instrument" target="_blank" title="http://rdf-vocabulary.ddialliance.org/lifecycle#Instrument">Instrument</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#constructs" title="https://w3id.org/wedowind/ontology#constructs">constructs</a> <sup class="type-op" title="object property">op</sup>, <a href="#usedIn" title="https://w3id.org/wedowind/ontology#usedIn">used in</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="SurveyVariable">
+  <h3>Survey Variable<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#SurveyVariable</p>
+  <div class="comment">
+   <span class="markdown">A response variable from surveys or questionnaires (e.g., attitude scores, demographic data, safety perception ratings).</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Variable" title="https://w3id.org/wedowind/ontology#Variable">Variable</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#collectionDate" title="https://w3id.org/wedowind/ontology#collectionDate">collection date</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="TrainingPathway">
+  <h3>Training Pathway<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#TrainingPathway</p>
+  <div class="comment">
+   <span class="markdown">A curated sequence of tutorials and challenges designed to develop specific competencies in wind energy digitalisation.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://schema.org/LearningResource" target="_blank" title="https://schema.org/LearningResource">Learning Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#includesChallenge" title="https://w3id.org/wedowind/ontology#includesChallenge">includes challenge</a> <sup class="type-op" title="object property">op</sup>, <a href="#includesTutorial" title="https://w3id.org/wedowind/ontology#includesTutorial">includes tutorial</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Tutorial">
+  <h3>Tutorial<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#Tutorial</p>
+  <div class="comment">
+   <span class="markdown">Training material for wind energy digitalisation skills, including Jupyter notebooks, video lectures, documentation, and hands-on exercises.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://schema.org/LearningResource" target="_blank" title="https://schema.org/LearningResource">Learning Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#difficultyLevel" title="https://w3id.org/wedowind/ontology#difficultyLevel">difficulty level</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#estimatedTime" title="https://w3id.org/wedowind/ontology#estimatedTime">estimated time</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasSoftwareSourceCode" title="https://w3id.org/wedowind/ontology#hasSoftwareSourceCode">has software source code</a> <sup class="type-op" title="object property">op</sup>, <a href="#isPrerequisiteFor" title="https://w3id.org/wedowind/ontology#isPrerequisiteFor">is prerequisite for</a> <sup class="type-op" title="object property">op</sup>, <a href="#targetsCompetency" title="https://w3id.org/wedowind/ontology#targetsCompetency">targets competency</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasTutorial" title="https://w3id.org/wedowind/ontology#hasTutorial">has tutorial</a> <sup class="type-op" title="object property">op</sup>, <a href="#includesTutorial" title="https://w3id.org/wedowind/ontology#includesTutorial">includes tutorial</a> <sup class="type-op" title="object property">op</sup>, <a href="#isPrerequisiteFor" title="https://w3id.org/wedowind/ontology#isPrerequisiteFor">is prerequisite for</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Variable">
+  <h3>Variable<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#Variable</p>
+  <div class="comment">
+   <span class="markdown">A measurable quantity from SCADA sensors, survey responses, or experimental measurements used in wind energy research.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://schema.org/PropertyValue" target="_blank" title="https://schema.org/PropertyValue">Property Value</a> <sup class="type-c" title="class">c</sup>, <a href="http://rdf-vocabulary.ddialliance.org/lifecycle#Variable" target="_blank" title="http://rdf-vocabulary.ddialliance.org/lifecycle#Variable">Variable</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#SensorVariable" title="https://w3id.org/wedowind/ontology#SensorVariable">Sensor Variable</a> <sup class="type-c" title="class">c</sup>, <a href="#SurveyVariable" title="https://w3id.org/wedowind/ontology#SurveyVariable">Survey Variable</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#variableLabel" title="https://w3id.org/wedowind/ontology#variableLabel">variable label</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#variableName" title="https://w3id.org/wedowind/ontology#variableName">variable name</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#variableType" title="https://w3id.org/wedowind/ontology#variableType">variable type</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#relatedVariable" title="https://w3id.org/wedowind/ontology#relatedVariable">related variable</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
  <div class="entity" id="WindFarm">
   <h3>Wind Farm<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#WindFarm</p>
+  <div class="comment">
+   <span class="markdown">A collection of wind turbines at a specific geographic location, sharing infrastructure and grid connection.</span>
+  </div>
   <dl class="description">
    <dt>
     is in domain of
@@ -167,6 +452,9 @@ This section provides details for each class and property defined by WeDoWind On
  <div class="entity" id="WindTurbine">
   <h3>Wind Turbine<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#WindTurbine</p>
+  <div class="comment">
+   <span class="markdown">A wind energy turbine with specifications such as manufacturer, rated power, rotor diameter, and location.</span>
+  </div>
   <dl class="description">
    <dt>
     is in domain of
@@ -185,29 +473,100 @@ This section provides details for each class and property defined by WeDoWind On
 </div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
  <h3 id="properties" class="list">Object Properties</h3>
  <ul class="hlist">
+  <li><a href="#addressesCompetency" title="https://w3id.org/wedowind/ontology#addressesCompetency">addresses competency</a></li>
+  <li><a href="#constructs" title="https://w3id.org/wedowind/ontology#constructs">constructs</a></li>
   <li><a href="#detectsFailureMode" title="https://w3id.org/wedowind/ontology#detectsFailureMode">detects failure mode</a></li>
-  <li><a href="#evaluatedBy" title="https://w3id.org/wedowind/ontology#evaluatedBy">evaluated by metric</a></li>
+  <li><a href="#entrySubmission" title="https://w3id.org/wedowind/ontology#entrySubmission">entry submission</a></li>
+  <li><a href="#evaluatedByMetric" title="https://w3id.org/wedowind/ontology#evaluatedByMetric">evaluated by metric</a></li>
+  <li><a href="#evaluatedWith" title="https://w3id.org/wedowind/ontology#evaluatedWith">evaluated with metric</a></li>
   <li><a href="#hasLeaderboardEntry" title="https://w3id.org/wedowind/ontology#hasLeaderboardEntry">has leaderboard entry</a></li>
+  <li><a href="#hasMethodType" title="https://w3id.org/wedowind/ontology#hasMethodType">has method type</a></li>
+  <li><a href="#hasSoftwareSourceCode" title="https://w3id.org/wedowind/ontology#hasSoftwareSourceCode">has software source code</a></li>
+  <li><a href="#hasSubmission" title="https://w3id.org/wedowind/ontology#hasSubmission">has submission</a></li>
   <li><a href="#hasTask" title="https://w3id.org/wedowind/ontology#hasTask">has task</a></li>
+  <li><a href="#hasTutorial" title="https://w3id.org/wedowind/ontology#hasTutorial">has tutorial</a></li>
   <li><a href="#implementsMethod" title="https://w3id.org/wedowind/ontology#implementsMethod">implements method</a></li>
+  <li><a href="#includesChallenge" title="https://w3id.org/wedowind/ontology#includesChallenge">includes challenge</a></li>
+  <li><a href="#includesTutorial" title="https://w3id.org/wedowind/ontology#includesTutorial">includes tutorial</a></li>
+  <li><a href="#isImplementedIn" title="https://w3id.org/wedowind/ontology#isImplementedIn">is implemented in</a></li>
+  <li><a href="#isPrerequisiteFor" title="https://w3id.org/wedowind/ontology#isPrerequisiteFor">is prerequisite for</a></li>
+  <li><a href="#isTaskOf" title="https://w3id.org/wedowind/ontology#isTaskOf">is task of</a></li>
   <li><a href="#locatedAt" title="https://w3id.org/wedowind/ontology#locatedAt">located at</a></li>
   <li><a href="#organizedBy" title="https://w3id.org/wedowind/ontology#organizedBy">organized by</a></li>
   <li><a href="#participatedBy" title="https://w3id.org/wedowind/ontology#participatedBy">participated by</a></li>
-  <li><a href="#providedBy" title="https://w3id.org/wedowind/ontology#providedBy">provided by</a></li>
+  <li><a href="#rankedIn" title="https://w3id.org/wedowind/ontology#rankedIn">ranked in challenge</a></li>
+  <li><a href="#reference" title="https://w3id.org/wedowind/ontology#reference">reference</a></li>
+  <li><a href="#referenceMetadata" title="https://w3id.org/wedowind/ontology#referenceMetadata">reference metadata</a></li>
+  <li><a href="#relatedDataset" title="https://w3id.org/wedowind/ontology#relatedDataset"> <span>related dataset</span> </a></li>
+  <li><a href="#relatedPublication" title="https://w3id.org/wedowind/ontology#relatedPublication">related publication</a></li>
+  <li><a href="#relatedVariable" title="https://w3id.org/wedowind/ontology#relatedVariable">related variable</a></li>
+  <li><a href="#solvesTask" title="https://w3id.org/wedowind/ontology#solvesTask">solves task</a></li>
   <li><a href="#submittedBy" title="https://w3id.org/wedowind/ontology#submittedBy">submitted by</a></li>
-  <li><a href="#usesDataset" title="https://w3id.org/wedowind/ontology#usesDataset">uses dataset</a></li>
+  <li><a href="#targetsCompetency" title="https://w3id.org/wedowind/ontology#targetsCompetency">targets competency</a></li>
+  <li><a href="#usedIn" title="https://w3id.org/wedowind/ontology#usedIn"> <span>used in</span> </a></li>
+  <li><a href="#usesDatasetForSubmission" title="https://w3id.org/wedowind/ontology#usesDatasetForSubmission"> <span>uses dataset for submission</span> </a></li>
+  <li><a href="#usesDatasetForTask" title="https://w3id.org/wedowind/ontology#usesDatasetForTask">uses dataset for task</a></li>
   <li><a href="#usesTurbine" title="https://w3id.org/wedowind/ontology#usesTurbine">uses turbine</a></li>
  </ul>
- <div class="entity" id="detectsFailureMode">
-  <h3>detects failure mode<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#detectsFailureMode</p>
+ <div class="entity" id="addressesCompetency">
+  <h3>addresses competency<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#addressesCompetency</p>
+  <div class="comment">
+   <span class="markdown">Links a challenge task to the skill area it develops or assesses.</span>
+  </div>
   <div class="description">
    <dl>
     <dt>
      has domain
     </dt>
     <dd>
-     <a href="#Task" title="https://w3id.org/wedowind/ontology#Task">Challenge Task</a> <sup class="type-c" title="class">c</sup>
+     <a href="#ChallengeTask" title="https://w3id.org/wedowind/ontology#ChallengeTask">Challenge Task</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Competency" title="https://w3id.org/wedowind/ontology#Competency">Competency</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="constructs">
+  <h3>constructs<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#constructs</p>
+  <div class="comment">
+   <span class="markdown">Theoretical constructs measured by a survey instrument.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#SurveyInstrument" title="https://w3id.org/wedowind/ontology#SurveyInstrument">Survey Instrument</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://schema.org/DefinedTerm" target="_blank" title="https://schema.org/DefinedTerm">Defined Term</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="detectsFailureMode">
+  <h3>detects failure mode<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#detectsFailureMode</p>
+  <div class="comment">
+   <span class="markdown">Specifies the type of turbine failure a task aims to detect or predict.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ChallengeTask" title="https://w3id.org/wedowind/ontology#ChallengeTask">Challenge Task</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
@@ -218,9 +577,35 @@ This section provides details for each class and property defined by WeDoWind On
    </dl>
   </div>
  </div>
- <div class="entity" id="evaluatedBy">
+ <div class="entity" id="entrySubmission">
+  <h3>entry submission<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#entrySubmission</p>
+  <div class="comment">
+   <span class="markdown">Links a leaderboard entry to the submission it represents.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#LeaderboardEntry" title="https://w3id.org/wedowind/ontology#LeaderboardEntry">Leaderboard Entry</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Submission" title="https://w3id.org/wedowind/ontology#Submission">Submission</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="evaluatedByMetric">
   <h3>evaluated by metric<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#evaluatedBy</p>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#evaluatedByMetric</p>
+  <div class="comment">
+   <span class="markdown">Links a submission to the metrics used for its evaluation.</span>
+  </div>
   <div class="description">
    <dl>
     <dt>
@@ -238,9 +623,35 @@ This section provides details for each class and property defined by WeDoWind On
    </dl>
   </div>
  </div>
+ <div class="entity" id="evaluatedWith">
+  <h3>evaluated with metric<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#evaluatedWith</p>
+  <div class="comment">
+   <span class="markdown">Specifies which evaluation metric a leaderboard entry value corresponds to.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#LeaderboardEntry" title="https://w3id.org/wedowind/ontology#LeaderboardEntry">Leaderboard Entry</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#EvaluationMetric" title="https://w3id.org/wedowind/ontology#EvaluationMetric">Evaluation Metric</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="hasLeaderboardEntry">
   <h3>has leaderboard entry<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#hasLeaderboardEntry</p>
+  <div class="comment">
+   <span class="markdown">Links a challenge to entries on its leaderboard.</span>
+  </div>
   <div class="description">
    <dl>
     <dt>
@@ -258,9 +669,87 @@ This section provides details for each class and property defined by WeDoWind On
    </dl>
   </div>
  </div>
+ <div class="entity" id="hasMethodType">
+  <h3>has method type<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#hasMethodType</p>
+  <div class="comment">
+   <span class="markdown">Links a computational method to a controlled vocabulary term describing its methodological category.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ComputationalMethod" title="https://w3id.org/wedowind/ontology#ComputationalMethod">Computational Method</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#MethodType" title="https://w3id.org/wedowind/ontology#MethodType">Method Type</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasSoftwareSourceCode">
+  <h3>has software source code<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#hasSoftwareSourceCode</p>
+  <div class="comment">
+   <span class="markdown">Links a tutorial to accompanying code repository.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Tutorial" title="https://w3id.org/wedowind/ontology#Tutorial">Tutorial</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://schema.org/SoftwareSourceCode" target="_blank" title="https://schema.org/SoftwareSourceCode">Software Source Code</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasSubmission">
+  <h3>has submission<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#hasSubmission</p>
+  <div class="comment">
+   <span class="markdown">Inverse property linking a person or organization (agent) to their submissions.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://schema.org/Agent" target="_blank" title="https://schema.org/Agent">Agent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Submission" title="https://w3id.org/wedowind/ontology#Submission">Submission</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#submittedBy" title="https://w3id.org/wedowind/ontology#submittedBy">submitted by</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="hasTask">
   <h3>has task<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#hasTask</p>
+  <div class="comment">
+   <span class="markdown">Links a challenge to its constituent tasks.</span>
+  </div>
   <div class="description">
    <dl>
     <dt>
@@ -273,7 +762,36 @@ This section provides details for each class and property defined by WeDoWind On
      has range
     </dt>
     <dd>
-     <a href="#Task" title="https://w3id.org/wedowind/ontology#Task">Challenge Task</a> <sup class="type-c" title="class">c</sup>
+     <a href="#ChallengeTask" title="https://w3id.org/wedowind/ontology#ChallengeTask">Challenge Task</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isTaskOf" title="https://w3id.org/wedowind/ontology#isTaskOf">is task of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasTutorial">
+  <h3>has tutorial<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#hasTutorial</p>
+  <div class="comment">
+   <span class="markdown">Links a challenge task to recommended training materials.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ChallengeTask" title="https://w3id.org/wedowind/ontology#ChallengeTask">Challenge Task</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Tutorial" title="https://w3id.org/wedowind/ontology#Tutorial">Tutorial</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>
@@ -281,6 +799,9 @@ This section provides details for each class and property defined by WeDoWind On
  <div class="entity" id="implementsMethod">
   <h3>implements method<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#implementsMethod</p>
+  <div class="comment">
+   <span class="markdown">Links a submission to the computational method it implements.</span>
+  </div>
   <div class="description">
    <dl>
     <dt>
@@ -293,7 +814,140 @@ This section provides details for each class and property defined by WeDoWind On
      has range
     </dt>
     <dd>
-     <a href="#Method" title="https://w3id.org/wedowind/ontology#Method">Computational Method</a> <sup class="type-c" title="class">c</sup>
+     <a href="#ComputationalMethod" title="https://w3id.org/wedowind/ontology#ComputationalMethod">Computational Method</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isImplementedIn" title="https://w3id.org/wedowind/ontology#isImplementedIn">is implemented in</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="includesChallenge">
+  <h3>includes challenge<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#includesChallenge</p>
+  <div class="comment">
+   <span class="markdown">Links a training pathway to a challenge that serves as practical assessment.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#TrainingPathway" title="https://w3id.org/wedowind/ontology#TrainingPathway">Training Pathway</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Challenge" title="https://w3id.org/wedowind/ontology#Challenge">Challenge</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="includesTutorial">
+  <h3>includes tutorial<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#includesTutorial</p>
+  <div class="comment">
+   <span class="markdown">Links a training pathway to a tutorial that is part of the curriculum.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#TrainingPathway" title="https://w3id.org/wedowind/ontology#TrainingPathway">Training Pathway</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Tutorial" title="https://w3id.org/wedowind/ontology#Tutorial">Tutorial</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isImplementedIn">
+  <h3>is implemented in<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#isImplementedIn</p>
+  <div class="comment">
+   <span class="markdown">Inverse property linking a method to submissions that use it.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ComputationalMethod" title="https://w3id.org/wedowind/ontology#ComputationalMethod">Computational Method</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Submission" title="https://w3id.org/wedowind/ontology#Submission">Submission</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#implementsMethod" title="https://w3id.org/wedowind/ontology#implementsMethod">implements method</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isPrerequisiteFor">
+  <h3>is prerequisite for<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#isPrerequisiteFor</p>
+  <div class="comment">
+   <span class="markdown">Indicates that one tutorial must be completed before another.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Tutorial" title="https://w3id.org/wedowind/ontology#Tutorial">Tutorial</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Tutorial" title="https://w3id.org/wedowind/ontology#Tutorial">Tutorial</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isTaskOf">
+  <h3>is task of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#isTaskOf</p>
+  <div class="comment">
+   <span class="markdown">Inverse property linking a task back to its parent challenge.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ChallengeTask" title="https://w3id.org/wedowind/ontology#ChallengeTask">Challenge Task</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Challenge" title="https://w3id.org/wedowind/ontology#Challenge">Challenge</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasTask" title="https://w3id.org/wedowind/ontology#hasTask">has task</a> <sup class="type-op" title="object property">op</sup>
     </dd>
    </dl>
   </div>
@@ -301,6 +955,9 @@ This section provides details for each class and property defined by WeDoWind On
  <div class="entity" id="locatedAt">
   <h3>located at<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#locatedAt</p>
+  <div class="comment">
+   <span class="markdown">Links a turbine to the wind farm where it is installed.</span>
+  </div>
   <div class="description">
    <dl>
     <dt>
@@ -321,14 +978,11 @@ This section provides details for each class and property defined by WeDoWind On
  <div class="entity" id="organizedBy">
   <h3>organized by<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#organizedBy</p>
+  <div class="comment">
+   <span class="markdown">The organization responsible for hosting and managing a challenge.</span>
+  </div>
   <div class="description">
    <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/ns/prov#wasAssociatedWith" target="_blank" title="http://www.w3.org/ns/prov#wasAssociatedWith">was Associated With</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
     <dt>
      has domain
     </dt>
@@ -339,7 +993,7 @@ This section provides details for each class and property defined by WeDoWind On
      has range
     </dt>
     <dd>
-     <a href="#Organization" title="https://w3id.org/wedowind/ontology#Organization">Organization</a> <sup class="type-c" title="class">c</sup>
+     <a href="https://schema.org/Organization" target="_blank" title="https://schema.org/Organization">Organization</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>
@@ -347,14 +1001,11 @@ This section provides details for each class and property defined by WeDoWind On
  <div class="entity" id="participatedBy">
   <h3>participated by<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#participatedBy</p>
+  <div class="comment">
+   <span class="markdown">Persons or organizations that participated in a challenge.</span>
+  </div>
   <div class="description">
    <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/ns/prov#wasAssociatedWith" target="_blank" title="http://www.w3.org/ns/prov#wasAssociatedWith">was Associated With</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
     <dt>
      has domain
     </dt>
@@ -365,48 +1016,163 @@ This section provides details for each class and property defined by WeDoWind On
      has range
     </dt>
     <dd>
-     <a href="http://xmlns.com/foaf/0.1/Person" target="_blank" title="http://xmlns.com/foaf/0.1/Person">Person</a> <sup class="type-c" title="class">c</sup>
+     <a href="https://schema.org/Organization" target="_blank" title="https://schema.org/Organization">Organization</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="https://schema.org/Person" target="_blank" title="https://schema.org/Person">Person</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>
  </div>
- <div class="entity" id="providedBy">
-  <h3>provided by<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#providedBy</p>
+ <div class="entity" id="rankedIn">
+  <h3>ranked in challenge<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#rankedIn</p>
+  <div class="comment">
+   <span class="markdown">Links a leaderboard entry to the challenge in which the ranking is defined.</span>
+  </div>
   <div class="description">
    <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="http://purl.org/dc/terms/publisher" target="_blank" title="http://purl.org/dc/terms/publisher">publisher</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
     <dt>
      has domain
     </dt>
     <dd>
-     <a href="http://www.w3.org/ns/dcat#Dataset" target="_blank" title="http://www.w3.org/ns/dcat#Dataset">Dataset</a> <sup class="type-c" title="class">c</sup>
+     <a href="#LeaderboardEntry" title="https://w3id.org/wedowind/ontology#LeaderboardEntry">Leaderboard Entry</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
     </dt>
     <dd>
-     <a href="#Organization" title="https://w3id.org/wedowind/ontology#Organization">Organization</a> <sup class="type-c" title="class">c</sup>
+     <a href="#Challenge" title="https://w3id.org/wedowind/ontology#Challenge">Challenge</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>
  </div>
- <div class="entity" id="submittedBy">
-  <h3>submitted by<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#submittedBy</p>
+ <div class="entity" id="reference">
+  <h3>reference<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#reference</p>
+  <div class="comment">
+   <span class="markdown">Links a creative work to a reference describing its relationship to another resource.</span>
+  </div>
   <div class="description">
    <dl>
     <dt>
      has super-properties
     </dt>
     <dd>
-     <a href="http://www.w3.org/ns/prov#wasAttributedTo" target="_blank" title="http://www.w3.org/ns/prov#wasAttributedTo">was Attributed To</a> <sup class="type-op" title="object property">op</sup>
+     <a href="http://www.w3.org/ns/prov#wasDerivedFrom" target="_blank" title="http://www.w3.org/ns/prov#wasDerivedFrom">was Derived From</a> <sup class="type-op" title="object property">op</sup>
     </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://schema.org/CreativeWork" target="_blank" title="https://schema.org/CreativeWork">Creative Work</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Reference" title="https://w3id.org/wedowind/ontology#Reference">Reference</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="referenceMetadata">
+  <h3>reference metadata<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#referenceMetadata</p>
+  <div class="comment">
+   <span class="markdown">Links a reference to its associated provenance metadata.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Reference" title="https://w3id.org/wedowind/ontology#Reference">Reference</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#ReferenceMetadata" title="https://w3id.org/wedowind/ontology#ReferenceMetadata">Reference Metadata</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="relatedDataset">
+  <h3>related dataset<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#relatedDataset</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://schema.org/CreativeWork" target="_blank" title="https://schema.org/CreativeWork">Creative Work</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is also defined as
+    </dt>
+    <dd>
+     <a href="#relatedDataset">data property</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="relatedPublication">
+  <h3>related publication<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#relatedPublication</p>
+  <div class="comment">
+   <span class="markdown">Links a resource to scholarly articles describing or using it.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://schema.org/CreativeWork" target="_blank" title="https://schema.org/CreativeWork">Creative Work</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://schema.org/ScholarlyArticle" target="_blank" title="https://schema.org/ScholarlyArticle">Scholarly Article</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="relatedVariable">
+  <h3>related variable<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#relatedVariable</p>
+  <div class="comment">
+   <span class="markdown">Links a resource to variables it uses or describes.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://schema.org/CreativeWork" target="_blank" title="https://schema.org/CreativeWork">Creative Work</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Variable" title="https://w3id.org/wedowind/ontology#Variable">Variable</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="solvesTask">
+  <h3>solves task<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#solvesTask</p>
+  <div class="comment">
+   <span class="markdown">Links a submission to the specific challenge task it addresses.</span>
+  </div>
+  <div class="description">
+   <dl>
     <dt>
      has domain
     </dt>
@@ -417,27 +1183,125 @@ This section provides details for each class and property defined by WeDoWind On
      has range
     </dt>
     <dd>
-     <a href="http://xmlns.com/foaf/0.1/Person" target="_blank" title="http://xmlns.com/foaf/0.1/Person">Person</a> <sup class="type-c" title="class">c</sup>
+     <a href="#ChallengeTask" title="https://w3id.org/wedowind/ontology#ChallengeTask">Challenge Task</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>
  </div>
- <div class="entity" id="usesDataset">
-  <h3>uses dataset<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#usesDataset</p>
+ <div class="entity" id="submittedBy">
+  <h3>submitted by<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#submittedBy</p>
+  <div class="comment">
+   <span class="markdown">The person or organization responsible for a submission.</span>
+  </div>
   <div class="description">
    <dl>
     <dt>
      has domain
     </dt>
     <dd>
-     <a href="#Task" title="https://w3id.org/wedowind/ontology#Task">Challenge Task</a> <sup class="type-c" title="class">c</sup>
+     <a href="#Submission" title="https://w3id.org/wedowind/ontology#Submission">Submission</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
     </dt>
     <dd>
-     <a href="http://www.w3.org/ns/dcat#Dataset" target="_blank" title="http://www.w3.org/ns/dcat#Dataset">Dataset</a> <sup class="type-c" title="class">c</sup>
+     <a href="https://schema.org/Organization" target="_blank" title="https://schema.org/Organization">Organization</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="https://schema.org/Person" target="_blank" title="https://schema.org/Person">Person</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasSubmission" title="https://w3id.org/wedowind/ontology#hasSubmission">has submission</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="targetsCompetency">
+  <h3>targets competency<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#targetsCompetency</p>
+  <div class="comment">
+   <span class="markdown">Indicates the competency a tutorial aims to teach or develop.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Tutorial" title="https://w3id.org/wedowind/ontology#Tutorial">Tutorial</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Competency" title="https://w3id.org/wedowind/ontology#Competency">Competency</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="usedIn">
+  <h3>used in<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#usedIn</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#SurveyInstrument" title="https://w3id.org/wedowind/ontology#SurveyInstrument">Survey Instrument</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is also defined as
+    </dt>
+    <dd>
+     <a href="#usedIn">data property</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="usesDatasetForSubmission">
+  <h3>uses dataset for submission<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#usesDatasetForSubmission</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Submission" title="https://w3id.org/wedowind/ontology#Submission">Submission</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is also defined as
+    </dt>
+    <dd>
+     <a href="#usesDatasetForSubmission">data property</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="usesDatasetForTask">
+  <h3>uses dataset for task<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#usesDatasetForTask</p>
+  <div class="comment">
+   <span class="markdown">Links a challenge task to the dataset officially provided for that task.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ChallengeTask" title="https://w3id.org/wedowind/ontology#ChallengeTask">Challenge Task</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://schema.org/Dataset" target="_blank" title="https://schema.org/Dataset">Dataset</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>
@@ -445,13 +1309,16 @@ This section provides details for each class and property defined by WeDoWind On
  <div class="entity" id="usesTurbine">
   <h3>uses turbine<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#usesTurbine</p>
+  <div class="comment">
+   <span class="markdown">Links a challenge task to specific turbine instances or types used in the task.</span>
+  </div>
   <div class="description">
    <dl>
     <dt>
      has domain
     </dt>
     <dd>
-     <a href="#Task" title="https://w3id.org/wedowind/ontology#Task">Challenge Task</a> <sup class="type-c" title="class">c</sup>
+     <a href="#ChallengeTask" title="https://w3id.org/wedowind/ontology#ChallengeTask">Challenge Task</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
@@ -465,22 +1332,51 @@ This section provides details for each class and property defined by WeDoWind On
 </div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
  <h3 id="dataproperties-headline" class="list">Data Properties</h3>
  <ul class="hlist">
+  <li><a href="#analysisUnit" title="https://w3id.org/wedowind/ontology#analysisUnit">analysis unit</a></li>
+  <li><a href="#collectionDate" title="https://w3id.org/wedowind/ontology#collectionDate">collection date</a></li>
   <li><a href="#dataResolution" title="https://w3id.org/wedowind/ontology#dataResolution">data resolution</a></li>
+  <li><a href="#difficultyLevel" title="https://w3id.org/wedowind/ontology#difficultyLevel">difficulty level</a></li>
+  <li><a href="#doi" title="https://w3id.org/wedowind/ontology#doi">DOI</a></li>
+  <li><a href="#downloadURL" title="https://w3id.org/wedowind/ontology#downloadURL">download URL</a></li>
   <li><a href="#endDate" title="https://w3id.org/wedowind/ontology#endDate">end date</a></li>
+  <li><a href="#estimatedTime" title="https://w3id.org/wedowind/ontology#estimatedTime">estimated time</a></li>
+  <li><a href="#hasModelArtifact" title="https://w3id.org/wedowind/ontology#hasModelArtifact">has model artifact</a></li>
+  <li><a href="#hasRepository" title="https://w3id.org/wedowind/ontology#hasRepository">has repository</a></li>
+  <li><a href="#license" title="https://w3id.org/wedowind/ontology#license">license</a></li>
+  <li><a href="#linkContext" title="https://w3id.org/wedowind/ontology#linkContext">link context</a></li>
+  <li><a href="#linkScore" title="https://w3id.org/wedowind/ontology#linkScore">link score</a></li>
+  <li><a href="#linkSource" title="https://w3id.org/wedowind/ontology#linkSource">link source</a></li>
+  <li><a href="#linkingMethod" title="https://w3id.org/wedowind/ontology#linkingMethod">linking method</a></li>
+  <li><a href="#methodType" title="https://w3id.org/wedowind/ontology#methodType">method type</a></li>
+  <li><a href="#metricValue" title="https://w3id.org/wedowind/ontology#metricValue">metric value</a></li>
+  <li><a href="#observationTimestamp" title="https://w3id.org/wedowind/ontology#observationTimestamp">observation timestamp</a></li>
+  <li><a href="#orcid" title="https://w3id.org/wedowind/ontology#orcid">ORCID</a></li>
+  <li><a href="#portalURL" title="https://w3id.org/wedowind/ontology#portalURL">portal URL</a></li>
+  <li><a href="#rank" title="https://w3id.org/wedowind/ontology#rank">rank</a></li>
+  <li><a href="#relatedDataset" title="https://w3id.org/wedowind/ontology#relatedDataset"> <span>related dataset</span> </a></li>
   <li><a href="#score" title="https://w3id.org/wedowind/ontology#score">score</a></li>
   <li><a href="#startDate" title="https://w3id.org/wedowind/ontology#startDate">start date</a></li>
+  <li><a href="#studyNumber" title="https://w3id.org/wedowind/ontology#studyNumber">study number</a></li>
   <li><a href="#turbineCount" title="https://w3id.org/wedowind/ontology#turbineCount">turbine count</a></li>
+  <li><a href="#usedIn" title="https://w3id.org/wedowind/ontology#usedIn"> <span>used in</span> </a></li>
+  <li><a href="#usesDatasetForSubmission" title="https://w3id.org/wedowind/ontology#usesDatasetForSubmission"> <span>uses dataset for submission</span> </a></li>
+  <li><a href="#variableLabel" title="https://w3id.org/wedowind/ontology#variableLabel">variable label</a></li>
+  <li><a href="#variableName" title="https://w3id.org/wedowind/ontology#variableName">variable name</a></li>
+  <li><a href="#variableType" title="https://w3id.org/wedowind/ontology#variableType">variable type</a></li>
  </ul>
- <div class="entity" id="dataResolution">
-  <h3>data resolution<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#dataResolution</p>
+ <div class="entity" id="analysisUnit">
+  <h3>analysis unit<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#analysisUnit</p>
+  <div class="comment">
+   <span class="markdown">Unit: individual, household, turbine, farm, blade, component.</span>
+  </div>
   <div class="description">
    <dl>
     <dt>
      has domain
     </dt>
     <dd>
-     <a href="http://www.w3.org/ns/dcat#Dataset" target="_blank" title="http://www.w3.org/ns/dcat#Dataset">Dataset</a> <sup class="type-c" title="class">c</sup>
+     <a href="https://schema.org/Dataset" target="_blank" title="https://schema.org/Dataset">Dataset</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
@@ -491,9 +1387,121 @@ This section provides details for each class and property defined by WeDoWind On
    </dl>
   </div>
  </div>
+ <div class="entity" id="collectionDate">
+  <h3>collection date<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#collectionDate</p>
+  <div class="comment">
+   <span class="markdown">Date when a survey response was collected.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#SurveyVariable" title="https://w3id.org/wedowind/ontology#SurveyVariable">Survey Variable</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="dataResolution">
+  <h3>data resolution<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#dataResolution</p>
+  <div class="comment">
+   <span class="markdown">Temporal resolution of time-series data (e.g., 1Hz, 10min, 1day).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://schema.org/Dataset" target="_blank" title="https://schema.org/Dataset">Dataset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="difficultyLevel">
+  <h3>difficulty level<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#difficultyLevel</p>
+  <div class="comment">
+   <span class="markdown">Difficulty classification: beginner, intermediate, or advanced.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Tutorial" title="https://w3id.org/wedowind/ontology#Tutorial">Tutorial</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="doi">
+  <h3>DOI<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#doi</p>
+  <div class="comment">
+   <span class="markdown">Digital Object Identifier.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://schema.org/identifier" target="_blank" title="https://schema.org/identifier">identifier</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="downloadURL">
+  <h3>download URL<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#downloadURL</p>
+  <div class="comment">
+   <span class="markdown">Direct URL for downloading a dataset.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://schema.org/Dataset" target="_blank" title="https://schema.org/Dataset">Dataset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="endDate">
   <h3>end date<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#endDate</p>
+  <div class="comment">
+   <span class="markdown">End date of a challenge.</span>
+  </div>
   <div class="description">
    <dl>
     <dt>
@@ -511,9 +1519,354 @@ This section provides details for each class and property defined by WeDoWind On
    </dl>
   </div>
  </div>
+ <div class="entity" id="estimatedTime">
+  <h3>estimated time<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#estimatedTime</p>
+  <div class="comment">
+   <span class="markdown">Estimated duration to complete a tutorial (ISO 8601 format).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Tutorial" title="https://w3id.org/wedowind/ontology#Tutorial">Tutorial</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#duration" target="_blank" title="http://www.w3.org/2001/XMLSchema#duration">duration</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasModelArtifact">
+  <h3>has model artifact<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#hasModelArtifact</p>
+  <div class="comment">
+   <span class="markdown">URL to trained model files or serialized artifacts.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Submission" title="https://w3id.org/wedowind/ontology#Submission">Submission</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasRepository">
+  <h3>has repository<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#hasRepository</p>
+  <div class="comment">
+   <span class="markdown">URL of source code repository (e.g., GitHub, GitLab).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Submission" title="https://w3id.org/wedowind/ontology#Submission">Submission</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="license">
+  <h3>license<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#license</p>
+  <div class="comment">
+   <span class="markdown">URI pointing to license terms.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://schema.org/Dataset" target="_blank" title="https://schema.org/Dataset">Dataset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="linkContext">
+  <h3>link context<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#linkContext</p>
+  <div class="comment">
+   <span class="markdown">Text snippet explaining the reference context.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ReferenceMetadata" title="https://w3id.org/wedowind/ontology#ReferenceMetadata">Reference Metadata</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="linkScore">
+  <h3>link score<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#linkScore</p>
+  <div class="comment">
+   <span class="markdown">Confidence score for automatically generated references (0.0 to 1.0).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ReferenceMetadata" title="https://w3id.org/wedowind/ontology#ReferenceMetadata">Reference Metadata</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#float" target="_blank" title="http://www.w3.org/2001/XMLSchema#float">float</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="linkSource">
+  <h3>link source<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#linkSource</p>
+  <div class="comment">
+   <span class="markdown">Pipeline or tool that generated the reference.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ReferenceMetadata" title="https://w3id.org/wedowind/ontology#ReferenceMetadata">Reference Metadata</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="linkingMethod">
+  <h3>linking method<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#linkingMethod</p>
+  <div class="comment">
+   <span class="markdown">Method used: manual, automatic, or search-based.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ReferenceMetadata" title="https://w3id.org/wedowind/ontology#ReferenceMetadata">Reference Metadata</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="methodType">
+  <h3>method type<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#methodType</p>
+  <div class="comment">
+   <span class="markdown">Category of computational method (deprecated: use hasMethodType with MethodType class instead).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ComputationalMethod" title="https://w3id.org/wedowind/ontology#ComputationalMethod">Computational Method</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="metricValue">
+  <h3>metric value<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#metricValue</p>
+  <div class="comment">
+   <span class="markdown">The actual numerical value of a metric for a leaderboard entry.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#LeaderboardEntry" title="https://w3id.org/wedowind/ontology#LeaderboardEntry">Leaderboard Entry</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#float" target="_blank" title="http://www.w3.org/2001/XMLSchema#float">float</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="observationTimestamp">
+  <h3>observation timestamp<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#observationTimestamp</p>
+  <div class="comment">
+   <span class="markdown">Timestamp of a sensor measurement.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#SensorVariable" title="https://w3id.org/wedowind/ontology#SensorVariable">Sensor Variable</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#dateTime" target="_blank" title="http://www.w3.org/2001/XMLSchema#dateTime">date Time</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="orcid">
+  <h3>ORCID<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#orcid</p>
+  <div class="comment">
+   <span class="markdown">Open Researcher and Contributor ID.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://schema.org/identifier" target="_blank" title="https://schema.org/identifier">identifier</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://schema.org/Person" target="_blank" title="https://schema.org/Person">Person</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="portalURL">
+  <h3>portal URL<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#portalURL</p>
+  <div class="comment">
+   <span class="markdown">URL of the resource in its native web portal.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://schema.org/CreativeWork" target="_blank" title="https://schema.org/CreativeWork">Creative Work</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="rank">
+  <h3>rank<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#rank</p>
+  <div class="comment">
+   <span class="markdown">Rank position on a leaderboard (1 = highest).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#LeaderboardEntry" title="https://w3id.org/wedowind/ontology#LeaderboardEntry">Leaderboard Entry</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="relatedDataset">
+  <h3>related dataset<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#relatedDataset</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://schema.org/Dataset" target="_blank" title="https://schema.org/Dataset">Dataset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is also defined as
+    </dt>
+    <dd>
+     <a href="#relatedDataset">object property</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="score">
   <h3>score<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#score</p>
+  <div class="comment">
+   <span class="markdown">Numerical score achieved by a submission on a specific metric.</span>
+  </div>
   <div class="description">
    <dl>
     <dt>
@@ -534,6 +1887,9 @@ This section provides details for each class and property defined by WeDoWind On
  <div class="entity" id="startDate">
   <h3>start date<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#startDate</p>
+  <div class="comment">
+   <span class="markdown">Start date of a challenge.</span>
+  </div>
   <div class="description">
    <dl>
     <dt>
@@ -551,9 +1907,29 @@ This section provides details for each class and property defined by WeDoWind On
    </dl>
   </div>
  </div>
+ <div class="entity" id="studyNumber">
+  <h3>study number<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#studyNumber</p>
+  <div class="comment">
+   <span class="markdown">Internal study or project number.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://schema.org/identifier" target="_blank" title="https://schema.org/identifier">identifier</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="turbineCount">
   <h3>turbine count<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#turbineCount</p>
+  <div class="comment">
+   <span class="markdown">Number of turbines in a wind farm.</span>
+  </div>
   <div class="description">
    <dl>
     <dt>
@@ -571,29 +1947,123 @@ This section provides details for each class and property defined by WeDoWind On
    </dl>
   </div>
  </div>
+ <div class="entity" id="usedIn">
+  <h3>used in<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#usedIn</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://schema.org/Dataset" target="_blank" title="https://schema.org/Dataset">Dataset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is also defined as
+    </dt>
+    <dd>
+     <a href="#usedIn">object property</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="usesDatasetForSubmission">
+  <h3>uses dataset for submission<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#usesDatasetForSubmission</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://schema.org/Dataset" target="_blank" title="https://schema.org/Dataset">Dataset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is also defined as
+    </dt>
+    <dd>
+     <a href="#usesDatasetForSubmission">object property</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="variableLabel">
+  <h3>variable label<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#variableLabel</p>
+  <div class="comment">
+   <span class="markdown">Human-readable description of a variable.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Variable" title="https://w3id.org/wedowind/ontology#Variable">Variable</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="variableName">
+  <h3>variable name<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#variableName</p>
+  <div class="comment">
+   <span class="markdown">Short name or code for a variable.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Variable" title="https://w3id.org/wedowind/ontology#Variable">Variable</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="variableType">
+  <h3>variable type<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wedowind/ontology#variableType</p>
+  <div class="comment">
+   <span class="markdown">Type: cross-sectional, panel, time-series, sensor, categorical, continuous.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Variable" title="https://w3id.org/wedowind/ontology#Variable">Variable</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
 </div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="annotationproperties">
  <h3 id="annotationproperties" class="list">Annotation Properties</h3>
  <ul class="hlist">
-  <li><a href="#http://purl.org/dc/terms/created" title="http://purl.org/dc/terms/created"> <span>created</span> </a></li>
   <li><a href="#http://purl.org/dc/terms/creator" title="http://purl.org/dc/terms/creator"> <span>creator</span> </a></li>
-  <li><a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description"> <span>description</span> </a></li>
-  <li><a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title"> <span>title</span> </a></li>
  </ul>
- <div class="entity" id="http://purl.org/dc/terms/created">
-  <h3>created<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://purl.org/dc/terms/created</p>
- </div>
  <div class="entity" id="http://purl.org/dc/terms/creator">
   <h3>creator<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://purl.org/dc/terms/creator</p>
- </div>
- <div class="entity" id="http://purl.org/dc/terms/description">
-  <h3>description<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://purl.org/dc/terms/description</p>
- </div>
- <div class="entity" id="http://purl.org/dc/terms/title">
-  <h3>title<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://purl.org/dc/terms/title</p>
  </div>
 </div><div id="legend">
 <h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>

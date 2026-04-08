@@ -7,12 +7,11 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:terms="http://purl.org/dc/terms/">
-    <owl:Ontology rdf:about="https://w3id.org/wedowind/ontology">
-        <owl:versionIRI rdf:resource="https://w3id.org/wedowind/ontology/1.0"/>
-        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-04-07</terms:created>
+    <owl:Ontology rdf:about="https://w3id.org/wedowind/ontology#">
         <terms:creator>Daniel Kwakye</terms:creator>
-        <terms:description>Ontology for modeling wind energy benchmarking challenges, tasks, submissions, and evaluation workflows.</terms:description>
-        <terms:title>WeDoWind Ontology</terms:title>
+        <rdfs:comment xml:lang="en">Ontology for wind energy benchmarking challenges, training, and interdisciplinary research. Extends schema.org, DDI lifecycle, SKOS, and PROV-O.</rdfs:comment>
+        <rdfs:label xml:lang="en">WeDoWind Ontology</rdfs:label>
+        <owl:versionInfo>2.0</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -29,31 +28,10 @@
     
 
 
-    <!-- http://purl.org/dc/terms/created -->
-
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
-    
-
-
     <!-- http://purl.org/dc/terms/creator -->
 
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/description -->
-
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/title -->
-
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
     
 
 
@@ -76,6 +54,13 @@
     
 
 
+    <!-- http://www.w3.org/2001/XMLSchema#duration -->
+
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#duration"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -88,24 +73,34 @@
     
 
 
-    <!-- http://purl.org/dc/terms/publisher -->
+    <!-- http://www.w3.org/ns/prov#wasDerivedFrom -->
 
 
-    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/publisher"/>
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasDerivedFrom"/>
     
 
 
-    <!-- http://www.w3.org/ns/prov#wasAssociatedWith -->
+    <!-- https://w3id.org/wedowind/ontology#addressesCompetency -->
 
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#addressesCompetency">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#ChallengeTask"/>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#Competency"/>
+        <rdfs:comment xml:lang="en">Links a challenge task to the skill area it develops or assesses.</rdfs:comment>
+        <rdfs:label xml:lang="en">addresses competency</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/ns/prov#wasAttributedTo -->
+    <!-- https://w3id.org/wedowind/ontology#constructs -->
 
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasAttributedTo"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#constructs">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#SurveyInstrument"/>
+        <rdfs:range rdf:resource="https://schema.org/DefinedTerm"/>
+        <rdfs:comment xml:lang="en">Theoretical constructs measured by a survey instrument.</rdfs:comment>
+        <rdfs:label xml:lang="en">constructs</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
@@ -113,20 +108,46 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#detectsFailureMode">
-        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Task"/>
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#ChallengeTask"/>
         <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#FailureMode"/>
-        <rdfs:label>detects failure mode</rdfs:label>
+        <rdfs:comment xml:lang="en">Specifies the type of turbine failure a task aims to detect or predict.</rdfs:comment>
+        <rdfs:label xml:lang="en">detects failure mode</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/wedowind/ontology#evaluatedBy -->
+    <!-- https://w3id.org/wedowind/ontology#entrySubmission -->
 
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#evaluatedBy">
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#entrySubmission">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#LeaderboardEntry"/>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#Submission"/>
+        <rdfs:comment xml:lang="en">Links a leaderboard entry to the submission it represents.</rdfs:comment>
+        <rdfs:label xml:lang="en">entry submission</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#evaluatedByMetric -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#evaluatedByMetric">
         <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Submission"/>
         <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#EvaluationMetric"/>
-        <rdfs:label>evaluated by metric</rdfs:label>
+        <rdfs:comment xml:lang="en">Links a submission to the metrics used for its evaluation.</rdfs:comment>
+        <rdfs:label xml:lang="en">evaluated by metric</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#evaluatedWith -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#evaluatedWith">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#LeaderboardEntry"/>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#EvaluationMetric"/>
+        <rdfs:comment xml:lang="en">Specifies which evaluation metric a leaderboard entry value corresponds to.</rdfs:comment>
+        <rdfs:label xml:lang="en">evaluated with metric</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -137,7 +158,44 @@
     <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#hasLeaderboardEntry">
         <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Challenge"/>
         <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#LeaderboardEntry"/>
-        <rdfs:label>has leaderboard entry</rdfs:label>
+        <rdfs:comment xml:lang="en">Links a challenge to entries on its leaderboard.</rdfs:comment>
+        <rdfs:label xml:lang="en">has leaderboard entry</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#hasMethodType -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#hasMethodType">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#ComputationalMethod"/>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#MethodType"/>
+        <rdfs:comment xml:lang="en">Links a computational method to a controlled vocabulary term describing its methodological category.</rdfs:comment>
+        <rdfs:label xml:lang="en">has method type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#hasSoftwareSourceCode -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#hasSoftwareSourceCode">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Tutorial"/>
+        <rdfs:range rdf:resource="https://schema.org/SoftwareSourceCode"/>
+        <rdfs:comment xml:lang="en">Links a tutorial to accompanying code repository.</rdfs:comment>
+        <rdfs:label xml:lang="en">has software source code</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#hasSubmission -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#hasSubmission">
+        <rdfs:domain rdf:resource="https://schema.org/Agent"/>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#Submission"/>
+        <rdfs:comment xml:lang="en">Inverse property linking a person or organization (agent) to their submissions.</rdfs:comment>
+        <rdfs:label xml:lang="en">has submission</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -146,9 +204,23 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#hasTask">
+        <owl:inverseOf rdf:resource="https://w3id.org/wedowind/ontology#isTaskOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Challenge"/>
-        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#Task"/>
-        <rdfs:label>has task</rdfs:label>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#ChallengeTask"/>
+        <rdfs:comment xml:lang="en">Links a challenge to its constituent tasks.</rdfs:comment>
+        <rdfs:label xml:lang="en">has task</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#hasTutorial -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#hasTutorial">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#ChallengeTask"/>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#Tutorial"/>
+        <rdfs:comment xml:lang="en">Links a challenge task to recommended training materials.</rdfs:comment>
+        <rdfs:label xml:lang="en">has tutorial</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -157,9 +229,71 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#implementsMethod">
+        <owl:inverseOf rdf:resource="https://w3id.org/wedowind/ontology#isImplementedIn"/>
         <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Submission"/>
-        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#Method"/>
-        <rdfs:label>implements method</rdfs:label>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#ComputationalMethod"/>
+        <rdfs:comment xml:lang="en">Links a submission to the computational method it implements.</rdfs:comment>
+        <rdfs:label xml:lang="en">implements method</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#includesChallenge -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#includesChallenge">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#TrainingPathway"/>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#Challenge"/>
+        <rdfs:comment xml:lang="en">Links a training pathway to a challenge that serves as practical assessment.</rdfs:comment>
+        <rdfs:label xml:lang="en">includes challenge</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#includesTutorial -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#includesTutorial">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#TrainingPathway"/>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#Tutorial"/>
+        <rdfs:comment xml:lang="en">Links a training pathway to a tutorial that is part of the curriculum.</rdfs:comment>
+        <rdfs:label xml:lang="en">includes tutorial</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#isImplementedIn -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#isImplementedIn">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#ComputationalMethod"/>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#Submission"/>
+        <rdfs:comment xml:lang="en">Inverse property linking a method to submissions that use it.</rdfs:comment>
+        <rdfs:label xml:lang="en">is implemented in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#isPrerequisiteFor -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#isPrerequisiteFor">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Tutorial"/>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#Tutorial"/>
+        <rdfs:comment xml:lang="en">Indicates that one tutorial must be completed before another.</rdfs:comment>
+        <rdfs:label xml:lang="en">is prerequisite for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#isTaskOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#isTaskOf">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#ChallengeTask"/>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#Challenge"/>
+        <rdfs:comment xml:lang="en">Inverse property linking a task back to its parent challenge.</rdfs:comment>
+        <rdfs:label xml:lang="en">is task of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -170,7 +304,8 @@
     <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#locatedAt">
         <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#WindTurbine"/>
         <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#WindFarm"/>
-        <rdfs:label>located at</rdfs:label>
+        <rdfs:comment xml:lang="en">Links a turbine to the wind farm where it is installed.</rdfs:comment>
+        <rdfs:label xml:lang="en">located at</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -179,10 +314,10 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#organizedBy">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Challenge"/>
-        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#Organization"/>
-        <rdfs:label>organized by</rdfs:label>
+        <rdfs:range rdf:resource="https://schema.org/Organization"/>
+        <rdfs:comment xml:lang="en">The organization responsible for hosting and managing a challenge.</rdfs:comment>
+        <rdfs:label xml:lang="en">organized by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -191,22 +326,93 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#participatedBy">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Challenge"/>
-        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <rdfs:label>participated by</rdfs:label>
+        <rdfs:range rdf:resource="https://schema.org/Organization"/>
+        <rdfs:range rdf:resource="https://schema.org/Person"/>
+        <rdfs:comment xml:lang="en">Persons or organizations that participated in a challenge.</rdfs:comment>
+        <rdfs:label xml:lang="en">participated by</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/wedowind/ontology#providedBy -->
+    <!-- https://w3id.org/wedowind/ontology#rankedIn -->
 
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#providedBy">
-        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/publisher"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
-        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#Organization"/>
-        <rdfs:label>provided by</rdfs:label>
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#rankedIn">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#LeaderboardEntry"/>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#Challenge"/>
+        <rdfs:comment xml:lang="en">Links a leaderboard entry to the challenge in which the ranking is defined.</rdfs:comment>
+        <rdfs:label xml:lang="en">ranked in challenge</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#reference -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#reference">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom"/>
+        <rdfs:domain rdf:resource="https://schema.org/CreativeWork"/>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#Reference"/>
+        <rdfs:comment xml:lang="en">Links a creative work to a reference describing its relationship to another resource.</rdfs:comment>
+        <rdfs:label xml:lang="en">reference</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#referenceMetadata -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#referenceMetadata">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Reference"/>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#ReferenceMetadata"/>
+        <rdfs:comment xml:lang="en">Links a reference to its associated provenance metadata.</rdfs:comment>
+        <rdfs:label xml:lang="en">reference metadata</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#relatedDataset -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#relatedDataset">
+        <rdfs:domain rdf:resource="https://schema.org/CreativeWork"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#relatedPublication -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#relatedPublication">
+        <rdfs:domain rdf:resource="https://schema.org/CreativeWork"/>
+        <rdfs:range rdf:resource="https://schema.org/ScholarlyArticle"/>
+        <rdfs:comment xml:lang="en">Links a resource to scholarly articles describing or using it.</rdfs:comment>
+        <rdfs:label xml:lang="en">related publication</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#relatedVariable -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#relatedVariable">
+        <rdfs:domain rdf:resource="https://schema.org/CreativeWork"/>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#Variable"/>
+        <rdfs:comment xml:lang="en">Links a resource to variables it uses or describes.</rdfs:comment>
+        <rdfs:label xml:lang="en">related variable</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#solvesTask -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#solvesTask">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Submission"/>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#ChallengeTask"/>
+        <rdfs:comment xml:lang="en">Links a submission to the specific challenge task it addresses.</rdfs:comment>
+        <rdfs:label xml:lang="en">solves task</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -215,21 +421,54 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#submittedBy">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/wedowind/ontology#hasSubmission"/>
         <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Submission"/>
-        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <rdfs:label>submitted by</rdfs:label>
+        <rdfs:range rdf:resource="https://schema.org/Organization"/>
+        <rdfs:range rdf:resource="https://schema.org/Person"/>
+        <rdfs:comment xml:lang="en">The person or organization responsible for a submission.</rdfs:comment>
+        <rdfs:label xml:lang="en">submitted by</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/wedowind/ontology#usesDataset -->
+    <!-- https://w3id.org/wedowind/ontology#targetsCompetency -->
 
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#usesDataset">
-        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Task"/>
-        <rdfs:range rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
-        <rdfs:label>uses dataset</rdfs:label>
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#targetsCompetency">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Tutorial"/>
+        <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#Competency"/>
+        <rdfs:comment xml:lang="en">Indicates the competency a tutorial aims to teach or develop.</rdfs:comment>
+        <rdfs:label xml:lang="en">targets competency</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#usedIn -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#usedIn">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#SurveyInstrument"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#usesDatasetForSubmission -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#usesDatasetForSubmission">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Submission"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#usesDatasetForTask -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#usesDatasetForTask">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#ChallengeTask"/>
+        <rdfs:range rdf:resource="https://schema.org/Dataset"/>
+        <rdfs:comment xml:lang="en">Links a challenge task to the dataset officially provided for that task.</rdfs:comment>
+        <rdfs:label xml:lang="en">uses dataset for task</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -238,9 +477,10 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/wedowind/ontology#usesTurbine">
-        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Task"/>
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#ChallengeTask"/>
         <rdfs:range rdf:resource="https://w3id.org/wedowind/ontology#WindTurbine"/>
-        <rdfs:label>uses turbine</rdfs:label>
+        <rdfs:comment xml:lang="en">Links a challenge task to specific turbine instances or types used in the task.</rdfs:comment>
+        <rdfs:label xml:lang="en">uses turbine</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -257,13 +497,80 @@
     
 
 
+    <!-- https://schema.org/identifier -->
+
+
+    <owl:DatatypeProperty rdf:about="https://schema.org/identifier"/>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#analysisUnit -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#analysisUnit">
+        <rdfs:domain rdf:resource="https://schema.org/Dataset"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Unit: individual, household, turbine, farm, blade, component.</rdfs:comment>
+        <rdfs:label xml:lang="en">analysis unit</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#collectionDate -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#collectionDate">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#SurveyVariable"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment xml:lang="en">Date when a survey response was collected.</rdfs:comment>
+        <rdfs:label xml:lang="en">collection date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://w3id.org/wedowind/ontology#dataResolution -->
 
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#dataResolution">
-        <rdfs:domain rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+        <rdfs:domain rdf:resource="https://schema.org/Dataset"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:label>data resolution</rdfs:label>
+        <rdfs:comment xml:lang="en">Temporal resolution of time-series data (e.g., 1Hz, 10min, 1day).</rdfs:comment>
+        <rdfs:label xml:lang="en">data resolution</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#difficultyLevel -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#difficultyLevel">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Tutorial"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Difficulty classification: beginner, intermediate, or advanced.</rdfs:comment>
+        <rdfs:label xml:lang="en">difficulty level</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#doi -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#doi">
+        <rdfs:subPropertyOf rdf:resource="https://schema.org/identifier"/>
+        <rdfs:comment xml:lang="en">Digital Object Identifier.</rdfs:comment>
+        <rdfs:label xml:lang="en">DOI</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#downloadURL -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#downloadURL">
+        <rdfs:domain rdf:resource="https://schema.org/Dataset"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en">Direct URL for downloading a dataset.</rdfs:comment>
+        <rdfs:label xml:lang="en">download URL</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -274,7 +581,185 @@
     <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#endDate">
         <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Challenge"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-        <rdfs:label>end date</rdfs:label>
+        <rdfs:comment xml:lang="en">End date of a challenge.</rdfs:comment>
+        <rdfs:label xml:lang="en">end date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#estimatedTime -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#estimatedTime">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Tutorial"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+        <rdfs:comment xml:lang="en">Estimated duration to complete a tutorial (ISO 8601 format).</rdfs:comment>
+        <rdfs:label xml:lang="en">estimated time</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#hasModelArtifact -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#hasModelArtifact">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Submission"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en">URL to trained model files or serialized artifacts.</rdfs:comment>
+        <rdfs:label xml:lang="en">has model artifact</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#hasRepository -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#hasRepository">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Submission"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en">URL of source code repository (e.g., GitHub, GitLab).</rdfs:comment>
+        <rdfs:label xml:lang="en">has repository</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#license -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#license">
+        <rdfs:domain rdf:resource="https://schema.org/Dataset"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en">URI pointing to license terms.</rdfs:comment>
+        <rdfs:label xml:lang="en">license</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#linkContext -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#linkContext">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#ReferenceMetadata"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Text snippet explaining the reference context.</rdfs:comment>
+        <rdfs:label xml:lang="en">link context</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#linkScore -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#linkScore">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#ReferenceMetadata"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="en">Confidence score for automatically generated references (0.0 to 1.0).</rdfs:comment>
+        <rdfs:label xml:lang="en">link score</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#linkSource -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#linkSource">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#ReferenceMetadata"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Pipeline or tool that generated the reference.</rdfs:comment>
+        <rdfs:label xml:lang="en">link source</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#linkingMethod -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#linkingMethod">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#ReferenceMetadata"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Method used: manual, automatic, or search-based.</rdfs:comment>
+        <rdfs:label xml:lang="en">linking method</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#methodType -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#methodType">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#ComputationalMethod"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Category of computational method (deprecated: use hasMethodType with MethodType class instead).</rdfs:comment>
+        <rdfs:label xml:lang="en">method type</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#metricValue -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#metricValue">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#LeaderboardEntry"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="en">The actual numerical value of a metric for a leaderboard entry.</rdfs:comment>
+        <rdfs:label xml:lang="en">metric value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#observationTimestamp -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#observationTimestamp">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#SensorVariable"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">Timestamp of a sensor measurement.</rdfs:comment>
+        <rdfs:label xml:lang="en">observation timestamp</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#orcid -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#orcid">
+        <rdfs:subPropertyOf rdf:resource="https://schema.org/identifier"/>
+        <rdfs:domain rdf:resource="https://schema.org/Person"/>
+        <rdfs:comment xml:lang="en">Open Researcher and Contributor ID.</rdfs:comment>
+        <rdfs:label xml:lang="en">ORCID</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#portalURL -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#portalURL">
+        <rdfs:domain rdf:resource="https://schema.org/CreativeWork"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en">URL of the resource in its native web portal.</rdfs:comment>
+        <rdfs:label xml:lang="en">portal URL</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#rank -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#rank">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#LeaderboardEntry"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment xml:lang="en">Rank position on a leaderboard (1 = highest).</rdfs:comment>
+        <rdfs:label xml:lang="en">rank</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#relatedDataset -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#relatedDataset">
+        <rdfs:range rdf:resource="https://schema.org/Dataset"/>
     </owl:DatatypeProperty>
     
 
@@ -285,7 +770,8 @@
     <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#score">
         <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Submission"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-        <rdfs:label>score</rdfs:label>
+        <rdfs:comment xml:lang="en">Numerical score achieved by a submission on a specific metric.</rdfs:comment>
+        <rdfs:label xml:lang="en">score</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -296,7 +782,19 @@
     <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#startDate">
         <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Challenge"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-        <rdfs:label>start date</rdfs:label>
+        <rdfs:comment xml:lang="en">Start date of a challenge.</rdfs:comment>
+        <rdfs:label xml:lang="en">start date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#studyNumber -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#studyNumber">
+        <rdfs:subPropertyOf rdf:resource="https://schema.org/identifier"/>
+        <rdfs:comment xml:lang="en">Internal study or project number.</rdfs:comment>
+        <rdfs:label xml:lang="en">study number</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -307,7 +805,62 @@
     <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#turbineCount">
         <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#WindFarm"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-        <rdfs:label>turbine count</rdfs:label>
+        <rdfs:comment xml:lang="en">Number of turbines in a wind farm.</rdfs:comment>
+        <rdfs:label xml:lang="en">turbine count</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#usedIn -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#usedIn">
+        <rdfs:range rdf:resource="https://schema.org/Dataset"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#usesDatasetForSubmission -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#usesDatasetForSubmission">
+        <rdfs:range rdf:resource="https://schema.org/Dataset"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#variableLabel -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#variableLabel">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Variable"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Human-readable description of a variable.</rdfs:comment>
+        <rdfs:label xml:lang="en">variable label</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#variableName -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#variableName">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Variable"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Short name or code for a variable.</rdfs:comment>
+        <rdfs:label xml:lang="en">variable name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#variableType -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/wedowind/ontology#variableType">
+        <rdfs:domain rdf:resource="https://w3id.org/wedowind/ontology#Variable"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Type: cross-sectional, panel, time-series, sensor, categorical, continuous.</rdfs:comment>
+        <rdfs:label xml:lang="en">variable type</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -324,10 +877,24 @@
     
 
 
-    <!-- http://www.w3.org/ns/dcat#Dataset -->
+    <!-- http://rdf-vocabulary.ddialliance.org/lifecycle#Instrument -->
 
 
-    <owl:Class rdf:about="http://www.w3.org/ns/dcat#Dataset"/>
+    <owl:Class rdf:about="http://rdf-vocabulary.ddialliance.org/lifecycle#Instrument"/>
+    
+
+
+    <!-- http://rdf-vocabulary.ddialliance.org/lifecycle#Variable -->
+
+
+    <owl:Class rdf:about="http://rdf-vocabulary.ddialliance.org/lifecycle#Variable"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
     
 
 
@@ -338,24 +905,10 @@
     
 
 
-    <!-- http://www.w3.org/ns/prov#Plan -->
+    <!-- https://schema.org/Agent -->
 
 
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Plan"/>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/Organization -->
-
-
-    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/Person -->
-
-
-    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    <owl:Class rdf:about="https://schema.org/Agent"/>
     
 
 
@@ -366,10 +919,73 @@
     
 
 
+    <!-- https://schema.org/DefinedTerm -->
+
+
+    <owl:Class rdf:about="https://schema.org/DefinedTerm"/>
+    
+
+
     <!-- https://schema.org/Event -->
 
 
     <owl:Class rdf:about="https://schema.org/Event"/>
+    
+
+
+    <!-- https://schema.org/Intangible -->
+
+
+    <owl:Class rdf:about="https://schema.org/Intangible"/>
+    
+
+
+    <!-- https://schema.org/LearningResource -->
+
+
+    <owl:Class rdf:about="https://schema.org/LearningResource"/>
+    
+
+
+    <!-- https://schema.org/Organization -->
+
+
+    <owl:Class rdf:about="https://schema.org/Organization"/>
+    
+
+
+    <!-- https://schema.org/Person -->
+
+
+    <owl:Class rdf:about="https://schema.org/Person"/>
+    
+
+
+    <!-- https://schema.org/Plan -->
+
+
+    <owl:Class rdf:about="https://schema.org/Plan"/>
+    
+
+
+    <!-- https://schema.org/PropertyValue -->
+
+
+    <owl:Class rdf:about="https://schema.org/PropertyValue"/>
+    
+
+
+    <!-- https://schema.org/ScholarlyArticle -->
+
+
+    <owl:Class rdf:about="https://schema.org/ScholarlyArticle"/>
+    
+
+
+    <!-- https://schema.org/SoftwareSourceCode -->
+
+
+    <owl:Class rdf:about="https://schema.org/SoftwareSourceCode"/>
     
 
 
@@ -378,7 +994,48 @@
 
     <owl:Class rdf:about="https://w3id.org/wedowind/ontology#Challenge">
         <rdfs:subClassOf rdf:resource="https://schema.org/Event"/>
-        <rdfs:label>Challenge</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/wedowind/ontology#hasTask"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A benchmarking competition in wind energy, consisting of one or more tasks.</rdfs:comment>
+        <rdfs:label xml:lang="en">Challenge</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#ChallengeTask -->
+
+
+    <owl:Class rdf:about="https://w3id.org/wedowind/ontology#ChallengeTask">
+        <rdfs:subClassOf rdf:resource="https://schema.org/CreativeWork"/>
+        <rdfs:comment xml:lang="en">A specific task within a challenge (e.g., failure detection, power forecasting, remaining useful life estimation).</rdfs:comment>
+        <rdfs:label xml:lang="en">Challenge Task</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#Competency -->
+
+
+    <owl:Class rdf:about="https://w3id.org/wedowind/ontology#Competency">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:subClassOf rdf:resource="https://schema.org/DefinedTerm"/>
+        <rdfs:comment xml:lang="en">Skill area in wind energy digitalisation (e.g., SCADA data analysis, machine learning for prognosis, time series forecasting, data governance, uncertainty quantification).</rdfs:comment>
+        <rdfs:label xml:lang="en">Competency</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#ComputationalMethod -->
+
+
+    <owl:Class rdf:about="https://w3id.org/wedowind/ontology#ComputationalMethod">
+        <rdfs:subClassOf rdf:resource="https://schema.org/Plan"/>
+        <rdfs:comment xml:lang="en">Algorithm or methodological approach implemented in a submission.</rdfs:comment>
+        <rdfs:label xml:lang="en">Computational Method</rdfs:label>
     </owl:Class>
     
 
@@ -387,7 +1044,8 @@
 
 
     <owl:Class rdf:about="https://w3id.org/wedowind/ontology#EvaluationMetric">
-        <rdfs:label>Evaluation Metric</rdfs:label>
+        <rdfs:comment xml:lang="en">Metric used to evaluate and compare submissions (e.g., RMSE, MAE, F1-score, AUC-ROC).</rdfs:comment>
+        <rdfs:label xml:lang="en">Evaluation Metric</rdfs:label>
     </owl:Class>
     
 
@@ -396,7 +1054,10 @@
 
 
     <owl:Class rdf:about="https://w3id.org/wedowind/ontology#FailureMode">
-        <rdfs:label>Failure Mode</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:subClassOf rdf:resource="https://schema.org/DefinedTerm"/>
+        <rdfs:comment xml:lang="en">Type of component failure in wind turbines (e.g., gearbox bearing damage, generator winding fault, blade crack, pitch system malfunction).</rdfs:comment>
+        <rdfs:label xml:lang="en">Failure Mode</rdfs:label>
     </owl:Class>
     
 
@@ -405,27 +1066,53 @@
 
 
     <owl:Class rdf:about="https://w3id.org/wedowind/ontology#LeaderboardEntry">
-        <rdfs:label>Leaderboard Entry</rdfs:label>
+        <rdfs:comment xml:lang="en">A ranked result entry on a challenge leaderboard, linking a submission to its performance scores.</rdfs:comment>
+        <rdfs:label xml:lang="en">Leaderboard Entry</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/wedowind/ontology#Method -->
+    <!-- https://w3id.org/wedowind/ontology#MethodType -->
 
 
-    <owl:Class rdf:about="https://w3id.org/wedowind/ontology#Method">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Plan"/>
-        <rdfs:label>Computational Method</rdfs:label>
+    <owl:Class rdf:about="https://w3id.org/wedowind/ontology#MethodType">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="en">Controlled vocabulary for categorizing computational methods (e.g., deep learning, statistical, physics-based, hybrid).</rdfs:comment>
+        <rdfs:label xml:lang="en">Method Type</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/wedowind/ontology#Organization -->
+    <!-- https://w3id.org/wedowind/ontology#Reference -->
 
 
-    <owl:Class rdf:about="https://w3id.org/wedowind/ontology#Organization">
-        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
-        <rdfs:label>Organization</rdfs:label>
+    <owl:Class rdf:about="https://w3id.org/wedowind/ontology#Reference">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf rdf:resource="https://schema.org/CreativeWork"/>
+        <rdfs:comment xml:lang="en">A reference from one scholarly resource to another, capturing citation relationships with provenance information.</rdfs:comment>
+        <rdfs:label xml:lang="en">Reference</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#ReferenceMetadata -->
+
+
+    <owl:Class rdf:about="https://w3id.org/wedowind/ontology#ReferenceMetadata">
+        <rdfs:subClassOf rdf:resource="https://schema.org/Intangible"/>
+        <rdfs:comment xml:lang="en">Provenance metadata about a reference, including confidence scores, linking method, and source information for automated or manual citations.</rdfs:comment>
+        <rdfs:label xml:lang="en">Reference Metadata</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#SensorVariable -->
+
+
+    <owl:Class rdf:about="https://w3id.org/wedowind/ontology#SensorVariable">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/wedowind/ontology#Variable"/>
+        <rdfs:comment xml:lang="en">A physical measurement from turbine sensors (e.g., wind speed, rotor RPM, gearbox temperature, power output, vibration amplitude).</rdfs:comment>
+        <rdfs:label xml:lang="en">Sensor Variable</rdfs:label>
     </owl:Class>
     
 
@@ -434,19 +1121,71 @@
 
 
     <owl:Class rdf:about="https://w3id.org/wedowind/ontology#Submission">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:subClassOf rdf:resource="https://schema.org/CreativeWork"/>
-        <rdfs:label>Submission</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/wedowind/ontology#submittedBy"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A participant&apos;s solution submission to a challenge task, including code, predictions, and documentation.</rdfs:comment>
+        <rdfs:label xml:lang="en">Submission</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/wedowind/ontology#Task -->
+    <!-- https://w3id.org/wedowind/ontology#SurveyInstrument -->
 
 
-    <owl:Class rdf:about="https://w3id.org/wedowind/ontology#Task">
-        <rdfs:subClassOf rdf:resource="https://schema.org/CreativeWork"/>
-        <rdfs:label>Challenge Task</rdfs:label>
+    <owl:Class rdf:about="https://w3id.org/wedowind/ontology#SurveyInstrument">
+        <rdfs:subClassOf rdf:resource="http://rdf-vocabulary.ddialliance.org/lifecycle#Instrument"/>
+        <rdfs:comment xml:lang="en">Questionnaire or assessment tool for social science research in wind energy, including community acceptance studies, safety culture assessments, and workforce competency evaluations.</rdfs:comment>
+        <rdfs:label xml:lang="en">Survey Instrument</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#SurveyVariable -->
+
+
+    <owl:Class rdf:about="https://w3id.org/wedowind/ontology#SurveyVariable">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/wedowind/ontology#Variable"/>
+        <rdfs:comment xml:lang="en">A response variable from surveys or questionnaires (e.g., attitude scores, demographic data, safety perception ratings).</rdfs:comment>
+        <rdfs:label xml:lang="en">Survey Variable</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#TrainingPathway -->
+
+
+    <owl:Class rdf:about="https://w3id.org/wedowind/ontology#TrainingPathway">
+        <rdfs:subClassOf rdf:resource="https://schema.org/LearningResource"/>
+        <rdfs:comment xml:lang="en">A curated sequence of tutorials and challenges designed to develop specific competencies in wind energy digitalisation.</rdfs:comment>
+        <rdfs:label xml:lang="en">Training Pathway</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#Tutorial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/wedowind/ontology#Tutorial">
+        <rdfs:subClassOf rdf:resource="https://schema.org/LearningResource"/>
+        <rdfs:comment xml:lang="en">Training material for wind energy digitalisation skills, including Jupyter notebooks, video lectures, documentation, and hands-on exercises.</rdfs:comment>
+        <rdfs:label xml:lang="en">Tutorial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/wedowind/ontology#Variable -->
+
+
+    <owl:Class rdf:about="https://w3id.org/wedowind/ontology#Variable">
+        <rdfs:subClassOf rdf:resource="http://rdf-vocabulary.ddialliance.org/lifecycle#Variable"/>
+        <rdfs:subClassOf rdf:resource="https://schema.org/PropertyValue"/>
+        <rdfs:comment xml:lang="en">A measurable quantity from SCADA sensors, survey responses, or experimental measurements used in wind energy research.</rdfs:comment>
+        <rdfs:label xml:lang="en">Variable</rdfs:label>
     </owl:Class>
     
 
@@ -455,7 +1194,8 @@
 
 
     <owl:Class rdf:about="https://w3id.org/wedowind/ontology#WindFarm">
-        <rdfs:label>Wind Farm</rdfs:label>
+        <rdfs:comment xml:lang="en">A collection of wind turbines at a specific geographic location, sharing infrastructure and grid connection.</rdfs:comment>
+        <rdfs:label xml:lang="en">Wind Farm</rdfs:label>
     </owl:Class>
     
 
@@ -464,8 +1204,33 @@
 
 
     <owl:Class rdf:about="https://w3id.org/wedowind/ontology#WindTurbine">
-        <rdfs:label>Wind Turbine</rdfs:label>
+        <rdfs:comment xml:lang="en">A wind energy turbine with specifications such as manufacturer, rated power, rotor diameter, and location.</rdfs:comment>
+        <rdfs:label xml:lang="en">Wind Turbine</rdfs:label>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description rdf:about="https://w3id.org/wedowind/ontology#relatedDataset">
+        <rdfs:comment xml:lang="en">Links a resource to related datasets.</rdfs:comment>
+        <rdfs:label xml:lang="en">related dataset</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://w3id.org/wedowind/ontology#usedIn">
+        <rdfs:comment xml:lang="en">Links a survey instrument to datasets where it has been applied.</rdfs:comment>
+        <rdfs:label xml:lang="en">used in</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://w3id.org/wedowind/ontology#usesDatasetForSubmission">
+        <rdfs:comment xml:lang="en">Links a submission to datasets actually used in model development, including external or augmented data sources.</rdfs:comment>
+        <rdfs:label xml:lang="en">uses dataset for submission</rdfs:label>
+    </rdf:Description>
 </rdf:RDF>
 
 

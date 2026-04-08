@@ -1,9 +1,8 @@
-<https://w3id.org/wedowind/ontology> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
-<https://w3id.org/wedowind/ontology> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/wedowind/ontology/1.0> .
-<https://w3id.org/wedowind/ontology> <http://purl.org/dc/terms/created> "2026-04-07"^^<http://www.w3.org/2001/XMLSchema#date> .
-<https://w3id.org/wedowind/ontology> <http://purl.org/dc/terms/creator> "Daniel Kwakye" .
-<https://w3id.org/wedowind/ontology> <http://purl.org/dc/terms/description> "Ontology for modeling wind energy benchmarking challenges, tasks, submissions, and evaluation workflows." .
-<https://w3id.org/wedowind/ontology> <http://purl.org/dc/terms/title> "WeDoWind Ontology" .
+<https://w3id.org/wedowind/ontology#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/wedowind/ontology#> <http://purl.org/dc/terms/creator> "Daniel Kwakye" .
+<https://w3id.org/wedowind/ontology#> <http://www.w3.org/2000/01/rdf-schema#comment> "Ontology for wind energy benchmarking challenges, training, and interdisciplinary research. Extends schema.org, DDI lifecycle, SKOS, and PROV-O."@en .
+<https://w3id.org/wedowind/ontology#> <http://www.w3.org/2000/01/rdf-schema#label> "WeDoWind Ontology"@en .
+<https://w3id.org/wedowind/ontology#> <http://www.w3.org/2002/07/owl#versionInfo> "2.0" .
 # 
 # 
 # #################################################################
@@ -13,17 +12,8 @@
 # #################################################################
 # 
 # 
-# http://purl.org/dc/terms/created
-<http://purl.org/dc/terms/created> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-# 
 # http://purl.org/dc/terms/creator
 <http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-# 
-# http://purl.org/dc/terms/description
-<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-# 
-# http://purl.org/dc/terms/title
-<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
 # 
 # 
@@ -37,6 +27,9 @@
 # http://www.w3.org/2001/XMLSchema#date
 <http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
 # 
+# http://www.w3.org/2001/XMLSchema#duration
+<http://www.w3.org/2001/XMLSchema#duration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
 # 
 # 
 # #################################################################
@@ -46,92 +39,251 @@
 # #################################################################
 # 
 # 
-# http://purl.org/dc/terms/publisher
-<http://purl.org/dc/terms/publisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# http://www.w3.org/ns/prov#wasDerivedFrom
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 # 
-# http://www.w3.org/ns/prov#wasAssociatedWith
-<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# https://w3id.org/wedowind/ontology#addressesCompetency
+<https://w3id.org/wedowind/ontology#addressesCompetency> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#addressesCompetency> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#ChallengeTask> .
+<https://w3id.org/wedowind/ontology#addressesCompetency> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Competency> .
+<https://w3id.org/wedowind/ontology#addressesCompetency> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a challenge task to the skill area it develops or assesses."@en .
+<https://w3id.org/wedowind/ontology#addressesCompetency> <http://www.w3.org/2000/01/rdf-schema#label> "addresses competency"@en .
 # 
-# http://www.w3.org/ns/prov#wasAttributedTo
-<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# https://w3id.org/wedowind/ontology#constructs
+<https://w3id.org/wedowind/ontology#constructs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#constructs> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#SurveyInstrument> .
+<https://w3id.org/wedowind/ontology#constructs> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/DefinedTerm> .
+<https://schema.org/DefinedTerm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#constructs> <http://www.w3.org/2000/01/rdf-schema#comment> "Theoretical constructs measured by a survey instrument."@en .
+<https://w3id.org/wedowind/ontology#constructs> <http://www.w3.org/2000/01/rdf-schema#label> "constructs"@en .
 # 
 # https://w3id.org/wedowind/ontology#detectsFailureMode
 <https://w3id.org/wedowind/ontology#detectsFailureMode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/wedowind/ontology#detectsFailureMode> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Task> .
+<https://w3id.org/wedowind/ontology#detectsFailureMode> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#ChallengeTask> .
 <https://w3id.org/wedowind/ontology#detectsFailureMode> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#FailureMode> .
-<https://w3id.org/wedowind/ontology#detectsFailureMode> <http://www.w3.org/2000/01/rdf-schema#label> "detects failure mode" .
+<https://w3id.org/wedowind/ontology#detectsFailureMode> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies the type of turbine failure a task aims to detect or predict."@en .
+<https://w3id.org/wedowind/ontology#detectsFailureMode> <http://www.w3.org/2000/01/rdf-schema#label> "detects failure mode"@en .
 # 
-# https://w3id.org/wedowind/ontology#evaluatedBy
-<https://w3id.org/wedowind/ontology#evaluatedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/wedowind/ontology#evaluatedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Submission> .
-<https://w3id.org/wedowind/ontology#evaluatedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#EvaluationMetric> .
-<https://w3id.org/wedowind/ontology#evaluatedBy> <http://www.w3.org/2000/01/rdf-schema#label> "evaluated by metric" .
+# https://w3id.org/wedowind/ontology#entrySubmission
+<https://w3id.org/wedowind/ontology#entrySubmission> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#entrySubmission> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#LeaderboardEntry> .
+<https://w3id.org/wedowind/ontology#entrySubmission> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Submission> .
+<https://w3id.org/wedowind/ontology#entrySubmission> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a leaderboard entry to the submission it represents."@en .
+<https://w3id.org/wedowind/ontology#entrySubmission> <http://www.w3.org/2000/01/rdf-schema#label> "entry submission"@en .
+# 
+# https://w3id.org/wedowind/ontology#evaluatedByMetric
+<https://w3id.org/wedowind/ontology#evaluatedByMetric> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#evaluatedByMetric> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Submission> .
+<https://w3id.org/wedowind/ontology#evaluatedByMetric> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#EvaluationMetric> .
+<https://w3id.org/wedowind/ontology#evaluatedByMetric> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a submission to the metrics used for its evaluation."@en .
+<https://w3id.org/wedowind/ontology#evaluatedByMetric> <http://www.w3.org/2000/01/rdf-schema#label> "evaluated by metric"@en .
+# 
+# https://w3id.org/wedowind/ontology#evaluatedWith
+<https://w3id.org/wedowind/ontology#evaluatedWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#evaluatedWith> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#LeaderboardEntry> .
+<https://w3id.org/wedowind/ontology#evaluatedWith> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#EvaluationMetric> .
+<https://w3id.org/wedowind/ontology#evaluatedWith> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies which evaluation metric a leaderboard entry value corresponds to."@en .
+<https://w3id.org/wedowind/ontology#evaluatedWith> <http://www.w3.org/2000/01/rdf-schema#label> "evaluated with metric"@en .
 # 
 # https://w3id.org/wedowind/ontology#hasLeaderboardEntry
 <https://w3id.org/wedowind/ontology#hasLeaderboardEntry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://w3id.org/wedowind/ontology#hasLeaderboardEntry> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Challenge> .
 <https://w3id.org/wedowind/ontology#hasLeaderboardEntry> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#LeaderboardEntry> .
-<https://w3id.org/wedowind/ontology#hasLeaderboardEntry> <http://www.w3.org/2000/01/rdf-schema#label> "has leaderboard entry" .
+<https://w3id.org/wedowind/ontology#hasLeaderboardEntry> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a challenge to entries on its leaderboard."@en .
+<https://w3id.org/wedowind/ontology#hasLeaderboardEntry> <http://www.w3.org/2000/01/rdf-schema#label> "has leaderboard entry"@en .
+# 
+# https://w3id.org/wedowind/ontology#hasMethodType
+<https://w3id.org/wedowind/ontology#hasMethodType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#hasMethodType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#ComputationalMethod> .
+<https://w3id.org/wedowind/ontology#hasMethodType> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#MethodType> .
+<https://w3id.org/wedowind/ontology#hasMethodType> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a computational method to a controlled vocabulary term describing its methodological category."@en .
+<https://w3id.org/wedowind/ontology#hasMethodType> <http://www.w3.org/2000/01/rdf-schema#label> "has method type"@en .
+# 
+# https://w3id.org/wedowind/ontology#hasSoftwareSourceCode
+<https://w3id.org/wedowind/ontology#hasSoftwareSourceCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#hasSoftwareSourceCode> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Tutorial> .
+<https://w3id.org/wedowind/ontology#hasSoftwareSourceCode> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/SoftwareSourceCode> .
+<https://schema.org/SoftwareSourceCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#hasSoftwareSourceCode> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a tutorial to accompanying code repository."@en .
+<https://w3id.org/wedowind/ontology#hasSoftwareSourceCode> <http://www.w3.org/2000/01/rdf-schema#label> "has software source code"@en .
+# 
+# https://w3id.org/wedowind/ontology#hasSubmission
+<https://w3id.org/wedowind/ontology#hasSubmission> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#hasSubmission> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/Agent> .
+<https://schema.org/Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#hasSubmission> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Submission> .
+<https://w3id.org/wedowind/ontology#hasSubmission> <http://www.w3.org/2000/01/rdf-schema#comment> "Inverse property linking a person or organization (agent) to their submissions."@en .
+<https://w3id.org/wedowind/ontology#hasSubmission> <http://www.w3.org/2000/01/rdf-schema#label> "has submission"@en .
 # 
 # https://w3id.org/wedowind/ontology#hasTask
 <https://w3id.org/wedowind/ontology#hasTask> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#hasTask> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/wedowind/ontology#isTaskOf> .
 <https://w3id.org/wedowind/ontology#hasTask> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Challenge> .
-<https://w3id.org/wedowind/ontology#hasTask> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Task> .
-<https://w3id.org/wedowind/ontology#hasTask> <http://www.w3.org/2000/01/rdf-schema#label> "has task" .
+<https://w3id.org/wedowind/ontology#hasTask> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#ChallengeTask> .
+<https://w3id.org/wedowind/ontology#hasTask> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a challenge to its constituent tasks."@en .
+<https://w3id.org/wedowind/ontology#hasTask> <http://www.w3.org/2000/01/rdf-schema#label> "has task"@en .
+# 
+# https://w3id.org/wedowind/ontology#hasTutorial
+<https://w3id.org/wedowind/ontology#hasTutorial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#hasTutorial> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#ChallengeTask> .
+<https://w3id.org/wedowind/ontology#hasTutorial> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Tutorial> .
+<https://w3id.org/wedowind/ontology#hasTutorial> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a challenge task to recommended training materials."@en .
+<https://w3id.org/wedowind/ontology#hasTutorial> <http://www.w3.org/2000/01/rdf-schema#label> "has tutorial"@en .
 # 
 # https://w3id.org/wedowind/ontology#implementsMethod
 <https://w3id.org/wedowind/ontology#implementsMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#implementsMethod> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/wedowind/ontology#isImplementedIn> .
 <https://w3id.org/wedowind/ontology#implementsMethod> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Submission> .
-<https://w3id.org/wedowind/ontology#implementsMethod> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Method> .
-<https://w3id.org/wedowind/ontology#implementsMethod> <http://www.w3.org/2000/01/rdf-schema#label> "implements method" .
+<https://w3id.org/wedowind/ontology#implementsMethod> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#ComputationalMethod> .
+<https://w3id.org/wedowind/ontology#implementsMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a submission to the computational method it implements."@en .
+<https://w3id.org/wedowind/ontology#implementsMethod> <http://www.w3.org/2000/01/rdf-schema#label> "implements method"@en .
+# 
+# https://w3id.org/wedowind/ontology#includesChallenge
+<https://w3id.org/wedowind/ontology#includesChallenge> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#includesChallenge> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#TrainingPathway> .
+<https://w3id.org/wedowind/ontology#includesChallenge> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Challenge> .
+<https://w3id.org/wedowind/ontology#includesChallenge> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a training pathway to a challenge that serves as practical assessment."@en .
+<https://w3id.org/wedowind/ontology#includesChallenge> <http://www.w3.org/2000/01/rdf-schema#label> "includes challenge"@en .
+# 
+# https://w3id.org/wedowind/ontology#includesTutorial
+<https://w3id.org/wedowind/ontology#includesTutorial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#includesTutorial> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#TrainingPathway> .
+<https://w3id.org/wedowind/ontology#includesTutorial> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Tutorial> .
+<https://w3id.org/wedowind/ontology#includesTutorial> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a training pathway to a tutorial that is part of the curriculum."@en .
+<https://w3id.org/wedowind/ontology#includesTutorial> <http://www.w3.org/2000/01/rdf-schema#label> "includes tutorial"@en .
+# 
+# https://w3id.org/wedowind/ontology#isImplementedIn
+<https://w3id.org/wedowind/ontology#isImplementedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#isImplementedIn> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#ComputationalMethod> .
+<https://w3id.org/wedowind/ontology#isImplementedIn> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Submission> .
+<https://w3id.org/wedowind/ontology#isImplementedIn> <http://www.w3.org/2000/01/rdf-schema#comment> "Inverse property linking a method to submissions that use it."@en .
+<https://w3id.org/wedowind/ontology#isImplementedIn> <http://www.w3.org/2000/01/rdf-schema#label> "is implemented in"@en .
+# 
+# https://w3id.org/wedowind/ontology#isPrerequisiteFor
+<https://w3id.org/wedowind/ontology#isPrerequisiteFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#isPrerequisiteFor> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Tutorial> .
+<https://w3id.org/wedowind/ontology#isPrerequisiteFor> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Tutorial> .
+<https://w3id.org/wedowind/ontology#isPrerequisiteFor> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that one tutorial must be completed before another."@en .
+<https://w3id.org/wedowind/ontology#isPrerequisiteFor> <http://www.w3.org/2000/01/rdf-schema#label> "is prerequisite for"@en .
+# 
+# https://w3id.org/wedowind/ontology#isTaskOf
+<https://w3id.org/wedowind/ontology#isTaskOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#isTaskOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#ChallengeTask> .
+<https://w3id.org/wedowind/ontology#isTaskOf> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Challenge> .
+<https://w3id.org/wedowind/ontology#isTaskOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Inverse property linking a task back to its parent challenge."@en .
+<https://w3id.org/wedowind/ontology#isTaskOf> <http://www.w3.org/2000/01/rdf-schema#label> "is task of"@en .
 # 
 # https://w3id.org/wedowind/ontology#locatedAt
 <https://w3id.org/wedowind/ontology#locatedAt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://w3id.org/wedowind/ontology#locatedAt> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#WindTurbine> .
 <https://w3id.org/wedowind/ontology#locatedAt> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#WindFarm> .
-<https://w3id.org/wedowind/ontology#locatedAt> <http://www.w3.org/2000/01/rdf-schema#label> "located at" .
+<https://w3id.org/wedowind/ontology#locatedAt> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a turbine to the wind farm where it is installed."@en .
+<https://w3id.org/wedowind/ontology#locatedAt> <http://www.w3.org/2000/01/rdf-schema#label> "located at"@en .
 # 
 # https://w3id.org/wedowind/ontology#organizedBy
 <https://w3id.org/wedowind/ontology#organizedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/wedowind/ontology#organizedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasAssociatedWith> .
 <https://w3id.org/wedowind/ontology#organizedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Challenge> .
-<https://w3id.org/wedowind/ontology#organizedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Organization> .
-<https://w3id.org/wedowind/ontology#organizedBy> <http://www.w3.org/2000/01/rdf-schema#label> "organized by" .
+<https://w3id.org/wedowind/ontology#organizedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/Organization> .
+<https://schema.org/Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#organizedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "The organization responsible for hosting and managing a challenge."@en .
+<https://w3id.org/wedowind/ontology#organizedBy> <http://www.w3.org/2000/01/rdf-schema#label> "organized by"@en .
 # 
 # https://w3id.org/wedowind/ontology#participatedBy
 <https://w3id.org/wedowind/ontology#participatedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/wedowind/ontology#participatedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasAssociatedWith> .
 <https://w3id.org/wedowind/ontology#participatedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Challenge> .
-<https://w3id.org/wedowind/ontology#participatedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/Person> .
-<http://xmlns.com/foaf/0.1/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/wedowind/ontology#participatedBy> <http://www.w3.org/2000/01/rdf-schema#label> "participated by" .
+<https://w3id.org/wedowind/ontology#participatedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/Organization> .
+<https://w3id.org/wedowind/ontology#participatedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/Person> .
+<https://schema.org/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#participatedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Persons or organizations that participated in a challenge."@en .
+<https://w3id.org/wedowind/ontology#participatedBy> <http://www.w3.org/2000/01/rdf-schema#label> "participated by"@en .
 # 
-# https://w3id.org/wedowind/ontology#providedBy
-<https://w3id.org/wedowind/ontology#providedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/wedowind/ontology#providedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/publisher> .
-<https://w3id.org/wedowind/ontology#providedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dcat#Dataset> .
-<http://www.w3.org/ns/dcat#Dataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/wedowind/ontology#providedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Organization> .
-<https://w3id.org/wedowind/ontology#providedBy> <http://www.w3.org/2000/01/rdf-schema#label> "provided by" .
+# https://w3id.org/wedowind/ontology#rankedIn
+<https://w3id.org/wedowind/ontology#rankedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#rankedIn> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#LeaderboardEntry> .
+<https://w3id.org/wedowind/ontology#rankedIn> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Challenge> .
+<https://w3id.org/wedowind/ontology#rankedIn> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a leaderboard entry to the challenge in which the ranking is defined."@en .
+<https://w3id.org/wedowind/ontology#rankedIn> <http://www.w3.org/2000/01/rdf-schema#label> "ranked in challenge"@en .
+# 
+# https://w3id.org/wedowind/ontology#reference
+<https://w3id.org/wedowind/ontology#reference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#reference> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasDerivedFrom> .
+<https://w3id.org/wedowind/ontology#reference> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/CreativeWork> .
+<https://schema.org/CreativeWork> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#reference> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Reference> .
+<https://w3id.org/wedowind/ontology#reference> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a creative work to a reference describing its relationship to another resource."@en .
+<https://w3id.org/wedowind/ontology#reference> <http://www.w3.org/2000/01/rdf-schema#label> "reference"@en .
+# 
+# https://w3id.org/wedowind/ontology#referenceMetadata
+<https://w3id.org/wedowind/ontology#referenceMetadata> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#referenceMetadata> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Reference> .
+<https://w3id.org/wedowind/ontology#referenceMetadata> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#ReferenceMetadata> .
+<https://w3id.org/wedowind/ontology#referenceMetadata> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a reference to its associated provenance metadata."@en .
+<https://w3id.org/wedowind/ontology#referenceMetadata> <http://www.w3.org/2000/01/rdf-schema#label> "reference metadata"@en .
+# 
+# https://w3id.org/wedowind/ontology#relatedDataset
+<https://w3id.org/wedowind/ontology#relatedDataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#relatedDataset> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/CreativeWork> .
+# 
+# https://w3id.org/wedowind/ontology#relatedPublication
+<https://w3id.org/wedowind/ontology#relatedPublication> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#relatedPublication> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/CreativeWork> .
+<https://w3id.org/wedowind/ontology#relatedPublication> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/ScholarlyArticle> .
+<https://schema.org/ScholarlyArticle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#relatedPublication> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a resource to scholarly articles describing or using it."@en .
+<https://w3id.org/wedowind/ontology#relatedPublication> <http://www.w3.org/2000/01/rdf-schema#label> "related publication"@en .
+# 
+# https://w3id.org/wedowind/ontology#relatedVariable
+<https://w3id.org/wedowind/ontology#relatedVariable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#relatedVariable> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/CreativeWork> .
+<https://w3id.org/wedowind/ontology#relatedVariable> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Variable> .
+<https://w3id.org/wedowind/ontology#relatedVariable> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a resource to variables it uses or describes."@en .
+<https://w3id.org/wedowind/ontology#relatedVariable> <http://www.w3.org/2000/01/rdf-schema#label> "related variable"@en .
+# 
+# https://w3id.org/wedowind/ontology#solvesTask
+<https://w3id.org/wedowind/ontology#solvesTask> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#solvesTask> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Submission> .
+<https://w3id.org/wedowind/ontology#solvesTask> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#ChallengeTask> .
+<https://w3id.org/wedowind/ontology#solvesTask> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a submission to the specific challenge task it addresses."@en .
+<https://w3id.org/wedowind/ontology#solvesTask> <http://www.w3.org/2000/01/rdf-schema#label> "solves task"@en .
 # 
 # https://w3id.org/wedowind/ontology#submittedBy
 <https://w3id.org/wedowind/ontology#submittedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/wedowind/ontology#submittedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasAttributedTo> .
+<https://w3id.org/wedowind/ontology#submittedBy> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/wedowind/ontology#hasSubmission> .
 <https://w3id.org/wedowind/ontology#submittedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Submission> .
-<https://w3id.org/wedowind/ontology#submittedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/Person> .
-<https://w3id.org/wedowind/ontology#submittedBy> <http://www.w3.org/2000/01/rdf-schema#label> "submitted by" .
+<https://w3id.org/wedowind/ontology#submittedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/Organization> .
+<https://w3id.org/wedowind/ontology#submittedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/Person> .
+<https://w3id.org/wedowind/ontology#submittedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "The person or organization responsible for a submission."@en .
+<https://w3id.org/wedowind/ontology#submittedBy> <http://www.w3.org/2000/01/rdf-schema#label> "submitted by"@en .
 # 
-# https://w3id.org/wedowind/ontology#usesDataset
-<https://w3id.org/wedowind/ontology#usesDataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/wedowind/ontology#usesDataset> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Task> .
-<https://w3id.org/wedowind/ontology#usesDataset> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/dcat#Dataset> .
-<https://w3id.org/wedowind/ontology#usesDataset> <http://www.w3.org/2000/01/rdf-schema#label> "uses dataset" .
+# https://w3id.org/wedowind/ontology#targetsCompetency
+<https://w3id.org/wedowind/ontology#targetsCompetency> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#targetsCompetency> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Tutorial> .
+<https://w3id.org/wedowind/ontology#targetsCompetency> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#Competency> .
+<https://w3id.org/wedowind/ontology#targetsCompetency> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the competency a tutorial aims to teach or develop."@en .
+<https://w3id.org/wedowind/ontology#targetsCompetency> <http://www.w3.org/2000/01/rdf-schema#label> "targets competency"@en .
+# 
+# https://w3id.org/wedowind/ontology#usedIn
+<https://w3id.org/wedowind/ontology#usedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#usedIn> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#SurveyInstrument> .
+# 
+# https://w3id.org/wedowind/ontology#usesDatasetForSubmission
+<https://w3id.org/wedowind/ontology#usesDatasetForSubmission> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#usesDatasetForSubmission> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Submission> .
+# 
+# https://w3id.org/wedowind/ontology#usesDatasetForTask
+<https://w3id.org/wedowind/ontology#usesDatasetForTask> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wedowind/ontology#usesDatasetForTask> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#ChallengeTask> .
+<https://w3id.org/wedowind/ontology#usesDatasetForTask> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/Dataset> .
+<https://schema.org/Dataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#usesDatasetForTask> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a challenge task to the dataset officially provided for that task."@en .
+<https://w3id.org/wedowind/ontology#usesDatasetForTask> <http://www.w3.org/2000/01/rdf-schema#label> "uses dataset for task"@en .
 # 
 # https://w3id.org/wedowind/ontology#usesTurbine
 <https://w3id.org/wedowind/ontology#usesTurbine> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/wedowind/ontology#usesTurbine> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Task> .
+<https://w3id.org/wedowind/ontology#usesTurbine> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#ChallengeTask> .
 <https://w3id.org/wedowind/ontology#usesTurbine> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wedowind/ontology#WindTurbine> .
-<https://w3id.org/wedowind/ontology#usesTurbine> <http://www.w3.org/2000/01/rdf-schema#label> "uses turbine" .
+<https://w3id.org/wedowind/ontology#usesTurbine> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a challenge task to specific turbine instances or types used in the task."@en .
+<https://w3id.org/wedowind/ontology#usesTurbine> <http://www.w3.org/2000/01/rdf-schema#label> "uses turbine"@en .
 # 
 # 
 # 
@@ -142,35 +294,215 @@
 # #################################################################
 # 
 # 
+# https://schema.org/identifier
+<https://schema.org/identifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+# 
+# https://w3id.org/wedowind/ontology#analysisUnit
+<https://w3id.org/wedowind/ontology#analysisUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#analysisUnit> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/Dataset> .
+<https://w3id.org/wedowind/ontology#analysisUnit> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/wedowind/ontology#analysisUnit> <http://www.w3.org/2000/01/rdf-schema#comment> "Unit: individual, household, turbine, farm, blade, component."@en .
+<https://w3id.org/wedowind/ontology#analysisUnit> <http://www.w3.org/2000/01/rdf-schema#label> "analysis unit"@en .
+# 
+# https://w3id.org/wedowind/ontology#collectionDate
+<https://w3id.org/wedowind/ontology#collectionDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#collectionDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#SurveyVariable> .
+<https://w3id.org/wedowind/ontology#collectionDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/wedowind/ontology#collectionDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Date when a survey response was collected."@en .
+<https://w3id.org/wedowind/ontology#collectionDate> <http://www.w3.org/2000/01/rdf-schema#label> "collection date"@en .
+# 
 # https://w3id.org/wedowind/ontology#dataResolution
 <https://w3id.org/wedowind/ontology#dataResolution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/wedowind/ontology#dataResolution> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dcat#Dataset> .
+<https://w3id.org/wedowind/ontology#dataResolution> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/Dataset> .
 <https://w3id.org/wedowind/ontology#dataResolution> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
-<https://w3id.org/wedowind/ontology#dataResolution> <http://www.w3.org/2000/01/rdf-schema#label> "data resolution" .
+<https://w3id.org/wedowind/ontology#dataResolution> <http://www.w3.org/2000/01/rdf-schema#comment> "Temporal resolution of time-series data (e.g., 1Hz, 10min, 1day)."@en .
+<https://w3id.org/wedowind/ontology#dataResolution> <http://www.w3.org/2000/01/rdf-schema#label> "data resolution"@en .
+# 
+# https://w3id.org/wedowind/ontology#difficultyLevel
+<https://w3id.org/wedowind/ontology#difficultyLevel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#difficultyLevel> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Tutorial> .
+<https://w3id.org/wedowind/ontology#difficultyLevel> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/wedowind/ontology#difficultyLevel> <http://www.w3.org/2000/01/rdf-schema#comment> "Difficulty classification: beginner, intermediate, or advanced."@en .
+<https://w3id.org/wedowind/ontology#difficultyLevel> <http://www.w3.org/2000/01/rdf-schema#label> "difficulty level"@en .
+# 
+# https://w3id.org/wedowind/ontology#doi
+<https://w3id.org/wedowind/ontology#doi> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#doi> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/identifier> .
+<https://w3id.org/wedowind/ontology#doi> <http://www.w3.org/2000/01/rdf-schema#comment> "Digital Object Identifier."@en .
+<https://w3id.org/wedowind/ontology#doi> <http://www.w3.org/2000/01/rdf-schema#label> "DOI"@en .
+# 
+# https://w3id.org/wedowind/ontology#downloadURL
+<https://w3id.org/wedowind/ontology#downloadURL> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#downloadURL> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/Dataset> .
+<https://w3id.org/wedowind/ontology#downloadURL> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/wedowind/ontology#downloadURL> <http://www.w3.org/2000/01/rdf-schema#comment> "Direct URL for downloading a dataset."@en .
+<https://w3id.org/wedowind/ontology#downloadURL> <http://www.w3.org/2000/01/rdf-schema#label> "download URL"@en .
 # 
 # https://w3id.org/wedowind/ontology#endDate
 <https://w3id.org/wedowind/ontology#endDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://w3id.org/wedowind/ontology#endDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Challenge> .
 <https://w3id.org/wedowind/ontology#endDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
-<https://w3id.org/wedowind/ontology#endDate> <http://www.w3.org/2000/01/rdf-schema#label> "end date" .
+<https://w3id.org/wedowind/ontology#endDate> <http://www.w3.org/2000/01/rdf-schema#comment> "End date of a challenge."@en .
+<https://w3id.org/wedowind/ontology#endDate> <http://www.w3.org/2000/01/rdf-schema#label> "end date"@en .
+# 
+# https://w3id.org/wedowind/ontology#estimatedTime
+<https://w3id.org/wedowind/ontology#estimatedTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#estimatedTime> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Tutorial> .
+<https://w3id.org/wedowind/ontology#estimatedTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#duration> .
+<https://w3id.org/wedowind/ontology#estimatedTime> <http://www.w3.org/2000/01/rdf-schema#comment> "Estimated duration to complete a tutorial (ISO 8601 format)."@en .
+<https://w3id.org/wedowind/ontology#estimatedTime> <http://www.w3.org/2000/01/rdf-schema#label> "estimated time"@en .
+# 
+# https://w3id.org/wedowind/ontology#hasModelArtifact
+<https://w3id.org/wedowind/ontology#hasModelArtifact> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#hasModelArtifact> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Submission> .
+<https://w3id.org/wedowind/ontology#hasModelArtifact> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/wedowind/ontology#hasModelArtifact> <http://www.w3.org/2000/01/rdf-schema#comment> "URL to trained model files or serialized artifacts."@en .
+<https://w3id.org/wedowind/ontology#hasModelArtifact> <http://www.w3.org/2000/01/rdf-schema#label> "has model artifact"@en .
+# 
+# https://w3id.org/wedowind/ontology#hasRepository
+<https://w3id.org/wedowind/ontology#hasRepository> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#hasRepository> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Submission> .
+<https://w3id.org/wedowind/ontology#hasRepository> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/wedowind/ontology#hasRepository> <http://www.w3.org/2000/01/rdf-schema#comment> "URL of source code repository (e.g., GitHub, GitLab)."@en .
+<https://w3id.org/wedowind/ontology#hasRepository> <http://www.w3.org/2000/01/rdf-schema#label> "has repository"@en .
+# 
+# https://w3id.org/wedowind/ontology#license
+<https://w3id.org/wedowind/ontology#license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#license> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/Dataset> .
+<https://w3id.org/wedowind/ontology#license> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/wedowind/ontology#license> <http://www.w3.org/2000/01/rdf-schema#comment> "URI pointing to license terms."@en .
+<https://w3id.org/wedowind/ontology#license> <http://www.w3.org/2000/01/rdf-schema#label> "license"@en .
+# 
+# https://w3id.org/wedowind/ontology#linkContext
+<https://w3id.org/wedowind/ontology#linkContext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#linkContext> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#ReferenceMetadata> .
+<https://w3id.org/wedowind/ontology#linkContext> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/wedowind/ontology#linkContext> <http://www.w3.org/2000/01/rdf-schema#comment> "Text snippet explaining the reference context."@en .
+<https://w3id.org/wedowind/ontology#linkContext> <http://www.w3.org/2000/01/rdf-schema#label> "link context"@en .
+# 
+# https://w3id.org/wedowind/ontology#linkScore
+<https://w3id.org/wedowind/ontology#linkScore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#linkScore> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#ReferenceMetadata> .
+<https://w3id.org/wedowind/ontology#linkScore> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<https://w3id.org/wedowind/ontology#linkScore> <http://www.w3.org/2000/01/rdf-schema#comment> "Confidence score for automatically generated references (0.0 to 1.0)."@en .
+<https://w3id.org/wedowind/ontology#linkScore> <http://www.w3.org/2000/01/rdf-schema#label> "link score"@en .
+# 
+# https://w3id.org/wedowind/ontology#linkSource
+<https://w3id.org/wedowind/ontology#linkSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#linkSource> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#ReferenceMetadata> .
+<https://w3id.org/wedowind/ontology#linkSource> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/wedowind/ontology#linkSource> <http://www.w3.org/2000/01/rdf-schema#comment> "Pipeline or tool that generated the reference."@en .
+<https://w3id.org/wedowind/ontology#linkSource> <http://www.w3.org/2000/01/rdf-schema#label> "link source"@en .
+# 
+# https://w3id.org/wedowind/ontology#linkingMethod
+<https://w3id.org/wedowind/ontology#linkingMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#linkingMethod> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#ReferenceMetadata> .
+<https://w3id.org/wedowind/ontology#linkingMethod> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/wedowind/ontology#linkingMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "Method used: manual, automatic, or search-based."@en .
+<https://w3id.org/wedowind/ontology#linkingMethod> <http://www.w3.org/2000/01/rdf-schema#label> "linking method"@en .
+# 
+# https://w3id.org/wedowind/ontology#methodType
+<https://w3id.org/wedowind/ontology#methodType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#methodType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#ComputationalMethod> .
+<https://w3id.org/wedowind/ontology#methodType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/wedowind/ontology#methodType> <http://www.w3.org/2000/01/rdf-schema#comment> "Category of computational method (deprecated: use hasMethodType with MethodType class instead)."@en .
+<https://w3id.org/wedowind/ontology#methodType> <http://www.w3.org/2000/01/rdf-schema#label> "method type"@en .
+# 
+# https://w3id.org/wedowind/ontology#metricValue
+<https://w3id.org/wedowind/ontology#metricValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#metricValue> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#LeaderboardEntry> .
+<https://w3id.org/wedowind/ontology#metricValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<https://w3id.org/wedowind/ontology#metricValue> <http://www.w3.org/2000/01/rdf-schema#comment> "The actual numerical value of a metric for a leaderboard entry."@en .
+<https://w3id.org/wedowind/ontology#metricValue> <http://www.w3.org/2000/01/rdf-schema#label> "metric value"@en .
+# 
+# https://w3id.org/wedowind/ontology#observationTimestamp
+<https://w3id.org/wedowind/ontology#observationTimestamp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#observationTimestamp> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#SensorVariable> .
+<https://w3id.org/wedowind/ontology#observationTimestamp> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/wedowind/ontology#observationTimestamp> <http://www.w3.org/2000/01/rdf-schema#comment> "Timestamp of a sensor measurement."@en .
+<https://w3id.org/wedowind/ontology#observationTimestamp> <http://www.w3.org/2000/01/rdf-schema#label> "observation timestamp"@en .
+# 
+# https://w3id.org/wedowind/ontology#orcid
+<https://w3id.org/wedowind/ontology#orcid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#orcid> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/identifier> .
+<https://w3id.org/wedowind/ontology#orcid> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/Person> .
+<https://w3id.org/wedowind/ontology#orcid> <http://www.w3.org/2000/01/rdf-schema#comment> "Open Researcher and Contributor ID."@en .
+<https://w3id.org/wedowind/ontology#orcid> <http://www.w3.org/2000/01/rdf-schema#label> "ORCID"@en .
+# 
+# https://w3id.org/wedowind/ontology#portalURL
+<https://w3id.org/wedowind/ontology#portalURL> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#portalURL> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/CreativeWork> .
+<https://w3id.org/wedowind/ontology#portalURL> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/wedowind/ontology#portalURL> <http://www.w3.org/2000/01/rdf-schema#comment> "URL of the resource in its native web portal."@en .
+<https://w3id.org/wedowind/ontology#portalURL> <http://www.w3.org/2000/01/rdf-schema#label> "portal URL"@en .
+# 
+# https://w3id.org/wedowind/ontology#rank
+<https://w3id.org/wedowind/ontology#rank> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#rank> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#LeaderboardEntry> .
+<https://w3id.org/wedowind/ontology#rank> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/wedowind/ontology#rank> <http://www.w3.org/2000/01/rdf-schema#comment> "Rank position on a leaderboard (1 = highest)."@en .
+<https://w3id.org/wedowind/ontology#rank> <http://www.w3.org/2000/01/rdf-schema#label> "rank"@en .
+# 
+# https://w3id.org/wedowind/ontology#relatedDataset
+<https://w3id.org/wedowind/ontology#relatedDataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#relatedDataset> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/Dataset> .
+<https://schema.org/Dataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
 # 
 # https://w3id.org/wedowind/ontology#score
 <https://w3id.org/wedowind/ontology#score> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://w3id.org/wedowind/ontology#score> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Submission> .
 <https://w3id.org/wedowind/ontology#score> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
-<https://w3id.org/wedowind/ontology#score> <http://www.w3.org/2000/01/rdf-schema#label> "score" .
+<https://w3id.org/wedowind/ontology#score> <http://www.w3.org/2000/01/rdf-schema#comment> "Numerical score achieved by a submission on a specific metric."@en .
+<https://w3id.org/wedowind/ontology#score> <http://www.w3.org/2000/01/rdf-schema#label> "score"@en .
 # 
 # https://w3id.org/wedowind/ontology#startDate
 <https://w3id.org/wedowind/ontology#startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://w3id.org/wedowind/ontology#startDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Challenge> .
 <https://w3id.org/wedowind/ontology#startDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
-<https://w3id.org/wedowind/ontology#startDate> <http://www.w3.org/2000/01/rdf-schema#label> "start date" .
+<https://w3id.org/wedowind/ontology#startDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Start date of a challenge."@en .
+<https://w3id.org/wedowind/ontology#startDate> <http://www.w3.org/2000/01/rdf-schema#label> "start date"@en .
+# 
+# https://w3id.org/wedowind/ontology#studyNumber
+<https://w3id.org/wedowind/ontology#studyNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#studyNumber> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/identifier> .
+<https://w3id.org/wedowind/ontology#studyNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "Internal study or project number."@en .
+<https://w3id.org/wedowind/ontology#studyNumber> <http://www.w3.org/2000/01/rdf-schema#label> "study number"@en .
 # 
 # https://w3id.org/wedowind/ontology#turbineCount
 <https://w3id.org/wedowind/ontology#turbineCount> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://w3id.org/wedowind/ontology#turbineCount> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#WindFarm> .
 <https://w3id.org/wedowind/ontology#turbineCount> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
-<https://w3id.org/wedowind/ontology#turbineCount> <http://www.w3.org/2000/01/rdf-schema#label> "turbine count" .
+<https://w3id.org/wedowind/ontology#turbineCount> <http://www.w3.org/2000/01/rdf-schema#comment> "Number of turbines in a wind farm."@en .
+<https://w3id.org/wedowind/ontology#turbineCount> <http://www.w3.org/2000/01/rdf-schema#label> "turbine count"@en .
+# 
+# https://w3id.org/wedowind/ontology#usedIn
+<https://w3id.org/wedowind/ontology#usedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#usedIn> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/Dataset> .
+# 
+# https://w3id.org/wedowind/ontology#usesDatasetForSubmission
+<https://w3id.org/wedowind/ontology#usesDatasetForSubmission> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#usesDatasetForSubmission> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.org/Dataset> .
+# 
+# https://w3id.org/wedowind/ontology#variableLabel
+<https://w3id.org/wedowind/ontology#variableLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#variableLabel> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Variable> .
+<https://w3id.org/wedowind/ontology#variableLabel> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/wedowind/ontology#variableLabel> <http://www.w3.org/2000/01/rdf-schema#comment> "Human-readable description of a variable."@en .
+<https://w3id.org/wedowind/ontology#variableLabel> <http://www.w3.org/2000/01/rdf-schema#label> "variable label"@en .
+# 
+# https://w3id.org/wedowind/ontology#variableName
+<https://w3id.org/wedowind/ontology#variableName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#variableName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Variable> .
+<https://w3id.org/wedowind/ontology#variableName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/wedowind/ontology#variableName> <http://www.w3.org/2000/01/rdf-schema#comment> "Short name or code for a variable."@en .
+<https://w3id.org/wedowind/ontology#variableName> <http://www.w3.org/2000/01/rdf-schema#label> "variable name"@en .
+# 
+# https://w3id.org/wedowind/ontology#variableType
+<https://w3id.org/wedowind/ontology#variableType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wedowind/ontology#variableType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wedowind/ontology#Variable> .
+<https://w3id.org/wedowind/ontology#variableType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/wedowind/ontology#variableType> <http://www.w3.org/2000/01/rdf-schema#comment> "Type: cross-sectional, panel, time-series, sensor, categorical, continuous."@en .
+<https://w3id.org/wedowind/ontology#variableType> <http://www.w3.org/2000/01/rdf-schema#label> "variable type"@en .
 # 
 # 
 # 
@@ -181,69 +513,185 @@
 # #################################################################
 # 
 # 
-# http://www.w3.org/ns/dcat#Dataset
+# http://rdf-vocabulary.ddialliance.org/lifecycle#Instrument
+<http://rdf-vocabulary.ddialliance.org/lifecycle#Instrument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://rdf-vocabulary.ddialliance.org/lifecycle#Variable
+<http://rdf-vocabulary.ddialliance.org/lifecycle#Variable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/2004/02/skos/core#Concept
+<http://www.w3.org/2004/02/skos/core#Concept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 # 
 # http://www.w3.org/ns/prov#Entity
 <http://www.w3.org/ns/prov#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 # 
-# http://www.w3.org/ns/prov#Plan
-<http://www.w3.org/ns/prov#Plan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-# 
-# http://xmlns.com/foaf/0.1/Organization
-<http://xmlns.com/foaf/0.1/Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-# 
-# http://xmlns.com/foaf/0.1/Person
+# https://schema.org/Agent
 # 
 # https://schema.org/CreativeWork
-<https://schema.org/CreativeWork> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://schema.org/DefinedTerm
 # 
 # https://schema.org/Event
 <https://schema.org/Event> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 # 
+# https://schema.org/Intangible
+<https://schema.org/Intangible> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://schema.org/LearningResource
+<https://schema.org/LearningResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://schema.org/Organization
+# 
+# https://schema.org/Person
+# 
+# https://schema.org/Plan
+<https://schema.org/Plan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://schema.org/PropertyValue
+<https://schema.org/PropertyValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://schema.org/ScholarlyArticle
+# 
+# https://schema.org/SoftwareSourceCode
+# 
 # https://w3id.org/wedowind/ontology#Challenge
 <https://w3id.org/wedowind/ontology#Challenge> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/wedowind/ontology#Challenge> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Event> .
-<https://w3id.org/wedowind/ontology#Challenge> <http://www.w3.org/2000/01/rdf-schema#label> "Challenge" .
+<https://w3id.org/wedowind/ontology#Challenge> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid1 .
+_:genid1 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid1 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/wedowind/ontology#hasTask> .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/wedowind/ontology#Challenge> <http://www.w3.org/2000/01/rdf-schema#comment> "A benchmarking competition in wind energy, consisting of one or more tasks."@en .
+<https://w3id.org/wedowind/ontology#Challenge> <http://www.w3.org/2000/01/rdf-schema#label> "Challenge"@en .
+# 
+# https://w3id.org/wedowind/ontology#ChallengeTask
+<https://w3id.org/wedowind/ontology#ChallengeTask> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#ChallengeTask> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/CreativeWork> .
+<https://w3id.org/wedowind/ontology#ChallengeTask> <http://www.w3.org/2000/01/rdf-schema#comment> "A specific task within a challenge (e.g., failure detection, power forecasting, remaining useful life estimation)."@en .
+<https://w3id.org/wedowind/ontology#ChallengeTask> <http://www.w3.org/2000/01/rdf-schema#label> "Challenge Task"@en .
+# 
+# https://w3id.org/wedowind/ontology#Competency
+<https://w3id.org/wedowind/ontology#Competency> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#Competency> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/wedowind/ontology#Competency> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/DefinedTerm> .
+<https://w3id.org/wedowind/ontology#Competency> <http://www.w3.org/2000/01/rdf-schema#comment> "Skill area in wind energy digitalisation (e.g., SCADA data analysis, machine learning for prognosis, time series forecasting, data governance, uncertainty quantification)."@en .
+<https://w3id.org/wedowind/ontology#Competency> <http://www.w3.org/2000/01/rdf-schema#label> "Competency"@en .
+# 
+# https://w3id.org/wedowind/ontology#ComputationalMethod
+<https://w3id.org/wedowind/ontology#ComputationalMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#ComputationalMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Plan> .
+<https://w3id.org/wedowind/ontology#ComputationalMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "Algorithm or methodological approach implemented in a submission."@en .
+<https://w3id.org/wedowind/ontology#ComputationalMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Computational Method"@en .
 # 
 # https://w3id.org/wedowind/ontology#EvaluationMetric
 <https://w3id.org/wedowind/ontology#EvaluationMetric> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/wedowind/ontology#EvaluationMetric> <http://www.w3.org/2000/01/rdf-schema#label> "Evaluation Metric" .
+<https://w3id.org/wedowind/ontology#EvaluationMetric> <http://www.w3.org/2000/01/rdf-schema#comment> "Metric used to evaluate and compare submissions (e.g., RMSE, MAE, F1-score, AUC-ROC)."@en .
+<https://w3id.org/wedowind/ontology#EvaluationMetric> <http://www.w3.org/2000/01/rdf-schema#label> "Evaluation Metric"@en .
 # 
 # https://w3id.org/wedowind/ontology#FailureMode
 <https://w3id.org/wedowind/ontology#FailureMode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/wedowind/ontology#FailureMode> <http://www.w3.org/2000/01/rdf-schema#label> "Failure Mode" .
+<https://w3id.org/wedowind/ontology#FailureMode> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/wedowind/ontology#FailureMode> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/DefinedTerm> .
+<https://w3id.org/wedowind/ontology#FailureMode> <http://www.w3.org/2000/01/rdf-schema#comment> "Type of component failure in wind turbines (e.g., gearbox bearing damage, generator winding fault, blade crack, pitch system malfunction)."@en .
+<https://w3id.org/wedowind/ontology#FailureMode> <http://www.w3.org/2000/01/rdf-schema#label> "Failure Mode"@en .
 # 
 # https://w3id.org/wedowind/ontology#LeaderboardEntry
 <https://w3id.org/wedowind/ontology#LeaderboardEntry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/wedowind/ontology#LeaderboardEntry> <http://www.w3.org/2000/01/rdf-schema#label> "Leaderboard Entry" .
+<https://w3id.org/wedowind/ontology#LeaderboardEntry> <http://www.w3.org/2000/01/rdf-schema#comment> "A ranked result entry on a challenge leaderboard, linking a submission to its performance scores."@en .
+<https://w3id.org/wedowind/ontology#LeaderboardEntry> <http://www.w3.org/2000/01/rdf-schema#label> "Leaderboard Entry"@en .
 # 
-# https://w3id.org/wedowind/ontology#Method
-<https://w3id.org/wedowind/ontology#Method> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/wedowind/ontology#Method> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Plan> .
-<https://w3id.org/wedowind/ontology#Method> <http://www.w3.org/2000/01/rdf-schema#label> "Computational Method" .
+# https://w3id.org/wedowind/ontology#MethodType
+<https://w3id.org/wedowind/ontology#MethodType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#MethodType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/wedowind/ontology#MethodType> <http://www.w3.org/2000/01/rdf-schema#comment> "Controlled vocabulary for categorizing computational methods (e.g., deep learning, statistical, physics-based, hybrid)."@en .
+<https://w3id.org/wedowind/ontology#MethodType> <http://www.w3.org/2000/01/rdf-schema#label> "Method Type"@en .
 # 
-# https://w3id.org/wedowind/ontology#Organization
-<https://w3id.org/wedowind/ontology#Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/wedowind/ontology#Organization> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://xmlns.com/foaf/0.1/Organization> .
-<https://w3id.org/wedowind/ontology#Organization> <http://www.w3.org/2000/01/rdf-schema#label> "Organization" .
+# https://w3id.org/wedowind/ontology#Reference
+<https://w3id.org/wedowind/ontology#Reference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#Reference> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<https://w3id.org/wedowind/ontology#Reference> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/CreativeWork> .
+<https://w3id.org/wedowind/ontology#Reference> <http://www.w3.org/2000/01/rdf-schema#comment> "A reference from one scholarly resource to another, capturing citation relationships with provenance information."@en .
+<https://w3id.org/wedowind/ontology#Reference> <http://www.w3.org/2000/01/rdf-schema#label> "Reference"@en .
+# 
+# https://w3id.org/wedowind/ontology#ReferenceMetadata
+<https://w3id.org/wedowind/ontology#ReferenceMetadata> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#ReferenceMetadata> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Intangible> .
+<https://w3id.org/wedowind/ontology#ReferenceMetadata> <http://www.w3.org/2000/01/rdf-schema#comment> "Provenance metadata about a reference, including confidence scores, linking method, and source information for automated or manual citations."@en .
+<https://w3id.org/wedowind/ontology#ReferenceMetadata> <http://www.w3.org/2000/01/rdf-schema#label> "Reference Metadata"@en .
+# 
+# https://w3id.org/wedowind/ontology#SensorVariable
+<https://w3id.org/wedowind/ontology#SensorVariable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#SensorVariable> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/wedowind/ontology#Variable> .
+<https://w3id.org/wedowind/ontology#SensorVariable> <http://www.w3.org/2000/01/rdf-schema#comment> "A physical measurement from turbine sensors (e.g., wind speed, rotor RPM, gearbox temperature, power output, vibration amplitude)."@en .
+<https://w3id.org/wedowind/ontology#SensorVariable> <http://www.w3.org/2000/01/rdf-schema#label> "Sensor Variable"@en .
 # 
 # https://w3id.org/wedowind/ontology#Submission
 <https://w3id.org/wedowind/ontology#Submission> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/wedowind/ontology#Submission> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
 <https://w3id.org/wedowind/ontology#Submission> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/CreativeWork> .
-<https://w3id.org/wedowind/ontology#Submission> <http://www.w3.org/2000/01/rdf-schema#label> "Submission" .
+<https://w3id.org/wedowind/ontology#Submission> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid2 .
+_:genid2 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid2 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/wedowind/ontology#submittedBy> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/wedowind/ontology#Submission> <http://www.w3.org/2000/01/rdf-schema#comment> "A participant's solution submission to a challenge task, including code, predictions, and documentation."@en .
+<https://w3id.org/wedowind/ontology#Submission> <http://www.w3.org/2000/01/rdf-schema#label> "Submission"@en .
 # 
-# https://w3id.org/wedowind/ontology#Task
-<https://w3id.org/wedowind/ontology#Task> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/wedowind/ontology#Task> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/CreativeWork> .
-<https://w3id.org/wedowind/ontology#Task> <http://www.w3.org/2000/01/rdf-schema#label> "Challenge Task" .
+# https://w3id.org/wedowind/ontology#SurveyInstrument
+<https://w3id.org/wedowind/ontology#SurveyInstrument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#SurveyInstrument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf-vocabulary.ddialliance.org/lifecycle#Instrument> .
+<https://w3id.org/wedowind/ontology#SurveyInstrument> <http://www.w3.org/2000/01/rdf-schema#comment> "Questionnaire or assessment tool for social science research in wind energy, including community acceptance studies, safety culture assessments, and workforce competency evaluations."@en .
+<https://w3id.org/wedowind/ontology#SurveyInstrument> <http://www.w3.org/2000/01/rdf-schema#label> "Survey Instrument"@en .
+# 
+# https://w3id.org/wedowind/ontology#SurveyVariable
+<https://w3id.org/wedowind/ontology#SurveyVariable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#SurveyVariable> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/wedowind/ontology#Variable> .
+<https://w3id.org/wedowind/ontology#SurveyVariable> <http://www.w3.org/2000/01/rdf-schema#comment> "A response variable from surveys or questionnaires (e.g., attitude scores, demographic data, safety perception ratings)."@en .
+<https://w3id.org/wedowind/ontology#SurveyVariable> <http://www.w3.org/2000/01/rdf-schema#label> "Survey Variable"@en .
+# 
+# https://w3id.org/wedowind/ontology#TrainingPathway
+<https://w3id.org/wedowind/ontology#TrainingPathway> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#TrainingPathway> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/LearningResource> .
+<https://w3id.org/wedowind/ontology#TrainingPathway> <http://www.w3.org/2000/01/rdf-schema#comment> "A curated sequence of tutorials and challenges designed to develop specific competencies in wind energy digitalisation."@en .
+<https://w3id.org/wedowind/ontology#TrainingPathway> <http://www.w3.org/2000/01/rdf-schema#label> "Training Pathway"@en .
+# 
+# https://w3id.org/wedowind/ontology#Tutorial
+<https://w3id.org/wedowind/ontology#Tutorial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#Tutorial> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/LearningResource> .
+<https://w3id.org/wedowind/ontology#Tutorial> <http://www.w3.org/2000/01/rdf-schema#comment> "Training material for wind energy digitalisation skills, including Jupyter notebooks, video lectures, documentation, and hands-on exercises."@en .
+<https://w3id.org/wedowind/ontology#Tutorial> <http://www.w3.org/2000/01/rdf-schema#label> "Tutorial"@en .
+# 
+# https://w3id.org/wedowind/ontology#Variable
+<https://w3id.org/wedowind/ontology#Variable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wedowind/ontology#Variable> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf-vocabulary.ddialliance.org/lifecycle#Variable> .
+<https://w3id.org/wedowind/ontology#Variable> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/PropertyValue> .
+<https://w3id.org/wedowind/ontology#Variable> <http://www.w3.org/2000/01/rdf-schema#comment> "A measurable quantity from SCADA sensors, survey responses, or experimental measurements used in wind energy research."@en .
+<https://w3id.org/wedowind/ontology#Variable> <http://www.w3.org/2000/01/rdf-schema#label> "Variable"@en .
 # 
 # https://w3id.org/wedowind/ontology#WindFarm
 <https://w3id.org/wedowind/ontology#WindFarm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/wedowind/ontology#WindFarm> <http://www.w3.org/2000/01/rdf-schema#label> "Wind Farm" .
+<https://w3id.org/wedowind/ontology#WindFarm> <http://www.w3.org/2000/01/rdf-schema#comment> "A collection of wind turbines at a specific geographic location, sharing infrastructure and grid connection."@en .
+<https://w3id.org/wedowind/ontology#WindFarm> <http://www.w3.org/2000/01/rdf-schema#label> "Wind Farm"@en .
 # 
 # https://w3id.org/wedowind/ontology#WindTurbine
 <https://w3id.org/wedowind/ontology#WindTurbine> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/wedowind/ontology#WindTurbine> <http://www.w3.org/2000/01/rdf-schema#label> "Wind Turbine" .
+<https://w3id.org/wedowind/ontology#WindTurbine> <http://www.w3.org/2000/01/rdf-schema#comment> "A wind energy turbine with specifications such as manufacturer, rated power, rotor diameter, and location."@en .
+<https://w3id.org/wedowind/ontology#WindTurbine> <http://www.w3.org/2000/01/rdf-schema#label> "Wind Turbine"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Annotations
+# #
+# #################################################################
+# 
+# 
+<https://w3id.org/wedowind/ontology#relatedDataset> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a resource to related datasets."@en .
+<https://w3id.org/wedowind/ontology#relatedDataset> <http://www.w3.org/2000/01/rdf-schema#label> "related dataset"@en .
+# 
+<https://w3id.org/wedowind/ontology#usedIn> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a survey instrument to datasets where it has been applied."@en .
+<https://w3id.org/wedowind/ontology#usedIn> <http://www.w3.org/2000/01/rdf-schema#label> "used in"@en .
+# 
+<https://w3id.org/wedowind/ontology#usesDatasetForSubmission> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a submission to datasets actually used in model development, including external or augmented data sources."@en .
+<https://w3id.org/wedowind/ontology#usesDatasetForSubmission> <http://www.w3.org/2000/01/rdf-schema#label> "uses dataset for submission"@en .
 # 
 # Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

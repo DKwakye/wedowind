@@ -6,31 +6,18 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <https://w3id.org/wedowind/ontology#> .
 
-<https://w3id.org/wedowind/ontology> rdf:type owl:Ontology ;
-                                      owl:versionIRI <https://w3id.org/wedowind/ontology/1.0> ;
-                                      <http://purl.org/dc/terms/created> "2026-04-07"^^xsd:date ;
-                                      <http://purl.org/dc/terms/creator> "Daniel Kwakye" ;
-                                      <http://purl.org/dc/terms/description> "Ontology for modeling wind energy benchmarking challenges, tasks, submissions, and evaluation workflows." ;
-                                      <http://purl.org/dc/terms/title> "WeDoWind Ontology" .
+<https://w3id.org/wedowind/ontology#> rdf:type owl:Ontology ;
+                                       <http://purl.org/dc/terms/creator> "Daniel Kwakye" ;
+                                       rdfs:comment "Ontology for wind energy benchmarking challenges, training, and interdisciplinary research. Extends schema.org, DDI lifecycle, SKOS, and PROV-O."@en ;
+                                       rdfs:label "WeDoWind Ontology"@en ;
+                                       owl:versionInfo "2.0" .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
-###  http://purl.org/dc/terms/created
-<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
-
-
 ###  http://purl.org/dc/terms/creator
 <http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/description
-<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/title
-<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -41,235 +28,755 @@
 xsd:date rdf:type rdfs:Datatype .
 
 
+###  http://www.w3.org/2001/XMLSchema#duration
+xsd:duration rdf:type rdfs:Datatype .
+
+
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://purl.org/dc/terms/publisher
-<http://purl.org/dc/terms/publisher> rdf:type owl:ObjectProperty .
+###  http://www.w3.org/ns/prov#wasDerivedFrom
+<http://www.w3.org/ns/prov#wasDerivedFrom> rdf:type owl:ObjectProperty .
 
 
-###  http://www.w3.org/ns/prov#wasAssociatedWith
-<http://www.w3.org/ns/prov#wasAssociatedWith> rdf:type owl:ObjectProperty .
+###  https://w3id.org/wedowind/ontology#addressesCompetency
+:addressesCompetency rdf:type owl:ObjectProperty ;
+                     rdfs:domain :ChallengeTask ;
+                     rdfs:range :Competency ;
+                     rdfs:comment "Links a challenge task to the skill area it develops or assesses."@en ;
+                     rdfs:label "addresses competency"@en .
 
 
-###  http://www.w3.org/ns/prov#wasAttributedTo
-<http://www.w3.org/ns/prov#wasAttributedTo> rdf:type owl:ObjectProperty .
+###  https://w3id.org/wedowind/ontology#constructs
+:constructs rdf:type owl:ObjectProperty ;
+            rdfs:domain :SurveyInstrument ;
+            rdfs:range <https://schema.org/DefinedTerm> ;
+            rdfs:comment "Theoretical constructs measured by a survey instrument."@en ;
+            rdfs:label "constructs"@en .
 
 
 ###  https://w3id.org/wedowind/ontology#detectsFailureMode
 :detectsFailureMode rdf:type owl:ObjectProperty ;
-                    rdfs:domain :Task ;
+                    rdfs:domain :ChallengeTask ;
                     rdfs:range :FailureMode ;
-                    rdfs:label "detects failure mode" .
+                    rdfs:comment "Specifies the type of turbine failure a task aims to detect or predict."@en ;
+                    rdfs:label "detects failure mode"@en .
 
 
-###  https://w3id.org/wedowind/ontology#evaluatedBy
-:evaluatedBy rdf:type owl:ObjectProperty ;
-             rdfs:domain :Submission ;
-             rdfs:range :EvaluationMetric ;
-             rdfs:label "evaluated by metric" .
+###  https://w3id.org/wedowind/ontology#entrySubmission
+:entrySubmission rdf:type owl:ObjectProperty ;
+                 rdfs:domain :LeaderboardEntry ;
+                 rdfs:range :Submission ;
+                 rdfs:comment "Links a leaderboard entry to the submission it represents."@en ;
+                 rdfs:label "entry submission"@en .
+
+
+###  https://w3id.org/wedowind/ontology#evaluatedByMetric
+:evaluatedByMetric rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Submission ;
+                   rdfs:range :EvaluationMetric ;
+                   rdfs:comment "Links a submission to the metrics used for its evaluation."@en ;
+                   rdfs:label "evaluated by metric"@en .
+
+
+###  https://w3id.org/wedowind/ontology#evaluatedWith
+:evaluatedWith rdf:type owl:ObjectProperty ;
+               rdfs:domain :LeaderboardEntry ;
+               rdfs:range :EvaluationMetric ;
+               rdfs:comment "Specifies which evaluation metric a leaderboard entry value corresponds to."@en ;
+               rdfs:label "evaluated with metric"@en .
 
 
 ###  https://w3id.org/wedowind/ontology#hasLeaderboardEntry
 :hasLeaderboardEntry rdf:type owl:ObjectProperty ;
                      rdfs:domain :Challenge ;
                      rdfs:range :LeaderboardEntry ;
-                     rdfs:label "has leaderboard entry" .
+                     rdfs:comment "Links a challenge to entries on its leaderboard."@en ;
+                     rdfs:label "has leaderboard entry"@en .
+
+
+###  https://w3id.org/wedowind/ontology#hasMethodType
+:hasMethodType rdf:type owl:ObjectProperty ;
+               rdfs:domain :ComputationalMethod ;
+               rdfs:range :MethodType ;
+               rdfs:comment "Links a computational method to a controlled vocabulary term describing its methodological category."@en ;
+               rdfs:label "has method type"@en .
+
+
+###  https://w3id.org/wedowind/ontology#hasSoftwareSourceCode
+:hasSoftwareSourceCode rdf:type owl:ObjectProperty ;
+                       rdfs:domain :Tutorial ;
+                       rdfs:range <https://schema.org/SoftwareSourceCode> ;
+                       rdfs:comment "Links a tutorial to accompanying code repository."@en ;
+                       rdfs:label "has software source code"@en .
+
+
+###  https://w3id.org/wedowind/ontology#hasSubmission
+:hasSubmission rdf:type owl:ObjectProperty ;
+               rdfs:domain <https://schema.org/Agent> ;
+               rdfs:range :Submission ;
+               rdfs:comment "Inverse property linking a person or organization (agent) to their submissions."@en ;
+               rdfs:label "has submission"@en .
 
 
 ###  https://w3id.org/wedowind/ontology#hasTask
 :hasTask rdf:type owl:ObjectProperty ;
+         owl:inverseOf :isTaskOf ;
          rdfs:domain :Challenge ;
-         rdfs:range :Task ;
-         rdfs:label "has task" .
+         rdfs:range :ChallengeTask ;
+         rdfs:comment "Links a challenge to its constituent tasks."@en ;
+         rdfs:label "has task"@en .
+
+
+###  https://w3id.org/wedowind/ontology#hasTutorial
+:hasTutorial rdf:type owl:ObjectProperty ;
+             rdfs:domain :ChallengeTask ;
+             rdfs:range :Tutorial ;
+             rdfs:comment "Links a challenge task to recommended training materials."@en ;
+             rdfs:label "has tutorial"@en .
 
 
 ###  https://w3id.org/wedowind/ontology#implementsMethod
 :implementsMethod rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :isImplementedIn ;
                   rdfs:domain :Submission ;
-                  rdfs:range :Method ;
-                  rdfs:label "implements method" .
+                  rdfs:range :ComputationalMethod ;
+                  rdfs:comment "Links a submission to the computational method it implements."@en ;
+                  rdfs:label "implements method"@en .
+
+
+###  https://w3id.org/wedowind/ontology#includesChallenge
+:includesChallenge rdf:type owl:ObjectProperty ;
+                   rdfs:domain :TrainingPathway ;
+                   rdfs:range :Challenge ;
+                   rdfs:comment "Links a training pathway to a challenge that serves as practical assessment."@en ;
+                   rdfs:label "includes challenge"@en .
+
+
+###  https://w3id.org/wedowind/ontology#includesTutorial
+:includesTutorial rdf:type owl:ObjectProperty ;
+                  rdfs:domain :TrainingPathway ;
+                  rdfs:range :Tutorial ;
+                  rdfs:comment "Links a training pathway to a tutorial that is part of the curriculum."@en ;
+                  rdfs:label "includes tutorial"@en .
+
+
+###  https://w3id.org/wedowind/ontology#isImplementedIn
+:isImplementedIn rdf:type owl:ObjectProperty ;
+                 rdfs:domain :ComputationalMethod ;
+                 rdfs:range :Submission ;
+                 rdfs:comment "Inverse property linking a method to submissions that use it."@en ;
+                 rdfs:label "is implemented in"@en .
+
+
+###  https://w3id.org/wedowind/ontology#isPrerequisiteFor
+:isPrerequisiteFor rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Tutorial ;
+                   rdfs:range :Tutorial ;
+                   rdfs:comment "Indicates that one tutorial must be completed before another."@en ;
+                   rdfs:label "is prerequisite for"@en .
+
+
+###  https://w3id.org/wedowind/ontology#isTaskOf
+:isTaskOf rdf:type owl:ObjectProperty ;
+          rdfs:domain :ChallengeTask ;
+          rdfs:range :Challenge ;
+          rdfs:comment "Inverse property linking a task back to its parent challenge."@en ;
+          rdfs:label "is task of"@en .
 
 
 ###  https://w3id.org/wedowind/ontology#locatedAt
 :locatedAt rdf:type owl:ObjectProperty ;
            rdfs:domain :WindTurbine ;
            rdfs:range :WindFarm ;
-           rdfs:label "located at" .
+           rdfs:comment "Links a turbine to the wind farm where it is installed."@en ;
+           rdfs:label "located at"@en .
 
 
 ###  https://w3id.org/wedowind/ontology#organizedBy
 :organizedBy rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasAssociatedWith> ;
              rdfs:domain :Challenge ;
-             rdfs:range :Organization ;
-             rdfs:label "organized by" .
+             rdfs:range <https://schema.org/Organization> ;
+             rdfs:comment "The organization responsible for hosting and managing a challenge."@en ;
+             rdfs:label "organized by"@en .
 
 
 ###  https://w3id.org/wedowind/ontology#participatedBy
 :participatedBy rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasAssociatedWith> ;
                 rdfs:domain :Challenge ;
-                rdfs:range <http://xmlns.com/foaf/0.1/Person> ;
-                rdfs:label "participated by" .
+                rdfs:range <https://schema.org/Organization> ,
+                           <https://schema.org/Person> ;
+                rdfs:comment "Persons or organizations that participated in a challenge."@en ;
+                rdfs:label "participated by"@en .
 
 
-###  https://w3id.org/wedowind/ontology#providedBy
-:providedBy rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf <http://purl.org/dc/terms/publisher> ;
-            rdfs:domain <http://www.w3.org/ns/dcat#Dataset> ;
-            rdfs:range :Organization ;
-            rdfs:label "provided by" .
+###  https://w3id.org/wedowind/ontology#rankedIn
+:rankedIn rdf:type owl:ObjectProperty ;
+          rdfs:domain :LeaderboardEntry ;
+          rdfs:range :Challenge ;
+          rdfs:comment "Links a leaderboard entry to the challenge in which the ranking is defined."@en ;
+          rdfs:label "ranked in challenge"@en .
+
+
+###  https://w3id.org/wedowind/ontology#reference
+:reference rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasDerivedFrom> ;
+           rdfs:domain <https://schema.org/CreativeWork> ;
+           rdfs:range :Reference ;
+           rdfs:comment "Links a creative work to a reference describing its relationship to another resource."@en ;
+           rdfs:label "reference"@en .
+
+
+###  https://w3id.org/wedowind/ontology#referenceMetadata
+:referenceMetadata rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Reference ;
+                   rdfs:range :ReferenceMetadata ;
+                   rdfs:comment "Links a reference to its associated provenance metadata."@en ;
+                   rdfs:label "reference metadata"@en .
+
+
+###  https://w3id.org/wedowind/ontology#relatedDataset
+:relatedDataset rdf:type owl:ObjectProperty ;
+                rdfs:domain <https://schema.org/CreativeWork> .
+
+
+###  https://w3id.org/wedowind/ontology#relatedPublication
+:relatedPublication rdf:type owl:ObjectProperty ;
+                    rdfs:domain <https://schema.org/CreativeWork> ;
+                    rdfs:range <https://schema.org/ScholarlyArticle> ;
+                    rdfs:comment "Links a resource to scholarly articles describing or using it."@en ;
+                    rdfs:label "related publication"@en .
+
+
+###  https://w3id.org/wedowind/ontology#relatedVariable
+:relatedVariable rdf:type owl:ObjectProperty ;
+                 rdfs:domain <https://schema.org/CreativeWork> ;
+                 rdfs:range :Variable ;
+                 rdfs:comment "Links a resource to variables it uses or describes."@en ;
+                 rdfs:label "related variable"@en .
+
+
+###  https://w3id.org/wedowind/ontology#solvesTask
+:solvesTask rdf:type owl:ObjectProperty ;
+            rdfs:domain :Submission ;
+            rdfs:range :ChallengeTask ;
+            rdfs:comment "Links a submission to the specific challenge task it addresses."@en ;
+            rdfs:label "solves task"@en .
 
 
 ###  https://w3id.org/wedowind/ontology#submittedBy
 :submittedBy rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasAttributedTo> ;
+             owl:inverseOf :hasSubmission ;
              rdfs:domain :Submission ;
-             rdfs:range <http://xmlns.com/foaf/0.1/Person> ;
-             rdfs:label "submitted by" .
+             rdfs:range <https://schema.org/Organization> ,
+                        <https://schema.org/Person> ;
+             rdfs:comment "The person or organization responsible for a submission."@en ;
+             rdfs:label "submitted by"@en .
 
 
-###  https://w3id.org/wedowind/ontology#usesDataset
-:usesDataset rdf:type owl:ObjectProperty ;
-             rdfs:domain :Task ;
-             rdfs:range <http://www.w3.org/ns/dcat#Dataset> ;
-             rdfs:label "uses dataset" .
+###  https://w3id.org/wedowind/ontology#targetsCompetency
+:targetsCompetency rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Tutorial ;
+                   rdfs:range :Competency ;
+                   rdfs:comment "Indicates the competency a tutorial aims to teach or develop."@en ;
+                   rdfs:label "targets competency"@en .
+
+
+###  https://w3id.org/wedowind/ontology#usedIn
+:usedIn rdf:type owl:ObjectProperty ;
+        rdfs:domain :SurveyInstrument .
+
+
+###  https://w3id.org/wedowind/ontology#usesDatasetForSubmission
+:usesDatasetForSubmission rdf:type owl:ObjectProperty ;
+                          rdfs:domain :Submission .
+
+
+###  https://w3id.org/wedowind/ontology#usesDatasetForTask
+:usesDatasetForTask rdf:type owl:ObjectProperty ;
+                    rdfs:domain :ChallengeTask ;
+                    rdfs:range <https://schema.org/Dataset> ;
+                    rdfs:comment "Links a challenge task to the dataset officially provided for that task."@en ;
+                    rdfs:label "uses dataset for task"@en .
 
 
 ###  https://w3id.org/wedowind/ontology#usesTurbine
 :usesTurbine rdf:type owl:ObjectProperty ;
-             rdfs:domain :Task ;
+             rdfs:domain :ChallengeTask ;
              rdfs:range :WindTurbine ;
-             rdfs:label "uses turbine" .
+             rdfs:comment "Links a challenge task to specific turbine instances or types used in the task."@en ;
+             rdfs:label "uses turbine"@en .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
+###  https://schema.org/identifier
+<https://schema.org/identifier> rdf:type owl:DatatypeProperty .
+
+
+###  https://w3id.org/wedowind/ontology#analysisUnit
+:analysisUnit rdf:type owl:DatatypeProperty ;
+              rdfs:domain <https://schema.org/Dataset> ;
+              rdfs:range xsd:string ;
+              rdfs:comment "Unit: individual, household, turbine, farm, blade, component."@en ;
+              rdfs:label "analysis unit"@en .
+
+
+###  https://w3id.org/wedowind/ontology#collectionDate
+:collectionDate rdf:type owl:DatatypeProperty ;
+                rdfs:domain :SurveyVariable ;
+                rdfs:range xsd:date ;
+                rdfs:comment "Date when a survey response was collected."@en ;
+                rdfs:label "collection date"@en .
+
+
 ###  https://w3id.org/wedowind/ontology#dataResolution
 :dataResolution rdf:type owl:DatatypeProperty ;
-                rdfs:domain <http://www.w3.org/ns/dcat#Dataset> ;
+                rdfs:domain <https://schema.org/Dataset> ;
                 rdfs:range xsd:string ;
-                rdfs:label "data resolution" .
+                rdfs:comment "Temporal resolution of time-series data (e.g., 1Hz, 10min, 1day)."@en ;
+                rdfs:label "data resolution"@en .
+
+
+###  https://w3id.org/wedowind/ontology#difficultyLevel
+:difficultyLevel rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Tutorial ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "Difficulty classification: beginner, intermediate, or advanced."@en ;
+                 rdfs:label "difficulty level"@en .
+
+
+###  https://w3id.org/wedowind/ontology#doi
+:doi rdf:type owl:DatatypeProperty ;
+     rdfs:subPropertyOf <https://schema.org/identifier> ;
+     rdfs:comment "Digital Object Identifier."@en ;
+     rdfs:label "DOI"@en .
+
+
+###  https://w3id.org/wedowind/ontology#downloadURL
+:downloadURL rdf:type owl:DatatypeProperty ;
+             rdfs:domain <https://schema.org/Dataset> ;
+             rdfs:range xsd:anyURI ;
+             rdfs:comment "Direct URL for downloading a dataset."@en ;
+             rdfs:label "download URL"@en .
 
 
 ###  https://w3id.org/wedowind/ontology#endDate
 :endDate rdf:type owl:DatatypeProperty ;
          rdfs:domain :Challenge ;
          rdfs:range xsd:date ;
-         rdfs:label "end date" .
+         rdfs:comment "End date of a challenge."@en ;
+         rdfs:label "end date"@en .
+
+
+###  https://w3id.org/wedowind/ontology#estimatedTime
+:estimatedTime rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Tutorial ;
+               rdfs:range xsd:duration ;
+               rdfs:comment "Estimated duration to complete a tutorial (ISO 8601 format)."@en ;
+               rdfs:label "estimated time"@en .
+
+
+###  https://w3id.org/wedowind/ontology#hasModelArtifact
+:hasModelArtifact rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Submission ;
+                  rdfs:range xsd:anyURI ;
+                  rdfs:comment "URL to trained model files or serialized artifacts."@en ;
+                  rdfs:label "has model artifact"@en .
+
+
+###  https://w3id.org/wedowind/ontology#hasRepository
+:hasRepository rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Submission ;
+               rdfs:range xsd:anyURI ;
+               rdfs:comment "URL of source code repository (e.g., GitHub, GitLab)."@en ;
+               rdfs:label "has repository"@en .
+
+
+###  https://w3id.org/wedowind/ontology#license
+:license rdf:type owl:DatatypeProperty ;
+         rdfs:domain <https://schema.org/Dataset> ;
+         rdfs:range xsd:anyURI ;
+         rdfs:comment "URI pointing to license terms."@en ;
+         rdfs:label "license"@en .
+
+
+###  https://w3id.org/wedowind/ontology#linkContext
+:linkContext rdf:type owl:DatatypeProperty ;
+             rdfs:domain :ReferenceMetadata ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Text snippet explaining the reference context."@en ;
+             rdfs:label "link context"@en .
+
+
+###  https://w3id.org/wedowind/ontology#linkScore
+:linkScore rdf:type owl:DatatypeProperty ;
+           rdfs:domain :ReferenceMetadata ;
+           rdfs:range xsd:float ;
+           rdfs:comment "Confidence score for automatically generated references (0.0 to 1.0)."@en ;
+           rdfs:label "link score"@en .
+
+
+###  https://w3id.org/wedowind/ontology#linkSource
+:linkSource rdf:type owl:DatatypeProperty ;
+            rdfs:domain :ReferenceMetadata ;
+            rdfs:range xsd:string ;
+            rdfs:comment "Pipeline or tool that generated the reference."@en ;
+            rdfs:label "link source"@en .
+
+
+###  https://w3id.org/wedowind/ontology#linkingMethod
+:linkingMethod rdf:type owl:DatatypeProperty ;
+               rdfs:domain :ReferenceMetadata ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Method used: manual, automatic, or search-based."@en ;
+               rdfs:label "linking method"@en .
+
+
+###  https://w3id.org/wedowind/ontology#methodType
+:methodType rdf:type owl:DatatypeProperty ;
+            rdfs:domain :ComputationalMethod ;
+            rdfs:range xsd:string ;
+            rdfs:comment "Category of computational method (deprecated: use hasMethodType with MethodType class instead)."@en ;
+            rdfs:label "method type"@en .
+
+
+###  https://w3id.org/wedowind/ontology#metricValue
+:metricValue rdf:type owl:DatatypeProperty ;
+             rdfs:domain :LeaderboardEntry ;
+             rdfs:range xsd:float ;
+             rdfs:comment "The actual numerical value of a metric for a leaderboard entry."@en ;
+             rdfs:label "metric value"@en .
+
+
+###  https://w3id.org/wedowind/ontology#observationTimestamp
+:observationTimestamp rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :SensorVariable ;
+                      rdfs:range xsd:dateTime ;
+                      rdfs:comment "Timestamp of a sensor measurement."@en ;
+                      rdfs:label "observation timestamp"@en .
+
+
+###  https://w3id.org/wedowind/ontology#orcid
+:orcid rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf <https://schema.org/identifier> ;
+       rdfs:domain <https://schema.org/Person> ;
+       rdfs:comment "Open Researcher and Contributor ID."@en ;
+       rdfs:label "ORCID"@en .
+
+
+###  https://w3id.org/wedowind/ontology#portalURL
+:portalURL rdf:type owl:DatatypeProperty ;
+           rdfs:domain <https://schema.org/CreativeWork> ;
+           rdfs:range xsd:anyURI ;
+           rdfs:comment "URL of the resource in its native web portal."@en ;
+           rdfs:label "portal URL"@en .
+
+
+###  https://w3id.org/wedowind/ontology#rank
+:rank rdf:type owl:DatatypeProperty ;
+      rdfs:domain :LeaderboardEntry ;
+      rdfs:range xsd:integer ;
+      rdfs:comment "Rank position on a leaderboard (1 = highest)."@en ;
+      rdfs:label "rank"@en .
+
+
+###  https://w3id.org/wedowind/ontology#relatedDataset
+:relatedDataset rdf:type owl:DatatypeProperty ;
+                rdfs:range <https://schema.org/Dataset> .
 
 
 ###  https://w3id.org/wedowind/ontology#score
 :score rdf:type owl:DatatypeProperty ;
        rdfs:domain :Submission ;
        rdfs:range xsd:float ;
-       rdfs:label "score" .
+       rdfs:comment "Numerical score achieved by a submission on a specific metric."@en ;
+       rdfs:label "score"@en .
 
 
 ###  https://w3id.org/wedowind/ontology#startDate
 :startDate rdf:type owl:DatatypeProperty ;
            rdfs:domain :Challenge ;
            rdfs:range xsd:date ;
-           rdfs:label "start date" .
+           rdfs:comment "Start date of a challenge."@en ;
+           rdfs:label "start date"@en .
+
+
+###  https://w3id.org/wedowind/ontology#studyNumber
+:studyNumber rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf <https://schema.org/identifier> ;
+             rdfs:comment "Internal study or project number."@en ;
+             rdfs:label "study number"@en .
 
 
 ###  https://w3id.org/wedowind/ontology#turbineCount
 :turbineCount rdf:type owl:DatatypeProperty ;
               rdfs:domain :WindFarm ;
               rdfs:range xsd:integer ;
-              rdfs:label "turbine count" .
+              rdfs:comment "Number of turbines in a wind farm."@en ;
+              rdfs:label "turbine count"@en .
+
+
+###  https://w3id.org/wedowind/ontology#usedIn
+:usedIn rdf:type owl:DatatypeProperty ;
+        rdfs:range <https://schema.org/Dataset> .
+
+
+###  https://w3id.org/wedowind/ontology#usesDatasetForSubmission
+:usesDatasetForSubmission rdf:type owl:DatatypeProperty ;
+                          rdfs:range <https://schema.org/Dataset> .
+
+
+###  https://w3id.org/wedowind/ontology#variableLabel
+:variableLabel rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Variable ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Human-readable description of a variable."@en ;
+               rdfs:label "variable label"@en .
+
+
+###  https://w3id.org/wedowind/ontology#variableName
+:variableName rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Variable ;
+              rdfs:range xsd:string ;
+              rdfs:comment "Short name or code for a variable."@en ;
+              rdfs:label "variable name"@en .
+
+
+###  https://w3id.org/wedowind/ontology#variableType
+:variableType rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Variable ;
+              rdfs:range xsd:string ;
+              rdfs:comment "Type: cross-sectional, panel, time-series, sensor, categorical, continuous."@en ;
+              rdfs:label "variable type"@en .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://www.w3.org/ns/dcat#Dataset
-<http://www.w3.org/ns/dcat#Dataset> rdf:type owl:Class .
+###  http://rdf-vocabulary.ddialliance.org/lifecycle#Instrument
+<http://rdf-vocabulary.ddialliance.org/lifecycle#Instrument> rdf:type owl:Class .
+
+
+###  http://rdf-vocabulary.ddialliance.org/lifecycle#Variable
+<http://rdf-vocabulary.ddialliance.org/lifecycle#Variable> rdf:type owl:Class .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+<http://www.w3.org/2004/02/skos/core#Concept> rdf:type owl:Class .
 
 
 ###  http://www.w3.org/ns/prov#Entity
 <http://www.w3.org/ns/prov#Entity> rdf:type owl:Class .
 
 
-###  http://www.w3.org/ns/prov#Plan
-<http://www.w3.org/ns/prov#Plan> rdf:type owl:Class .
-
-
-###  http://xmlns.com/foaf/0.1/Organization
-<http://xmlns.com/foaf/0.1/Organization> rdf:type owl:Class .
-
-
-###  http://xmlns.com/foaf/0.1/Person
-<http://xmlns.com/foaf/0.1/Person> rdf:type owl:Class .
+###  https://schema.org/Agent
+<https://schema.org/Agent> rdf:type owl:Class .
 
 
 ###  https://schema.org/CreativeWork
 <https://schema.org/CreativeWork> rdf:type owl:Class .
 
 
+###  https://schema.org/DefinedTerm
+<https://schema.org/DefinedTerm> rdf:type owl:Class .
+
+
 ###  https://schema.org/Event
 <https://schema.org/Event> rdf:type owl:Class .
 
 
+###  https://schema.org/Intangible
+<https://schema.org/Intangible> rdf:type owl:Class .
+
+
+###  https://schema.org/LearningResource
+<https://schema.org/LearningResource> rdf:type owl:Class .
+
+
+###  https://schema.org/Organization
+<https://schema.org/Organization> rdf:type owl:Class .
+
+
+###  https://schema.org/Person
+<https://schema.org/Person> rdf:type owl:Class .
+
+
+###  https://schema.org/Plan
+<https://schema.org/Plan> rdf:type owl:Class .
+
+
+###  https://schema.org/PropertyValue
+<https://schema.org/PropertyValue> rdf:type owl:Class .
+
+
+###  https://schema.org/ScholarlyArticle
+<https://schema.org/ScholarlyArticle> rdf:type owl:Class .
+
+
+###  https://schema.org/SoftwareSourceCode
+<https://schema.org/SoftwareSourceCode> rdf:type owl:Class .
+
+
 ###  https://w3id.org/wedowind/ontology#Challenge
 :Challenge rdf:type owl:Class ;
-           rdfs:subClassOf <https://schema.org/Event> ;
-           rdfs:label "Challenge" .
+           rdfs:subClassOf <https://schema.org/Event> ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasTask ;
+                             owl:minCardinality "1"^^xsd:nonNegativeInteger
+                           ] ;
+           rdfs:comment "A benchmarking competition in wind energy, consisting of one or more tasks."@en ;
+           rdfs:label "Challenge"@en .
+
+
+###  https://w3id.org/wedowind/ontology#ChallengeTask
+:ChallengeTask rdf:type owl:Class ;
+               rdfs:subClassOf <https://schema.org/CreativeWork> ;
+               rdfs:comment "A specific task within a challenge (e.g., failure detection, power forecasting, remaining useful life estimation)."@en ;
+               rdfs:label "Challenge Task"@en .
+
+
+###  https://w3id.org/wedowind/ontology#Competency
+:Competency rdf:type owl:Class ;
+            rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> ,
+                            <https://schema.org/DefinedTerm> ;
+            rdfs:comment "Skill area in wind energy digitalisation (e.g., SCADA data analysis, machine learning for prognosis, time series forecasting, data governance, uncertainty quantification)."@en ;
+            rdfs:label "Competency"@en .
+
+
+###  https://w3id.org/wedowind/ontology#ComputationalMethod
+:ComputationalMethod rdf:type owl:Class ;
+                     rdfs:subClassOf <https://schema.org/Plan> ;
+                     rdfs:comment "Algorithm or methodological approach implemented in a submission."@en ;
+                     rdfs:label "Computational Method"@en .
 
 
 ###  https://w3id.org/wedowind/ontology#EvaluationMetric
 :EvaluationMetric rdf:type owl:Class ;
-                  rdfs:label "Evaluation Metric" .
+                  rdfs:comment "Metric used to evaluate and compare submissions (e.g., RMSE, MAE, F1-score, AUC-ROC)."@en ;
+                  rdfs:label "Evaluation Metric"@en .
 
 
 ###  https://w3id.org/wedowind/ontology#FailureMode
 :FailureMode rdf:type owl:Class ;
-             rdfs:label "Failure Mode" .
+             rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> ,
+                             <https://schema.org/DefinedTerm> ;
+             rdfs:comment "Type of component failure in wind turbines (e.g., gearbox bearing damage, generator winding fault, blade crack, pitch system malfunction)."@en ;
+             rdfs:label "Failure Mode"@en .
 
 
 ###  https://w3id.org/wedowind/ontology#LeaderboardEntry
 :LeaderboardEntry rdf:type owl:Class ;
-                  rdfs:label "Leaderboard Entry" .
+                  rdfs:comment "A ranked result entry on a challenge leaderboard, linking a submission to its performance scores."@en ;
+                  rdfs:label "Leaderboard Entry"@en .
 
 
-###  https://w3id.org/wedowind/ontology#Method
-:Method rdf:type owl:Class ;
-        rdfs:subClassOf <http://www.w3.org/ns/prov#Plan> ;
-        rdfs:label "Computational Method" .
+###  https://w3id.org/wedowind/ontology#MethodType
+:MethodType rdf:type owl:Class ;
+            rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> ;
+            rdfs:comment "Controlled vocabulary for categorizing computational methods (e.g., deep learning, statistical, physics-based, hybrid)."@en ;
+            rdfs:label "Method Type"@en .
 
 
-###  https://w3id.org/wedowind/ontology#Organization
-:Organization rdf:type owl:Class ;
-              rdfs:subClassOf <http://xmlns.com/foaf/0.1/Organization> ;
-              rdfs:label "Organization" .
+###  https://w3id.org/wedowind/ontology#Reference
+:Reference rdf:type owl:Class ;
+           rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ,
+                           <https://schema.org/CreativeWork> ;
+           rdfs:comment "A reference from one scholarly resource to another, capturing citation relationships with provenance information."@en ;
+           rdfs:label "Reference"@en .
+
+
+###  https://w3id.org/wedowind/ontology#ReferenceMetadata
+:ReferenceMetadata rdf:type owl:Class ;
+                   rdfs:subClassOf <https://schema.org/Intangible> ;
+                   rdfs:comment "Provenance metadata about a reference, including confidence scores, linking method, and source information for automated or manual citations."@en ;
+                   rdfs:label "Reference Metadata"@en .
+
+
+###  https://w3id.org/wedowind/ontology#SensorVariable
+:SensorVariable rdf:type owl:Class ;
+                rdfs:subClassOf :Variable ;
+                rdfs:comment "A physical measurement from turbine sensors (e.g., wind speed, rotor RPM, gearbox temperature, power output, vibration amplitude)."@en ;
+                rdfs:label "Sensor Variable"@en .
 
 
 ###  https://w3id.org/wedowind/ontology#Submission
 :Submission rdf:type owl:Class ;
-            rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ,
-                            <https://schema.org/CreativeWork> ;
-            rdfs:label "Submission" .
+            rdfs:subClassOf <https://schema.org/CreativeWork> ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :submittedBy ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger
+                            ] ;
+            rdfs:comment "A participant's solution submission to a challenge task, including code, predictions, and documentation."@en ;
+            rdfs:label "Submission"@en .
 
 
-###  https://w3id.org/wedowind/ontology#Task
-:Task rdf:type owl:Class ;
-      rdfs:subClassOf <https://schema.org/CreativeWork> ;
-      rdfs:label "Challenge Task" .
+###  https://w3id.org/wedowind/ontology#SurveyInstrument
+:SurveyInstrument rdf:type owl:Class ;
+                  rdfs:subClassOf <http://rdf-vocabulary.ddialliance.org/lifecycle#Instrument> ;
+                  rdfs:comment "Questionnaire or assessment tool for social science research in wind energy, including community acceptance studies, safety culture assessments, and workforce competency evaluations."@en ;
+                  rdfs:label "Survey Instrument"@en .
+
+
+###  https://w3id.org/wedowind/ontology#SurveyVariable
+:SurveyVariable rdf:type owl:Class ;
+                rdfs:subClassOf :Variable ;
+                rdfs:comment "A response variable from surveys or questionnaires (e.g., attitude scores, demographic data, safety perception ratings)."@en ;
+                rdfs:label "Survey Variable"@en .
+
+
+###  https://w3id.org/wedowind/ontology#TrainingPathway
+:TrainingPathway rdf:type owl:Class ;
+                 rdfs:subClassOf <https://schema.org/LearningResource> ;
+                 rdfs:comment "A curated sequence of tutorials and challenges designed to develop specific competencies in wind energy digitalisation."@en ;
+                 rdfs:label "Training Pathway"@en .
+
+
+###  https://w3id.org/wedowind/ontology#Tutorial
+:Tutorial rdf:type owl:Class ;
+          rdfs:subClassOf <https://schema.org/LearningResource> ;
+          rdfs:comment "Training material for wind energy digitalisation skills, including Jupyter notebooks, video lectures, documentation, and hands-on exercises."@en ;
+          rdfs:label "Tutorial"@en .
+
+
+###  https://w3id.org/wedowind/ontology#Variable
+:Variable rdf:type owl:Class ;
+          rdfs:subClassOf <http://rdf-vocabulary.ddialliance.org/lifecycle#Variable> ,
+                          <https://schema.org/PropertyValue> ;
+          rdfs:comment "A measurable quantity from SCADA sensors, survey responses, or experimental measurements used in wind energy research."@en ;
+          rdfs:label "Variable"@en .
 
 
 ###  https://w3id.org/wedowind/ontology#WindFarm
 :WindFarm rdf:type owl:Class ;
-          rdfs:label "Wind Farm" .
+          rdfs:comment "A collection of wind turbines at a specific geographic location, sharing infrastructure and grid connection."@en ;
+          rdfs:label "Wind Farm"@en .
 
 
 ###  https://w3id.org/wedowind/ontology#WindTurbine
 :WindTurbine rdf:type owl:Class ;
-             rdfs:label "Wind Turbine" .
+             rdfs:comment "A wind energy turbine with specifications such as manufacturer, rated power, rotor diameter, and location."@en ;
+             rdfs:label "Wind Turbine"@en .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:relatedDataset rdfs:comment "Links a resource to related datasets."@en ;
+                rdfs:label "related dataset"@en .
+
+
+:usedIn rdfs:comment "Links a survey instrument to datasets where it has been applied."@en ;
+        rdfs:label "used in"@en .
+
+
+:usesDatasetForSubmission rdfs:comment "Links a submission to datasets actually used in model development, including external or augmented data sources."@en ;
+                          rdfs:label "uses dataset for submission"@en .
 
 
 ###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
