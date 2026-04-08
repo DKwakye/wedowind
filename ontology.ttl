@@ -1,157 +1,501 @@
 @prefix : <https://w3id.org/wedowind/ontology#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix schema: <https://schema.org/> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+@prefix ddi: <http://rdf-vocabulary.ddialliance.org/lifecycle#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@base <https://w3id.org/wedowind/ontology#> .
 
-####################################################################
-# ONTOLOGY METADATA
-####################################################################
+<https://w3id.org/wedowind/ontology#> rdf:type owl:Ontology ;
+    rdfs:label "WeDoWind Ontology"@en ;
+    rdfs:comment "Ontology for wind energy benchmarking challenges, training, and interdisciplinary research. Extends schema.org, DDI lifecycle, SKOS, and PROV-O."@en ;
+    owl:versionInfo "2.0" ;
+    dcterms:creator "Daniel Kwakye" .
 
-<https://w3id.org/wedowind/ontology> a owl:Ontology ;
-    dcterms:title "WeDoWind Ontology" ;
-    dcterms:description "Ontology for modeling wind energy benchmarking challenges, tasks, submissions, and evaluation workflows." ;
-    dcterms:creator "Daniel Kwakye" ;
-    dcterms:created "2026-04-07"^^xsd:date ;
-    owl:versionIRI <https://w3id.org/wedowind/ontology/1.0> .
+#################################################################
+#    Classes
+#################################################################
 
-####################################################################
-# CLASSES
-####################################################################
+:Challenge rdf:type owl:Class ;
+    rdfs:subClassOf schema:Event ,
+        [ rdf:type owl:Restriction ;
+          owl:onProperty :hasTask ;
+          owl:minCardinality "1"^^xsd:nonNegativeInteger ] ;
+    rdfs:label "Challenge"@en ;
+    rdfs:comment "A benchmarking competition in wind energy, consisting of one or more tasks."@en .
 
-:Challenge a owl:Class ;
-    rdfs:label "Challenge" ;
-    rdfs:subClassOf schema:Event .
+:ChallengeTask rdf:type owl:Class ;
+    rdfs:subClassOf schema:CreativeWork ;
+    rdfs:label "Challenge Task"@en ;
+    rdfs:comment "A specific task within a challenge (e.g., failure detection, power forecasting, remaining useful life estimation)."@en .
 
-:Task a owl:Class ;
-    rdfs:label "Challenge Task" ;
-    rdfs:subClassOf schema:CreativeWork .
+:Submission rdf:type owl:Class ;
+    rdfs:subClassOf schema:CreativeWork ,
+        [ rdf:type owl:Restriction ;
+          owl:onProperty :submittedBy ;
+          owl:minCardinality "1"^^xsd:nonNegativeInteger ] ;
+    rdfs:label "Submission"@en ;
+    rdfs:comment "A participant's solution submission to a challenge task, including code, predictions, and documentation."@en .
 
-:Submission a owl:Class ;
-    rdfs:label "Submission" ;
-    rdfs:subClassOf schema:CreativeWork, prov:Entity .
+:ComputationalMethod rdf:type owl:Class ;
+    rdfs:subClassOf schema:Plan ;
+    rdfs:label "Computational Method"@en ;
+    rdfs:comment "Algorithm or methodological approach implemented in a submission."@en .
 
-:EvaluationMetric a owl:Class ;
-    rdfs:label "Evaluation Metric" .
+:MethodType rdf:type owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Method Type"@en ;
+    rdfs:comment "Controlled vocabulary for categorizing computational methods (e.g., deep learning, statistical, physics-based, hybrid)."@en .
 
-:LeaderboardEntry a owl:Class ;
-    rdfs:label "Leaderboard Entry" .
+:EvaluationMetric rdf:type owl:Class ;
+    rdfs:label "Evaluation Metric"@en ;
+    rdfs:comment "Metric used to evaluate and compare submissions (e.g., RMSE, MAE, F1-score, AUC-ROC)."@en .
 
-:Method a owl:Class ;
-    rdfs:label "Computational Method" ;
-    rdfs:subClassOf prov:Plan .
+:LeaderboardEntry rdf:type owl:Class ;
+    rdfs:label "Leaderboard Entry"@en ;
+    rdfs:comment "A ranked result entry on a challenge leaderboard, linking a submission to its performance scores."@en .
 
-:FailureMode a owl:Class ;
-    rdfs:label "Failure Mode" .
+:WindTurbine rdf:type owl:Class ;
+    rdfs:label "Wind Turbine"@en ;
+    rdfs:comment "A wind energy turbine with specifications such as manufacturer, rated power, rotor diameter, and location."@en .
 
-:Organization a owl:Class ;
-    rdfs:label "Organization" ;
-    rdfs:subClassOf foaf:Organization .
+:WindFarm rdf:type owl:Class ;
+    rdfs:label "Wind Farm"@en ;
+    rdfs:comment "A collection of wind turbines at a specific geographic location, sharing infrastructure and grid connection."@en .
 
-:WindTurbine a owl:Class ;
-    rdfs:label "Wind Turbine" .
+:FailureMode rdf:type owl:Class ;
+    rdfs:subClassOf schema:DefinedTerm, skos:Concept ;
+    rdfs:label "Failure Mode"@en ;
+    rdfs:comment "Type of component failure in wind turbines (e.g., gearbox bearing damage, generator winding fault, blade crack, pitch system malfunction)."@en .
 
-:WindFarm a owl:Class ;
-    rdfs:label "Wind Farm" .
+:Tutorial rdf:type owl:Class ;
+    rdfs:subClassOf schema:LearningResource ;
+    rdfs:label "Tutorial"@en ;
+    rdfs:comment "Training material for wind energy digitalisation skills, including Jupyter notebooks, video lectures, documentation, and hands-on exercises."@en .
 
-####################################################################
-# OBJECT PROPERTIES
-####################################################################
+:Competency rdf:type owl:Class ;
+    rdfs:subClassOf schema:DefinedTerm, skos:Concept ;
+    rdfs:label "Competency"@en ;
+    rdfs:comment "Skill area in wind energy digitalisation (e.g., SCADA data analysis, machine learning for prognosis, time series forecasting, data governance, uncertainty quantification)."@en .
 
-:organizedBy a owl:ObjectProperty ;
-    rdfs:label "organized by" ;
+:TrainingPathway rdf:type owl:Class ;
+    rdfs:subClassOf schema:LearningResource ;
+    rdfs:label "Training Pathway"@en ;
+    rdfs:comment "A curated sequence of tutorials and challenges designed to develop specific competencies in wind energy digitalisation."@en .
+
+:SurveyInstrument rdf:type owl:Class ;
+    rdfs:subClassOf ddi:Instrument ;
+    rdfs:label "Survey Instrument"@en ;
+    rdfs:comment "Questionnaire or assessment tool for social science research in wind energy, including community acceptance studies, safety culture assessments, and workforce competency evaluations."@en .
+
+:Variable rdf:type owl:Class ;
+    rdfs:subClassOf ddi:Variable, schema:PropertyValue ;
+    rdfs:label "Variable"@en ;
+    rdfs:comment "A measurable quantity from SCADA sensors, survey responses, or experimental measurements used in wind energy research."@en .
+
+:SensorVariable rdf:type owl:Class ;
+    rdfs:subClassOf :Variable ;
+    rdfs:label "Sensor Variable"@en ;
+    rdfs:comment "A physical measurement from turbine sensors (e.g., wind speed, rotor RPM, gearbox temperature, power output, vibration amplitude)."@en .
+
+:SurveyVariable rdf:type owl:Class ;
+    rdfs:subClassOf :Variable ;
+    rdfs:label "Survey Variable"@en ;
+    rdfs:comment "A response variable from surveys or questionnaires (e.g., attitude scores, demographic data, safety perception ratings)."@en .
+
+:Reference rdf:type owl:Class ;
+    rdfs:subClassOf schema:CreativeWork, prov:Entity ;
+    rdfs:label "Reference"@en ;
+    rdfs:comment "A reference from one scholarly resource to another, capturing citation relationships with provenance information."@en .
+
+:ReferenceMetadata rdf:type owl:Class ;
+    rdfs:subClassOf schema:Intangible ;
+    rdfs:label "Reference Metadata"@en ;
+    rdfs:comment "Provenance metadata about a reference, including confidence scores, linking method, and source information for automated or manual citations."@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+:hasTask rdf:type owl:ObjectProperty ;
     rdfs:domain :Challenge ;
-    rdfs:range :Organization ;
-    rdfs:subPropertyOf prov:wasAssociatedWith .
+    rdfs:range :ChallengeTask ;
+    rdfs:label "has task"@en ;
+    rdfs:comment "Links a challenge to its constituent tasks."@en ;
+    owl:inverseOf :isTaskOf .
 
-:hasTask a owl:ObjectProperty ;
-    rdfs:label "has task" ;
-    rdfs:domain :Challenge ;
-    rdfs:range :Task .
+:isTaskOf rdf:type owl:ObjectProperty ;
+    rdfs:domain :ChallengeTask ;
+    rdfs:range :Challenge ;
+    rdfs:label "is task of"@en ;
+    rdfs:comment "Inverse property linking a task back to its parent challenge."@en .
 
-:participatedBy a owl:ObjectProperty ;
-    rdfs:label "participated by" ;
-    rdfs:domain :Challenge ;
-    rdfs:range foaf:Person ;
-    rdfs:subPropertyOf prov:wasAssociatedWith .
-
-:submittedBy a owl:ObjectProperty ;
-    rdfs:label "submitted by" ;
+:submittedBy rdf:type owl:ObjectProperty ;
     rdfs:domain :Submission ;
-    rdfs:range foaf:Person ;
-    rdfs:subPropertyOf prov:wasAttributedTo .
+    rdfs:range schema:Person, schema:Organization ;
+    rdfs:label "submitted by"@en ;
+    rdfs:comment "The person or organization responsible for a submission."@en ;
+    owl:inverseOf :hasSubmission .
 
-:usesDataset a owl:ObjectProperty ;
-    rdfs:label "uses dataset" ;
-    rdfs:domain :Task ;
-    rdfs:range dcat:Dataset .
+:hasSubmission rdf:type owl:ObjectProperty ;
+    rdfs:domain schema:Agent ;
+    rdfs:range :Submission ;
+    rdfs:label "has submission"@en ;
+    rdfs:comment "Inverse property linking a person or organization (agent) to their submissions."@en .
 
-:evaluatedBy a owl:ObjectProperty ;
-    rdfs:label "evaluated by metric" ;
+:solvesTask rdf:type owl:ObjectProperty ;
     rdfs:domain :Submission ;
-    rdfs:range :EvaluationMetric .
+    rdfs:range :ChallengeTask ;
+    rdfs:label "solves task"@en ;
+    rdfs:comment "Links a submission to the specific challenge task it addresses."@en .
 
-:hasLeaderboardEntry a owl:ObjectProperty ;
-    rdfs:label "has leaderboard entry" ;
+:implementsMethod rdf:type owl:ObjectProperty ;
+    rdfs:domain :Submission ;
+    rdfs:range :ComputationalMethod ;
+    rdfs:label "implements method"@en ;
+    rdfs:comment "Links a submission to the computational method it implements."@en ;
+    owl:inverseOf :isImplementedIn .
+
+:isImplementedIn rdf:type owl:ObjectProperty ;
+    rdfs:domain :ComputationalMethod ;
+    rdfs:range :Submission ;
+    rdfs:label "is implemented in"@en ;
+    rdfs:comment "Inverse property linking a method to submissions that use it."@en .
+
+:hasMethodType rdf:type owl:ObjectProperty ;
+    rdfs:domain :ComputationalMethod ;
+    rdfs:range :MethodType ;
+    rdfs:label "has method type"@en ;
+    rdfs:comment "Links a computational method to a controlled vocabulary term describing its methodological category."@en .
+
+:hasLeaderboardEntry rdf:type owl:ObjectProperty ;
     rdfs:domain :Challenge ;
-    rdfs:range :LeaderboardEntry .
+    rdfs:range :LeaderboardEntry ;
+    rdfs:label "has leaderboard entry"@en ;
+    rdfs:comment "Links a challenge to entries on its leaderboard."@en .
 
-:implementsMethod a owl:ObjectProperty ;
-    rdfs:label "implements method" ;
+:entrySubmission rdf:type owl:ObjectProperty ;
+    rdfs:domain :LeaderboardEntry ;
+    rdfs:range :Submission ;
+    rdfs:label "entry submission"@en ;
+    rdfs:comment "Links a leaderboard entry to the submission it represents."@en .
+
+:evaluatedWith rdf:type owl:ObjectProperty ;
+    rdfs:domain :LeaderboardEntry ;
+    rdfs:range :EvaluationMetric ;
+    rdfs:label "evaluated with metric"@en ;
+    rdfs:comment "Specifies which evaluation metric a leaderboard entry value corresponds to."@en .
+
+:rankedIn rdf:type owl:ObjectProperty ;
+    rdfs:domain :LeaderboardEntry ;
+    rdfs:range :Challenge ;
+    rdfs:label "ranked in challenge"@en ;
+    rdfs:comment "Links a leaderboard entry to the challenge in which the ranking is defined."@en .
+
+:reference rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:wasDerivedFrom ;
+    rdfs:domain schema:CreativeWork ;
+    rdfs:range :Reference ;
+    rdfs:label "reference"@en ;
+    rdfs:comment "Links a creative work to a reference describing its relationship to another resource."@en .
+
+:referenceMetadata rdf:type owl:ObjectProperty ;
+    rdfs:domain :Reference ;
+    rdfs:range :ReferenceMetadata ;
+    rdfs:label "reference metadata"@en ;
+    rdfs:comment "Links a reference to its associated provenance metadata."@en .
+
+:usesDatasetForTask rdf:type owl:ObjectProperty ;
+    rdfs:domain :ChallengeTask ;
+    rdfs:range schema:Dataset ;
+    rdfs:label "uses dataset for task"@en ;
+    rdfs:comment "Links a challenge task to the dataset officially provided for that task."@en .
+
+:usesDatasetForSubmission rdf:type owl:ObjectProperty ;
     rdfs:domain :Submission ;
-    rdfs:range :Method .
+    rdfs:range schema:Dataset ;
+    rdfs:label "uses dataset for submission"@en ;
+    rdfs:comment "Links a submission to datasets actually used in model development, including external or augmented data sources."@en .
 
-:detectsFailureMode a owl:ObjectProperty ;
-    rdfs:label "detects failure mode" ;
-    rdfs:domain :Task ;
-    rdfs:range :FailureMode .
+:usesTurbine rdf:type owl:ObjectProperty ;
+    rdfs:domain :ChallengeTask ;
+    rdfs:range :WindTurbine ;
+    rdfs:label "uses turbine"@en ;
+    rdfs:comment "Links a challenge task to specific turbine instances or types used in the task."@en .
 
-:locatedAt a owl:ObjectProperty ;
-    rdfs:label "located at" ;
+:locatedAt rdf:type owl:ObjectProperty ;
     rdfs:domain :WindTurbine ;
-    rdfs:range :WindFarm .
+    rdfs:range :WindFarm ;
+    rdfs:label "located at"@en ;
+    rdfs:comment "Links a turbine to the wind farm where it is installed."@en .
 
-:providedBy a owl:ObjectProperty ;
-    rdfs:label "provided by" ;
-    rdfs:domain dcat:Dataset ;
-    rdfs:range :Organization ;
-    rdfs:subPropertyOf dcterms:publisher .
+:addressesCompetency rdf:type owl:ObjectProperty ;
+    rdfs:domain :ChallengeTask ;
+    rdfs:range :Competency ;
+    rdfs:label "addresses competency"@en ;
+    rdfs:comment "Links a challenge task to the skill area it develops or assesses."@en .
 
-:usesTurbine a owl:ObjectProperty ;
-    rdfs:label "uses turbine" ;
-    rdfs:domain :Task ;
-    rdfs:range :WindTurbine .
+:targetsCompetency rdf:type owl:ObjectProperty ;
+    rdfs:domain :Tutorial ;
+    rdfs:range :Competency ;
+    rdfs:label "targets competency"@en ;
+    rdfs:comment "Indicates the competency a tutorial aims to teach or develop."@en .
 
-####################################################################
-# DATA PROPERTIES
-####################################################################
+:isPrerequisiteFor rdf:type owl:ObjectProperty ;
+    rdfs:domain :Tutorial ;
+    rdfs:range :Tutorial ;
+    rdfs:label "is prerequisite for"@en ;
+    rdfs:comment "Indicates that one tutorial must be completed before another."@en .
 
-:score a owl:DatatypeProperty ;
-    rdfs:label "score" ;
+:hasTutorial rdf:type owl:ObjectProperty ;
+    rdfs:domain :ChallengeTask ;
+    rdfs:range :Tutorial ;
+    rdfs:label "has tutorial"@en ;
+    rdfs:comment "Links a challenge task to recommended training materials."@en .
+
+:includesTutorial rdf:type owl:ObjectProperty ;
+    rdfs:domain :TrainingPathway ;
+    rdfs:range :Tutorial ;
+    rdfs:label "includes tutorial"@en ;
+    rdfs:comment "Links a training pathway to a tutorial that is part of the curriculum."@en .
+
+:includesChallenge rdf:type owl:ObjectProperty ;
+    rdfs:domain :TrainingPathway ;
+    rdfs:range :Challenge ;
+    rdfs:label "includes challenge"@en ;
+    rdfs:comment "Links a training pathway to a challenge that serves as practical assessment."@en .
+
+:organizedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain :Challenge ;
+    rdfs:range schema:Organization ;
+    rdfs:label "organized by"@en ;
+    rdfs:comment "The organization responsible for hosting and managing a challenge."@en .
+
+:participatedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain :Challenge ;
+    rdfs:range schema:Person, schema:Organization ;
+    rdfs:label "participated by"@en ;
+    rdfs:comment "Persons or organizations that participated in a challenge."@en .
+
+:detectsFailureMode rdf:type owl:ObjectProperty ;
+    rdfs:domain :ChallengeTask ;
+    rdfs:range :FailureMode ;
+    rdfs:label "detects failure mode"@en ;
+    rdfs:comment "Specifies the type of turbine failure a task aims to detect or predict."@en .
+
+:evaluatedByMetric rdf:type owl:ObjectProperty ;
     rdfs:domain :Submission ;
-    rdfs:range xsd:float .
+    rdfs:range :EvaluationMetric ;
+    rdfs:label "evaluated by metric"@en ;
+    rdfs:comment "Links a submission to the metrics used for its evaluation."@en .
 
-:startDate a owl:DatatypeProperty ;
-    rdfs:label "start date" ;
+:hasSoftwareSourceCode rdf:type owl:ObjectProperty ;
+    rdfs:domain :Tutorial ;
+    rdfs:range schema:SoftwareSourceCode ;
+    rdfs:label "has software source code"@en ;
+    rdfs:comment "Links a tutorial to accompanying code repository."@en .
+
+:relatedPublication rdf:type owl:ObjectProperty ;
+    rdfs:domain schema:CreativeWork ;
+    rdfs:range schema:ScholarlyArticle ;
+    rdfs:label "related publication"@en ;
+    rdfs:comment "Links a resource to scholarly articles describing or using it."@en .
+
+:relatedDataset rdf:type owl:ObjectProperty ;
+    rdfs:domain schema:CreativeWork ;
+    rdfs:range schema:Dataset ;
+    rdfs:label "related dataset"@en ;
+    rdfs:comment "Links a resource to related datasets."@en .
+
+:relatedVariable rdf:type owl:ObjectProperty ;
+    rdfs:domain schema:CreativeWork ;
+    rdfs:range :Variable ;
+    rdfs:label "related variable"@en ;
+    rdfs:comment "Links a resource to variables it uses or describes."@en .
+
+:constructs rdf:type owl:ObjectProperty ;
+    rdfs:domain :SurveyInstrument ;
+    rdfs:range schema:DefinedTerm ;
+    rdfs:label "constructs"@en ;
+    rdfs:comment "Theoretical constructs measured by a survey instrument."@en .
+
+:usedIn rdf:type owl:ObjectProperty ;
+    rdfs:domain :SurveyInstrument ;
+    rdfs:range schema:Dataset ;
+    rdfs:label "used in"@en ;
+    rdfs:comment "Links a survey instrument to datasets where it has been applied."@en .
+
+#################################################################
+#    Data Properties
+#################################################################
+
+:score rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Submission ;
+    rdfs:range xsd:float ;
+    rdfs:label "score"@en ;
+    rdfs:comment "Numerical score achieved by a submission on a specific metric."@en .
+
+:rank rdf:type owl:DatatypeProperty ;
+    rdfs:domain :LeaderboardEntry ;
+    rdfs:range xsd:integer ;
+    rdfs:label "rank"@en ;
+    rdfs:comment "Rank position on a leaderboard (1 = highest)."@en .
+
+:metricValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain :LeaderboardEntry ;
+    rdfs:range xsd:float ;
+    rdfs:label "metric value"@en ;
+    rdfs:comment "The actual numerical value of a metric for a leaderboard entry."@en .
+
+:methodType rdf:type owl:DatatypeProperty ;
+    rdfs:domain :ComputationalMethod ;
+    rdfs:range xsd:string ;
+    rdfs:label "method type"@en ;
+    rdfs:comment "Category of computational method (deprecated: use hasMethodType with MethodType class instead)."@en .
+
+:difficultyLevel rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Tutorial ;
+    rdfs:range xsd:string ;
+    rdfs:label "difficulty level"@en ;
+    rdfs:comment "Difficulty classification: beginner, intermediate, or advanced."@en .
+
+:estimatedTime rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Tutorial ;
+    rdfs:range xsd:duration ;
+    rdfs:label "estimated time"@en ;
+    rdfs:comment "Estimated duration to complete a tutorial (ISO 8601 format)."@en .
+
+:observationTimestamp rdf:type owl:DatatypeProperty ;
+    rdfs:domain :SensorVariable ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "observation timestamp"@en ;
+    rdfs:comment "Timestamp of a sensor measurement."@en .
+
+:collectionDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain :SurveyVariable ;
+    rdfs:range xsd:date ;
+    rdfs:label "collection date"@en ;
+    rdfs:comment "Date when a survey response was collected."@en .
+
+:startDate rdf:type owl:DatatypeProperty ;
     rdfs:domain :Challenge ;
-    rdfs:range xsd:date .
+    rdfs:range xsd:date ;
+    rdfs:label "start date"@en ;
+    rdfs:comment "Start date of a challenge."@en .
 
-:endDate a owl:DatatypeProperty ;
-    rdfs:label "end date" ;
+:endDate rdf:type owl:DatatypeProperty ;
     rdfs:domain :Challenge ;
-    rdfs:range xsd:date .
+    rdfs:range xsd:date ;
+    rdfs:label "end date"@en ;
+    rdfs:comment "End date of a challenge."@en .
 
-:turbineCount a owl:DatatypeProperty ;
-    rdfs:label "turbine count" ;
+:turbineCount rdf:type owl:DatatypeProperty ;
     rdfs:domain :WindFarm ;
-    rdfs:range xsd:integer .
+    rdfs:range xsd:integer ;
+    rdfs:label "turbine count"@en ;
+    rdfs:comment "Number of turbines in a wind farm."@en .
 
-:dataResolution a owl:DatatypeProperty ;
-    rdfs:label "data resolution" ;
-    rdfs:domain dcat:Dataset ;
-    rdfs:range xsd:string .
+:dataResolution rdf:type owl:DatatypeProperty ;
+    rdfs:domain schema:Dataset ;
+    rdfs:range xsd:string ;
+    rdfs:label "data resolution"@en ;
+    rdfs:comment "Temporal resolution of time-series data (e.g., 1Hz, 10min, 1day)."@en .
+
+:license rdf:type owl:DatatypeProperty ;
+    rdfs:domain schema:Dataset ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "license"@en ;
+    rdfs:comment "URI pointing to license terms."@en .
+
+:downloadURL rdf:type owl:DatatypeProperty ;
+    rdfs:domain schema:Dataset ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "download URL"@en ;
+    rdfs:comment "Direct URL for downloading a dataset."@en .
+
+:portalURL rdf:type owl:DatatypeProperty ;
+    rdfs:domain schema:CreativeWork ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "portal URL"@en ;
+    rdfs:comment "URL of the resource in its native web portal."@en .
+
+:hasRepository rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Submission ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "has repository"@en ;
+    rdfs:comment "URL of source code repository (e.g., GitHub, GitLab)."@en .
+
+:hasModelArtifact rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Submission ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "has model artifact"@en ;
+    rdfs:comment "URL to trained model files or serialized artifacts."@en .
+
+:doi rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf schema:identifier ;
+    rdfs:label "DOI"@en ;
+    rdfs:comment "Digital Object Identifier."@en .
+
+:orcid rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf schema:identifier ;
+    rdfs:domain schema:Person ;
+    rdfs:label "ORCID"@en ;
+    rdfs:comment "Open Researcher and Contributor ID."@en .
+
+:studyNumber rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf schema:identifier ;
+    rdfs:label "study number"@en ;
+    rdfs:comment "Internal study or project number."@en .
+
+:linkScore rdf:type owl:DatatypeProperty ;
+    rdfs:domain :ReferenceMetadata ;
+    rdfs:range xsd:float ;
+    rdfs:label "link score"@en ;
+    rdfs:comment "Confidence score for automatically generated references (0.0 to 1.0)."@en .
+
+:linkingMethod rdf:type owl:DatatypeProperty ;
+    rdfs:domain :ReferenceMetadata ;
+    rdfs:range xsd:string ;
+    rdfs:label "linking method"@en ;
+    rdfs:comment "Method used: manual, automatic, or search-based."@en .
+
+:linkSource rdf:type owl:DatatypeProperty ;
+    rdfs:domain :ReferenceMetadata ;
+    rdfs:range xsd:string ;
+    rdfs:label "link source"@en ;
+    rdfs:comment "Pipeline or tool that generated the reference."@en .
+
+:linkContext rdf:type owl:DatatypeProperty ;
+    rdfs:domain :ReferenceMetadata ;
+    rdfs:range xsd:string ;
+    rdfs:label "link context"@en ;
+    rdfs:comment "Text snippet explaining the reference context."@en .
+
+:variableName rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Variable ;
+    rdfs:range xsd:string ;
+    rdfs:label "variable name"@en ;
+    rdfs:comment "Short name or code for a variable."@en .
+
+:variableLabel rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Variable ;
+    rdfs:range xsd:string ;
+    rdfs:label "variable label"@en ;
+    rdfs:comment "Human-readable description of a variable."@en .
+
+:variableType rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Variable ;
+    rdfs:range xsd:string ;
+    rdfs:label "variable type"@en ;
+    rdfs:comment "Type: cross-sectional, panel, time-series, sensor, categorical, continuous."@en .
+
+:analysisUnit rdf:type owl:DatatypeProperty ;
+    rdfs:domain schema:Dataset ;
+    rdfs:range xsd:string ;
+    rdfs:label "analysis unit"@en ;
+    rdfs:comment "Unit: individual, household, turbine, farm, blade, component."@en .
