@@ -1,4 +1,4 @@
-# Wedowind Ontology
+# WeDoWind Ontology
 
 This repository contains the **Wedowind ontology**, published as versioned RDF resources with persistent identifiers.
 
