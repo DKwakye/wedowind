@@ -1,0 +1,473 @@
+@prefix : <http://example.org/wedowind#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix oeo: <http://openenergy-platform.org/ontology/oeo/> .
+@prefix OEO: <http://openenergy-platform.org/ontology/oeo/OEO_> .
+####################################################################
+# CLASSES
+####################################################################
+
+:Challenge a owl:Class ;  
+    rdfs:subClassOf oeo:process, schema:Event ;
+    rdfs:label "Challenge" .
+
+:Task a owl:Class ;
+    rdfs:label "Challenge Task" ;
+    rdfs:subClassOf schema:Thing .
+
+:Submission a owl:Class ;
+    rdfs:label "Submission" ;
+    rdfs:subClassOf schema:CreativeWork .
+
+:EvaluationMetric a owl:Class ;
+    rdfs:label "Evaluation Metric" ;
+    rdfs:subClassOf schema:Thing .
+
+:LeaderboardEntry a owl:Class ;
+    rdfs:label "Leaderboard Entry" ;
+    rdfs:subClassOf schema:Thing .
+
+:Method a owl:Class ;
+    rdfs:label "Computational Method" ;
+    rdfs:subClassOf schema:Thing .
+
+:FailureMode a owl:Class ;
+    rdfs:label "Failure Mode" ;
+    rdfs:subClassOf schema:Thing .
+
+:Organization a owl:Class ;
+    rdfs:label "Organization" ;
+    rdfs:subClassOf foaf:Organization .
+
+####################################################################
+# OBJECT PROPERTIES
+####################################################################
+
+:organizedBy a owl:ObjectProperty ;
+    rdfs:domain :Challenge ;
+    rdfs:range :Organization .
+
+:hasTask a owl:ObjectProperty ;
+    rdfs:domain :Challenge ;
+    rdfs:range :Task .
+
+:participatedBy a owl:ObjectProperty ;
+    rdfs:domain :Challenge ;
+    rdfs:range foaf:Person .
+
+:submittedBy a owl:ObjectProperty ;
+    rdfs:domain :Submission ;
+    rdfs:range foaf:Person .
+
+:usesDataset a owl:ObjectProperty ;
+    rdfs:domain :Task ;
+    rdfs:range dcat:Dataset .
+
+:evaluatedBy a owl:ObjectProperty ;
+    rdfs:domain :Submission ;
+    rdfs:range :EvaluationMetric .
+
+:hasLeaderboardEntry a owl:ObjectProperty ;
+    rdfs:domain :Challenge ;
+    rdfs:range :LeaderboardEntry .
+
+:implementsMethod a owl:ObjectProperty ;
+    rdfs:domain :Submission ;
+    rdfs:range :Method .
+
+:detectsFailureMode a owl:ObjectProperty ;
+    rdfs:domain :Task ;
+    rdfs:range :FailureMode .
+
+:locatedAt a owl:ObjectProperty ;
+    rdfs:domain :WindTurbine ;
+    rdfs:range :WindFarm .
+
+:providedBy a owl:ObjectProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:range :Organization .
+
+:usesTurbine a owl:ObjectProperty ;
+    rdfs:domain :Task ;
+    rdfs:range :WindTurbine .
+
+####################################################################
+# DATA PROPERTIES
+####################################################################
+
+:score a owl:DatatypeProperty ;
+    rdfs:domain :Submission ;
+    rdfs:range xsd:float .
+
+:startDate a owl:DatatypeProperty ;
+    rdfs:domain :Challenge ;
+    rdfs:range xsd:date .
+
+:endDate a owl:DatatypeProperty ;
+    rdfs:domain :Challenge ;
+    rdfs:range xsd:date .
+
+:description a owl:DatatypeProperty ;
+    rdfs:domain schema:Thing ;
+    rdfs:range xsd:string .
+
+:turbineCount a owl:DatatypeProperty ;
+    rdfs:domain :WindFarm ;
+    rdfs:range xsd:integer .
+
+:dataResolution a owl:DatatypeProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:range xsd:string .
+
+####################################################################
+# REAL INSTANCE DATA - CHALLENGES
+####################################################################
+
+:WinJiGearboxChallenge2022 a :Challenge ;
+    rdfs:label "WinJi Gearbox Fault Detection Challenge" ;
+    :description "Predict gearbox failures with monthly horizon using SCADA data" ;
+    :startDate "2022-01-01"^^xsd:date ;
+    :endDate "2023-06-01"^^xsd:date ;
+    :organizedBy :WinJiAG ;
+    :hasTask :GearboxFaultDetectionTask ;
+    :participatedBy :TUDelft, :ZSW, :FISC, :MondragonUniversity .
+
+:ASCEEMI_SHM_Challenge2024 a :Challenge ;
+    rdfs:label "ASCE-EMI Structural Health Monitoring Challenge" ;
+    :description "Detect three fault events in wind turbine structures using unsupervised methods" ;
+    :startDate "2024-06-21"^^xsd:date ;
+    :endDate "2024-12-31"^^xsd:date ;
+    :organizedBy :ASCE_EMI ;
+    :hasTask :StructuralHealthMonitoringTask ;
+    :participatedBy :CoDAlab_UPC, :OtherParticipants .
+
+:StaticYawChallenge2023 a :Challenge ;
+    rdfs:label "Static Yaw Misalignment Analysis Challenge" ;
+    :description "Analyze static yaw misalignment impact on performance using Kelmarsh and Penmanshiel data" ;
+    :startDate "2023-10-26"^^xsd:date ;
+    :endDate "2024-06-01"^^xsd:date ;
+    :organizedBy :CubicoSustainableInvestments ;
+    :hasTask :YawMisalignmentTask, :EnergyCaptureLossTask, :WindSpeedEstimationTask .
+
+:OperationalYieldChallenge2024 a :Challenge ;
+    rdfs:label "Operational Yield Assessment Challenge" ;
+    :description "Predict long-term 20-year energy yield using operational data" ;
+    :startDate "2024-01-01"^^xsd:date ;
+    :endDate "2024-12-31"^^xsd:date ;
+    :organizedBy :CubicoSustainableInvestments ;
+    :hasTask :LongTermYieldPredictionTask .
+
+:StaticYawGroundTruth2025 a :Challenge ;
+    rdfs:label "Static Yaw Ground Truth Challenge" ;
+    :description "Determine known static yaw misalignments applied to OST research turbine May-Oct 2025" ;
+    :startDate "2025-10-15"^^xsd:date ;
+    :endDate "2025-12-31"^^xsd:date ;
+    :organizedBy :OST_Research_Turbine ;
+    :hasTask :GroundTruthYawDetectionTask .
+
+:EnergyFaultDetector2025 a :Challenge ;
+    rdfs:label "Energy Fault Detector Challenge 2025" ;
+    :description "Detect actionable anomalies before faults occur using SCADA data from multiple turbine types" ;
+    :startDate "2025-10-20"^^xsd:date ;
+    :endDate "2025-11-28"^^xsd:date ;
+    :organizedBy :FraunhoferIEE ;
+    :hasTask :AnomalyDetectionTask_LowDim, :AnomalyDetectionTask_HighDim .
+
+:HillOfTowie2025 a :Challenge ;
+    rdfs:label "Hill of Towie Power Prediction Challenge" ;
+    :description "Power prediction challenge using real SCADA data from Hill of Towie wind farm" ;
+    :startDate "2025-06-04"^^xsd:date ;
+    :endDate "2025-12-31"^^xsd:date ;
+    :organizedBy :RES, :TRIG .
+
+####################################################################
+# ORGANIZATIONS
+####################################################################
+
+:WinJiAG a :Organization ;
+    foaf:name "WinJi AG" ;
+    :description "Swiss asset management software provider for renewable portfolios" .
+
+:ASCE_EMI a :Organization ;
+    foaf:name "ASCE-EMI" ;
+    :description "American Society of Civil Engineers - Engineering Mechanics Institute" .
+
+:CubicoSustainableInvestments a :Organization ;
+    foaf:name "Cubico Sustainable Investments" .
+
+:OST_WEID a :Organization ;
+    foaf:name "OST WEID" ;
+    :description "Wind Energy Innovation Division" .
+
+:FraunhoferIEE a :Organization ;
+    foaf:name "Fraunhofer Institute for Energy Economics and Energy System Technology (IEE)" .
+
+:RES a :Organization ;
+    foaf:name "RES" ;
+    :description "World's largest independent renewable energy company" .
+
+:TRIG a :Organization ;
+    foaf:name "The Renewables Infrastructure Group (TRIG)" ;
+    :description "FTSE-250 investment company in renewable energy infrastructure" .
+
+:ApexCleanEnergy a :Organization ;
+    foaf:name "Apex Clean Energy" ;
+    :description "US-based utility-scale renewable energy developer" .
+
+:NREL a :Organization ;
+    foaf:name "National Renewable Energy Laboratory" .
+
+:OpenOA_Team a :Organization ;
+    foaf:name "OpenOA Team" .
+
+####################################################################
+# PARTICIPANTS (PERSONS/TEAMS)
+####################################################################
+
+:TUDelft a foaf:Person ;
+    foaf:name "TU Delft" ;
+    :description "Delft University of Technology" .
+
+:ZSW a foaf:Person ;
+    foaf:name "ZSW" ;
+    :description "Center for Solar Energy and Hydrogen Research" .
+
+:FISC a foaf:Person ;
+    foaf:name "FISC" ;
+    :description "Federal Institute of Santa Catarina" .
+
+:MondragonUniversity a foaf:Person ;
+    foaf:name "Mondragon University (MU)" .
+
+:CoDAlab_UPC a foaf:Person ;
+    foaf:name "CoDAlab" ;
+    :description "Control, Data and Learning Lab at Universitat Politècnica de Catalunya Barcelona - ASCE-EMI 2024 winners" .
+
+:CharliePlumley a foaf:Person ;
+    foaf:name "Charlie Plumley" ;
+    :description "Senior Performance Engineer, runs WeDoWind ODE space" .
+
+####################################################################
+# METHODS
+####################################################################
+
+:CAE_PSO a :Method ;
+    rdfs:label "CAE-PSO" ;
+    :description "Convolutional Autoencoder trained with Particle Swarm Optimisation for health indicators" .
+
+:PM_DNN a :Method ;
+    rdfs:label "PM-DNN" ;
+    :description "Performance Monitoring using Deep Neural Networks" .
+
+:DEC_DNN a :Method ;
+    rdfs:label "DEC-DNN" ;
+    :description "Direct Error Code Prediction using Deep Neural Networks" .
+
+:TSNE_Clustering a :Method ;
+    rdfs:label "T-SNE" ;
+    :description "T-SNE Projection for clustering" .
+
+:WHC_LOF a :Method ;
+    rdfs:label "WHC-LOF" ;
+    :description "Combined Ward Hierarchical Clustering and Novelty Detection with Local Outlier Factor" .
+
+:TTF_RFR a :Method ;
+    rdfs:label "TTF-RFR" ;
+    :description "Time-to-failure prediction using Random Forest Regression" .
+
+:OpenOA_YawTool a :Method ;
+    rdfs:label "OpenOA Yaw Misalignment Tool" ;
+    :description "NREL's open-source operational assessment method for yaw analysis" .
+
+:IsolationForest a :Method ;
+    rdfs:label "Isolation Forest" ;
+    :description "Anomaly detection algorithm" .
+
+:LSTM_Autoencoder a :Method ;
+    rdfs:label "LSTM Autoencoder" ;
+    :description "Deep learning approach for temporal anomaly detection" .
+
+####################################################################
+# FAILURE MODES
+####################################################################
+
+:GearboxFailure a :FailureMode ;
+    rdfs:label "Gearbox Failure" ;
+    :description "Gearbox-related faults leading to extended downtimes" .
+
+:BearingFailure a :FailureMode ;
+    rdfs:label "Bearing Failure" ;
+    :description "Bearing issues with or without downtimes" .
+
+:YawMisalignment a :FailureMode ;
+    rdfs:label "Static Yaw Misalignment" ;
+    :description "Direction offset reducing energy capture" .
+
+:StructuralFault a :FailureMode ;
+    rdfs:label "Structural Fault" ;
+    :description "Structural health monitoring fault events" .
+
+####################################################################
+# WIND FARMS & TURBINES
+####################################################################
+
+:Kelmarsh a oeo:wind_farm ;
+    foaf:name "Kelmarsh Wind Farm" ;
+    :turbineCount 6 ;
+    :providedBy :CubicoSustainableInvestments .
+
+:Penmanshiel a oeo:wind_farm;
+    foaf:name "Penmanshiel Wind Farm" ;
+    :turbineCount 14 ;
+    :providedBy :CubicoSustainableInvestments .
+
+:HillOfTowie a oeo:wind_farm ;
+    foaf:name "Hill of Towie Wind Farm" ;
+    :providedBy :TRIG .
+
+:WT115 a oeo:wind_farm ;
+    rdfs:label "WT115" ;
+    :locatedAt :Kelmarsh .
+
+:AVENTA_AV7 a oeo:wind_farm ;
+    rdfs:label "Aventa AV-7" ;
+    :description "ETH Zurich Research Wind Turbine with SCADA and high-frequency SHM data" .
+
+####################################################################
+# DATASETS
+####################################################################
+
+:WinJiSCADA2022 a dcat:Dataset ;
+    dcterms:title "WinJi Gearbox Fault Detection SCADA Data" ;
+    :dataResolution "10-minute" ;
+    :providedBy :WinJiAG ;
+    dcterms:description "2+ years of SCADA from 5 turbines, 2 with gearbox failures, 1 with bearing issues" .
+
+:KelmarshSCADA a dcat:Dataset ;
+    dcterms:title "Kelmarsh Wind Farm SCADA" ;
+    :dataResolution "10-minute" ;
+    :providedBy :CubicoSustainableInvestments ;
+    dcterms:description "6 turbine SCADA dataset for yaw misalignment analysis" .
+
+:PenmanshielSCADA a dcat:Dataset ;
+    dcterms:title "Penmanshiel Wind Farm SCADA" ;
+    :dataResolution "10-minute" ;
+    :providedBy :CubicoSustainableInvestments ;
+    dcterms:description "14 turbine SCADA dataset for yaw misalignment analysis" .
+
+:AventaSHMData a dcat:Dataset ;
+    dcterms:title "Aventa AV-7 ETH Zurich SHM Data" ;
+    :providedBy :ETH_Zurich ;
+    dcterms:description "SCADA and high-frequency Structural Health Monitoring data" .
+
+:FraunhoferLowDim a dcat:Dataset ;
+    dcterms:title "Low-dimensional SCADA Dataset" ;
+    :dataResolution "10-minute" ;
+    dcterms:description "~50 measured values, ~80 features with operating mode labels" .
+
+:FraunhoferHighDim a dcat:Dataset ;
+    dcterms:title "High-dimensional SCADA Dataset" ;
+    :dataResolution "10-minute" ;
+    dcterms:description "~240 measured values, ~950 features with error information" .
+
+####################################################################
+# TASKS
+####################################################################
+
+:GearboxFaultDetectionTask a :Task ;
+    rdfs:label "Gearbox Fault Detection" ;
+    :description "Early prediction of gearbox failures with monthly horizon" ;
+    :detectsFailureMode :GearboxFailure ;
+    :usesDataset :WinJiSCADA2022 ;
+    :usesTurbine :WT115 .
+
+:StructuralHealthMonitoringTask a :Task ;
+    rdfs:label "Structural Health Monitoring" ;
+    :description "Detect three fault events with highest accuracy using unsupervised methods" ;
+    :detectsFailureMode :StructuralFault ;
+    :usesDataset :AventaSHMData ;
+    :usesTurbine :AVENTA_AV7 .
+
+:YawMisalignmentTask a :Task ;
+    rdfs:label "Static Yaw Misalignment Analysis" ;
+    :description "Calculate static yaw misalignment per wind speed bin with 95% confidence" ;
+    :detectsFailureMode :YawMisalignment ;
+    :usesDataset :KelmarshSCADA, :PenmanshielSCADA .
+
+:AnomalyDetectionTask_LowDim a :Task ;
+    rdfs:label "Anomaly Detection Low-Dimensional" ;
+    :description "Detect actionable anomalies in ~50 parameter SCADA data" ;
+    :usesDataset :FraunhoferLowDim .
+
+:AnomalyDetectionTask_HighDim a :Task ;
+    rdfs:label "Anomaly Detection High-Dimensional" ;
+    :description "Detect actionable anomalies in ~240 parameter SCADA data" ;
+    :usesDataset :FraunhoferHighDim .
+
+####################################################################
+# SUBMISSIONS & LEADERBOARD ENTRIES
+####################################################################
+
+:Submission_TUD_CAE_PSO a :Submission ;
+    rdfs:label "TU Delft CAE-PSO Solution" ;
+    :submittedBy :TUDelft ;
+    :implementsMethod :CAE_PSO ;
+    :evaluatedBy :CARE_Score .
+
+:Submission_ZSW_PM_DNN a :Submission ;
+    rdfs:label "ZSW PM-DNN Solution" ;
+    :submittedBy :ZSW ;
+    :implementsMethod :PM_DNN ;
+    :evaluatedBy :CARE_Score .
+
+:Submission_FISC_DEC_DNN a :Submission ;
+    rdfs:label "FISC DEC-DNN Solution" ;
+    :submittedBy :FISC ;
+    :implementsMethod :DEC_DNN .
+
+:Submission_MU_TTF_RFR a :Submission ;
+    rdfs:label "Mondragon University TTF-RFR Solution" ;
+    :submittedBy :MondragonUniversity ;
+    :implementsMethod :TTF_RFR .
+
+:Submission_CoDAlab_WINNER a :Submission ;
+    rdfs:label "CoDAlab ASCE-EMI 2024 Winning Solution" ;
+    :submittedBy :CoDAlab_UPC ;
+    rdfs:comment "Winner of ASCE-EMI Structural Health Monitoring Challenge 2024" .
+
+:Entry_CoDAlab_2024 a :LeaderboardEntry ;
+    :submittedBy :CoDAlab_UPC ;
+    :score 0.95 ;
+    rdfs:comment "First place - ASCE-EMI SHM Challenge 2024" .
+
+####################################################################
+# EVALUATION METRICS
+####################################################################
+
+:CARE_Score a :EvaluationMetric ;
+    rdfs:label "CARE Score" ;
+    :description "Measures how well models separate normal behaviour from actionable anomalies" .
+
+:F1_Score a :EvaluationMetric ;
+    rdfs:label "F1-Score" ;
+    :description "Harmonic mean of precision and recall" .
+
+:Accuracy a :EvaluationMetric ;
+    rdfs:label "Accuracy" .
+
+:Precision a :EvaluationMetric ;
+    rdfs:label "Precision" .
+
+:Recall a :EvaluationMetric ;
+    rdfs:label "Recall" .
+
+:ConfusionMatrix a :EvaluationMetric ;
+    rdfs:label "Confusion Matrix" ;
+    :description "Required for ASCE-EMI challenge submissions" .

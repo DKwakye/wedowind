@@ -9,20 +9,9 @@ This repository contains the **Wedowind ontology**, published as versioned RDF r
 The ontology is identified by:
 
 ```
-https://w3id.org/wedowind/ontology
+https://w3id.org/wedowind
 ```
 
-This URI is stable and should be used in all references.
-
----
-
-## 🧩 Term URIs
-
-Ontology terms use hash URIs, for example:
-
-```
-https://w3id.org/wedowind/ontology#Challenge
-```
 
 These identifiers are defined within the ontology and resolved client-side.
 
