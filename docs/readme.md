@@ -6,29 +6,10 @@ This repository contains the **Wedowind ontology**, published as versioned RDF r
 
 ## 🔗 Persistent Identifier
 
-The ontology is identified by:
 
 ```
 https://w3id.org/wedowind
 ```
-
-
-These identifiers are defined within the ontology and resolved client-side.
-
----
-
-## 📜 Versioning
-
-* `/ontology` → resolves to the latest version
-* `/ontology/{version}` → resolves to a specific release
-
-Example:
-
-```
-https://w3id.org/wedowind/ontology/2.0.0
-```
-
----
 
 ## 🤝 Contributing
 
@@ -45,6 +26,22 @@ Please open an issue to discuss proposed changes or report problems.
 
 ---
 
-## 👤 Author
+## 👤 Maintainer
 
-Daniel Kwakye
+**Daniel Kwakye**
+- GitHub: [@DKwakye](https://github.com/DKwakye)
+
+## 📄 License
+
+This ontology is licensed under the [Creative Commons Attribution 4.0 International (CC-BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
+ 
+You are free to:
+- **Share** — copy and redistribute the ontology in any medium or format
+- **Adapt** — remix, transform, and build upon the ontology
+ 
+Under the following terms:
+- **Attribution** — you must give appropriate credit, provide a link to the license, and indicate if changes were made
+ 
+See the full license text at: https://creativecommons.org/licenses/by/4.0/
+
+
